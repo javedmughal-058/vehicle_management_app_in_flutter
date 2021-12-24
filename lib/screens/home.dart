@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lit_firebase_auth/lit_firebase_auth.dart';
 
-import 'auth/auth.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
 
   static MaterialPageRoute get route => MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
+        builder: (context) =>  HomeScreen(),
       );
 
   @override
@@ -19,8 +16,6 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: RaisedButton(
           onPressed: () {
-            context.signOut();
-            Navigator.of(context).push(AuthScreen.route);
           },
           child: const Text('Sign out'),
         ),

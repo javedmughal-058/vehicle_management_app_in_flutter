@@ -1,4 +1,4 @@
-name: lit_firebase_ui_demo
+name: vehicle_management_app
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -28,11 +28,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
-  lit_firebase_auth:
-    path: /Users/gordon/Documents/Fun with Flutter/projects/lit_firebase_auth
-
+  splash_screen_view: ^3.0.0
   animations: ^1.1.2
-  google_fonts: ^1.1.0
+  google_fonts: ^2.1.1
   font_awesome_flutter: ^8.8.1
 
 dev_dependencies:

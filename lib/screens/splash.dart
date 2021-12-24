@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lit_firebase_auth/lit_firebase_auth.dart';
-import 'package:lit_firebase_ui_demo/screens/home.dart';
-import 'package:lit_firebase_ui_demo/screens/auth/auth.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key key}) : super(key: key);
+
 
   static MaterialPageRoute get route => MaterialPageRoute(
-        builder: (context) => const SplashScreen(),
+        builder: (context) =>  SplashScreen(),
       );
 
   @override
