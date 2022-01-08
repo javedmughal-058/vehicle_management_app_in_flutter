@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'car_detail.dart';
+import 'car_category.dart';
 class car extends StatefulWidget {
   const car({Key? key}) : super(key: key);
 
@@ -21,23 +20,23 @@ class _carState extends State<car> {
       body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.fromLTRB(10, 10,0, 5),
             child: Text("Catagories",style: TextStyle(fontSize:25,fontWeight: FontWeight.bold),),
           ),
           Container(
-            height: 180,
+            height: 150,
             // color: Colors.amber[500],
             child: Row(
               children: [
                 SizedBox(width: 30,),
                 TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> car_detail(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> car_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 15, 5, 10),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -52,7 +51,7 @@ class _carState extends State<car> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/toyota.png"),
+                        Image.asset("images/toyota.png",width: 90,),
                         SizedBox(height: 10,),
                         Text('HONDA',textAlign: TextAlign.center,
                           style: TextStyle(
@@ -66,13 +65,13 @@ class _carState extends State<car> {
                   ),),
                 SizedBox(width: 30,),
                 TextButton(onPressed: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=> car_detail(),));
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=> car_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -87,8 +86,8 @@ class _carState extends State<car> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/suzuki.png",height: 90,),
-                        SizedBox(height: 10,),
+                        Image.asset("images/suzuki.png",width: 80,),
+                        SizedBox(height: 5,),
                         Text('SUZUKI',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
@@ -103,19 +102,19 @@ class _carState extends State<car> {
             ),
           ),
           Container(
-            height: 180,
+            height: 150,
             // color: Colors.amber[500],
             child: Row(
               children: [
                 SizedBox(width: 30,),
                 TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> car_detail(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> car_category(),));
                 },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -130,8 +129,8 @@ class _carState extends State<car> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/mercedes.png",height: 80,),
-                        SizedBox(height: 20,),
+                        Image.asset("images/mercedes.png",width: 70,),
+                        SizedBox(height: 7,),
                         Text('MERCEDES',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
@@ -144,13 +143,13 @@ class _carState extends State<car> {
                   ),),
                 SizedBox(width: 30,),
                 TextButton(onPressed: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=> car_detail(),));
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=> car_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -165,8 +164,7 @@ class _carState extends State<car> {
                     ),
                     child:  Column(
                       children: [
-                        SizedBox(height: 10,),
-                        Image.asset("images/honda_car.png",height: 90,),
+                        Image.asset("images/honda_car.png",width: 80,),
                         // SizedBox(height: 10,),
                         Text('HONDA',textAlign: TextAlign.center,
                           style: TextStyle(
@@ -182,19 +180,19 @@ class _carState extends State<car> {
             ),
           ),
           Container(
-            height: 180,
+            height: 150,
             // color: Colors.amber[500],
             child: Row(
               children: [
                 SizedBox(width: 30,),
                 TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> car_detail(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> car_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -209,8 +207,8 @@ class _carState extends State<car> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/bmw.png",height: 90,),
-                        SizedBox(height: 10,),
+                        Image.asset("images/bmw.png",width: 77,),
+                        SizedBox(height: 5,),
                         Text('BMW',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
@@ -223,13 +221,13 @@ class _carState extends State<car> {
                   ),),
                 SizedBox(width: 30,),
                 TextButton(onPressed: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=> car_detail(),));
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=> car_category(),));
                 },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -244,8 +242,8 @@ class _carState extends State<car> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/audi.png",height: 90,),
-                        SizedBox(height: 10,),
+                        Image.asset("images/audi.png",height: 70,width: 100,),
+                        SizedBox(height: 5,),
                         Text('AUDI',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
