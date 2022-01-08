@@ -34,9 +34,9 @@ class bike_category extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(width: 10,),
-                  Image.asset("images/electric.png"),
+                  Image.asset("images/electric.png",width: 90,),
                   SizedBox(width: 10,),
-                  Text("Electrical",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.amber),),
+                  Text("Electrical",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.amber),),
                   Spacer(),
                   IconButton(
                     icon: const Icon(Icons.navigate_next,size: 40,),
@@ -69,9 +69,9 @@ class bike_category extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 10,),
-                Image.asset("images/mechanical.png"),
+                Image.asset("images/mechanical.png",height: 90,width: 90,),
                 SizedBox(width: 10,),
-                Text("Mechanical",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.amber),),
+                Text("Mechanical",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.amber),),
                 Spacer(),
                 IconButton(
                   icon: const Icon(Icons.navigate_next,size: 40,),
@@ -85,7 +85,7 @@ class bike_category extends StatelessWidget {
           ),
           SizedBox(height: 5,),
           Container(
-            // margin: EdgeInsets.only(left: 5,right: 5),
+             margin: EdgeInsets.only(left: 5,right: 5),
             height: 100,
             width: 100,
             decoration: BoxDecoration(
@@ -102,11 +102,11 @@ class bike_category extends StatelessWidget {
             ),
             child: Row(
               children: [
-                SizedBox(width: 20,),
-                Image.asset("images/tyres.png"),
-                SizedBox(width: 20,),
-                Text("Tyres",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.amber),),
-                SizedBox(width: 145,),
+                SizedBox(width: 10,),
+                Image.asset("images/tyres.png",width: 90,),
+                SizedBox(width: 10,),
+                Text("Tyres",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.amber),),
+                Spacer(),
                 IconButton(
                   icon: const Icon(Icons.navigate_next,size: 40,),
                   color: Colors.black,
@@ -119,7 +119,7 @@ class bike_category extends StatelessWidget {
           ),
           SizedBox(height: 5,),
           Container(
-            // margin: EdgeInsets.only(left: 5,right: 5),
+            margin: EdgeInsets.only(left: 5,right: 5),
             height: 100,
             width: 100,
             decoration: BoxDecoration(
@@ -136,11 +136,11 @@ class bike_category extends StatelessWidget {
             ),
             child: Row(
               children: [
-                SizedBox(width: 20,),
-                Image.asset("images/tyres.png"),
-                SizedBox(width: 20,),
-                Text("Tyres",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.amber),),
-                SizedBox(width: 145,),
+                SizedBox(width: 10,),
+                Image.asset("images/tyres.png",width: 90,),
+                SizedBox(width: 10,),
+                Text("Denting and Painting",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.amber),),
+                Spacer(),
                 IconButton(
                   icon: const Icon(Icons.navigate_next,size: 40,),
                   color: Colors.black,
