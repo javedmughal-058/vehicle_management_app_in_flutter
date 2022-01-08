@@ -47,8 +47,8 @@ class _homeState extends State<home> {
           ),
         ),
         Container(
+          padding: EdgeInsets.all(10),
           height: 180,
-         // color: Colors.amber[500],
           child: Row(
             children: [
               SizedBox(width: 30,),
@@ -58,8 +58,8 @@ class _homeState extends State<home> {
                 child: Container(
                   padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                   // color: Colors.red,
-                  height: 150,
-                  width: 135,
+                  height: 130,
+                  width: 110,
                   decoration:  BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
@@ -92,8 +92,8 @@ class _homeState extends State<home> {
                 child: Container(
                   padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                   // color: Colors.red,
-                  height: 150,
-                  width: 135,
+                  height: 130,
+                  width: 110,
                   decoration:  BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
@@ -125,22 +125,23 @@ class _homeState extends State<home> {
         Container(
           height: 40,
           //color: Colors.amber[100],
-          child: Text("Recommended",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+          child: Text("Recommended",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),
         ),
         Container(
+          padding: EdgeInsets.all(10),
           height: 180,
           // color: Colors.amber[500],
           child: Row(
             children: [
-              SizedBox(width: 35,),
+              SizedBox(width: 30,),
               TextButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
               },
                 child: Container(
                   padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                   // color: Colors.red,
-                  height: 200,
-                  width: 128,
+                  height: 140,
+                  width: 120,
                   decoration:  BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
@@ -155,7 +156,7 @@ class _homeState extends State<home> {
                   ),
                   child:  Column(
                     children: [
-                      Image.asset("images/wash.png"),
+                      Image.asset("images/wash.png",height: 90,width: 90,),
                       Text('Car Wash',textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
@@ -166,15 +167,15 @@ class _homeState extends State<home> {
 
                   ),
                 ),),
-              SizedBox(width: 35,),
+              SizedBox(width: 30,),
               TextButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> car(),));
               },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                  padding: EdgeInsets.fromLTRB(5, 15, 5, 5),
                   // color: Colors.red,
-                  height: 200,
-                  width: 128,
+                  height: 130,
+                  width: 110,
                   decoration:  BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
@@ -189,9 +190,9 @@ class _homeState extends State<home> {
                   ),
                   child:  Column(
                     children: [
-                      SizedBox(height: 30,),
-                      Image.asset("images/battery.png",height: 80,),
-                      SizedBox(height: 8,),
+                     // SizedBox(height: 30,),
+                      Image.asset("images/battery.png",height: 80,width: 80),
+                     // SizedBox(height: 8,),
                       Text('Battery',textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
