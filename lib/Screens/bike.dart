@@ -21,23 +21,24 @@ class _bikeState extends State<bike> {
       body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.fromLTRB(10, 10,0, 5),
             child: Text("Catagories",style: TextStyle(fontSize:25,fontWeight: FontWeight.bold),),
           ),
           Container(
+            padding: EdgeInsets.all(20),
             height: 180,
             // color: Colors.amber[500],
             child: Row(
               children: [
-                SizedBox(width: 30,),
+                SizedBox(width: 20,),
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -63,15 +64,15 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
-                SizedBox(width: 30,),
+                SizedBox(width: 20,),
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -86,7 +87,7 @@ class _bikeState extends State<bike> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/yamaha.png",height: 90,),
+                        Image.asset("images/yamaha.png",height: 65,width: 65,),
                         SizedBox(height: 10,),
                         Text('YAHAMA',textAlign: TextAlign.center,
                           style: TextStyle(
@@ -102,19 +103,20 @@ class _bikeState extends State<bike> {
             ),
           ),
           Container(
+            padding: EdgeInsets.all(20),
             height: 180,
             // color: Colors.amber[500],
             child: Row(
               children: [
-                SizedBox(width: 30,),
+                SizedBox(width: 20,),
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -129,7 +131,7 @@ class _bikeState extends State<bike> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/crown.png",height: 95,),
+                        Image.asset("images/crown.png",height: 80,width: 80,),
                         Text('CROWN',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
@@ -140,15 +142,15 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
-                SizedBox(width: 30,),
+                SizedBox(width: 20,),
                 TextButton(onPressed: (){
                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -164,9 +166,9 @@ class _bikeState extends State<bike> {
                     child:  Column(
                       children: [
                         SizedBox(height: 10,),
-                        Image.asset("images/superpower.png",height: 90,),
+                        Image.asset("images/superpower.png",height: 75,width: 75,),
                        // SizedBox(height: 10,),
-                        Text('YAHAMA',textAlign: TextAlign.center,
+                        Text('YAMAHA',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
@@ -180,19 +182,20 @@ class _bikeState extends State<bike> {
             ),
           ),
           Container(
+            padding: EdgeInsets.all(20),
             height: 180,
             // color: Colors.amber[500],
             child: Row(
               children: [
-                SizedBox(width: 30,),
+                SizedBox(width: 20,),
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -207,7 +210,7 @@ class _bikeState extends State<bike> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/united.png",height: 95,),
+                        Image.asset("images/united.png",height: 80,width: 80,),
                         Text('UNITED',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
@@ -218,15 +221,15 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
-                SizedBox(width: 30,),
+                SizedBox(width: 20,),
                 TextButton(onPressed: (){
                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
-                    height: 150,
-                    width: 135,
+                    height: 125,
+                    width: 110,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -241,8 +244,8 @@ class _bikeState extends State<bike> {
                     ),
                     child:  Column(
                       children: [
-                        Image.asset("images/ravi.png",height: 90,),
-                        SizedBox(height: 10,),
+                        Image.asset("images/ravi.png",height: 80,width: 80,),
+                        //SizedBox(height: 10,),
                         Text('RAVI',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
