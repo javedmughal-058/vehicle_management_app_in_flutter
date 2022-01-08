@@ -18,11 +18,11 @@ class _bike_detailState extends State<bike_detail> {
       body: ListView(
         children: [
           SizedBox(height: 15,),
-          Text("Shops_detail",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+          Padding(padding: EdgeInsets.only(left: 10),child: const Text("Shops_detail",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),)),
           SizedBox(height: 15,),
           Container(
             margin: EdgeInsets.only(left: 5,right: 5),
-            height: 90,
+            height: 80,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
@@ -51,9 +51,9 @@ class _bike_detailState extends State<bike_detail> {
                     Text("10KM Away",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
                   ],
                 ),
-                SizedBox(width: 90,),
+                Spacer(),
                 IconButton(
-                  icon: const Icon(Icons.remove_red_eye,size: 40,),
+                  icon: const Icon(Icons.remove_red_eye,size: 30,),
                   color: Colors.amber,
                   onPressed: () {
 
