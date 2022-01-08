@@ -15,7 +15,7 @@ class bike_category extends StatelessWidget {
         children: [
           SizedBox(height: 20,),
           Container(
-           // margin: EdgeInsets.only(left: 5,right: 5),
+           margin: EdgeInsets.only(left: 5,right: 5),
             height: 100,
             width: 100,
             decoration: BoxDecoration(
@@ -30,26 +30,28 @@ class bike_category extends StatelessWidget {
                   ),
                 ]
             ),
-            child: Row(
-              children: [
-                SizedBox(width: 20,),
-                Image.asset("images/electric.png"),
-                SizedBox(width: 20,),
-                Text("Electrical",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.amber),),
-                SizedBox(width: 100,),
-                IconButton(
-                  icon: const Icon(Icons.navigate_next,size: 40,),
-                  color: Colors.black,
-                  onPressed: () {
+            child: Expanded(
+              child: Row(
+                children: [
+                  SizedBox(width: 10,),
+                  Image.asset("images/electric.png"),
+                  SizedBox(width: 10,),
+                  Text("Electrical",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.amber),),
+                  Spacer(),
+                  IconButton(
+                    icon: const Icon(Icons.navigate_next,size: 40,),
+                    color: Colors.black,
+                    onPressed: () {
 
-                  },
-                ),
-              ],
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(height: 5,),
           Container(
-            // margin: EdgeInsets.only(left: 5,right: 5),
+             margin: EdgeInsets.only(left: 5,right: 5),
             height: 100,
             width: 100,
             decoration: BoxDecoration(
@@ -66,11 +68,11 @@ class bike_category extends StatelessWidget {
             ),
             child: Row(
               children: [
-                SizedBox(width: 5,),
+                SizedBox(width: 10,),
                 Image.asset("images/mechanical.png"),
                 SizedBox(width: 10,),
-                Text("Mechanical",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.amber),),
-                SizedBox(width: 70,),
+                Text("Mechanical",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.amber),),
+                Spacer(),
                 IconButton(
                   icon: const Icon(Icons.navigate_next,size: 40,),
                   color: Colors.black,
