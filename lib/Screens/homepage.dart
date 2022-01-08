@@ -23,31 +23,34 @@ class _main_pageState extends State<main_page> {
             leading: Image.asset("images/splash.png")
         ),
         body: tabs[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          fixedColor: Colors.amber,
-          backgroundColor: Color(0xFF37474F),
-          iconSize: 30,
-          selectedFontSize: 17,
-          currentIndex: _currentIndex,
-          items:[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          onTap: (index){
-            setState(() {
-              _currentIndex=index;
-            });
-          },
+        bottomNavigationBar: SizedBox(
+          height: 60,
+          child: BottomNavigationBar(
+            fixedColor: Colors.amber,
+            backgroundColor: Color(0xFF37474F),
+            iconSize: 22,
+            selectedFontSize: 17,
+            currentIndex: _currentIndex,
+            items:[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: 'Search',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profile',
+              ),
+            ],
+            onTap: (index){
+              setState(() {
+                _currentIndex=index;
+              });
+            },
+          ),
         ));
   }
 }
