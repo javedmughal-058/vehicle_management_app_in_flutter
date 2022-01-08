@@ -1,14 +1,12 @@
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import '../main.dart';
 import 'Screens/homepage.dart';
 
 
 void main() {
   return runApp(
-    MaterialApp(
+    const MaterialApp(
       title: ' SplashScreen ',
       debugShowCheckedModeBanner: false,
       home: SplashScreenOne(
@@ -18,6 +16,8 @@ void main() {
 }
 
 class SplashScreenOne extends StatefulWidget {
+  const SplashScreenOne({Key? key}) : super(key: key);
+
 
   @override
   State<StatefulWidget> createState() {
@@ -40,10 +40,10 @@ class SplashScreenOneState extends State<SplashScreenOne> {
         fit: StackFit.expand,
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-              color: new Color(0xFF37474F),
+            decoration: const BoxDecoration(
+              color: Color(0xFF37474F),
               gradient: LinearGradient(
-                colors: [new Color(0xFF37474F),new Color(0xFF37474F),],
+                colors: [Color(0xFF37474F),Color(0xFF37474F),],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -52,13 +52,13 @@ class SplashScreenOneState extends State<SplashScreenOne> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CircleAvatar(
+              const CircleAvatar(
                 //backgroundColor: Color(0xff34BD95),
                 backgroundColor: Colors.black26,
                 radius: 80.0,
                 backgroundImage: AssetImage("images/splash.png"),
               ),
-              Card(
+              const Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
               ),
 
@@ -71,7 +71,7 @@ class SplashScreenOneState extends State<SplashScreenOne> {
                   ),
                   child: AnimatedTextKit(
                     animatedTexts: [
-                      TyperAnimatedText('Vehical_Maintainance_App'),
+                      TyperAnimatedText('Vehicle_Maintenance_App'),
                     ],
                   ),
                 ),
