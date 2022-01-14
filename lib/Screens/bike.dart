@@ -19,22 +19,26 @@ class _bikeState extends State<bike> {
           leading: Image.asset("images/splash.png"),
       ),
       body: ListView(
+       // scrollDirection: Axis.horizontal,
+
         children: [
+
           Container(
             padding: EdgeInsets.fromLTRB(10, 10,0, 5),
             child: Text("Catagories",style: TextStyle(fontSize:25,fontWeight: FontWeight.bold),),
           ),
           Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(2),
             height: 180,
             // color: Colors.amber[500],
             child: Row(
               children: [
-                SizedBox(width: 20,),
+                SizedBox(width: 3,),
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
                   child: Container(
+                    //color: Colors.black26,
                     padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
                     height: 125,
@@ -64,7 +68,7 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
-                SizedBox(width: 20,),
+                SizedBox(width: 3,),
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
@@ -99,16 +103,7 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(20),
-            height: 180,
-            // color: Colors.amber[500],
-            child: Row(
-              children: [
-                SizedBox(width: 20,),
+                SizedBox(width: 3,),
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
@@ -142,7 +137,13 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
-                SizedBox(width: 20,),
+              ],
+            ),
+          ),
+          Row(
+           children: [
+            // color: Colors.amber[500],
+                SizedBox(width: 3,),
                 TextButton(onPressed: (){
                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
@@ -168,7 +169,7 @@ class _bikeState extends State<bike> {
                         SizedBox(height: 10,),
                         Image.asset("images/superpower.png",height: 75,width: 75,),
                        // SizedBox(height: 10,),
-                        Text('YAMAHA',textAlign: TextAlign.center,
+                        Text('Super Power',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
@@ -178,16 +179,7 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(20),
-            height: 180,
-            // color: Colors.amber[500],
-            child: Row(
-              children: [
-                SizedBox(width: 20,),
+                SizedBox(width: 3,),
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
@@ -221,9 +213,9 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
-                SizedBox(width: 20,),
+                SizedBox(width: 3,),
                 TextButton(onPressed: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
                 },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -256,6 +248,16 @@ class _bikeState extends State<bike> {
 
                     ),
                   ),),
+              ],
+            ),
+          Container(
+            padding: EdgeInsets.all(2),
+            height: 180,
+            // color: Colors.amber[500],
+            child: Row(
+              children: [
+
+
               ],
             ),
           ),
