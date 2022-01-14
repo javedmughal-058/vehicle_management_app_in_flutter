@@ -21,7 +21,7 @@ class _main_pageState extends State<main_page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Vehicle Maintainance'),
+            title: const Text('Vehical Maintainance'),
             backgroundColor: Colors.indigo,
             leading: Image.asset("images/main.png")
         ),

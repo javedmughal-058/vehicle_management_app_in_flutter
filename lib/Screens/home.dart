@@ -141,12 +141,13 @@ class _homeState extends State<home> {
           ),
         ),
         SizedBox(height: 10,),
-        Container(
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
           padding: EdgeInsets.all(5),
           // height: 200,
           // color: Colors.amber[500],
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
