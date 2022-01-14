@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'Admin/Screens/login/login.dart';
 import 'Screens/homepage.dart';
 
 
@@ -71,7 +72,7 @@ class SplashScreenOneState extends State<SplashScreenOne> {
                   ),
                   child: AnimatedTextKit(
                     animatedTexts: [
-                      TyperAnimatedText('Vehicle_Maintenance_App'),
+                      TyperAnimatedText('Vehicle Maintenance App'),
                     ],
                   ),
                 ),
@@ -88,6 +89,6 @@ class SplashScreenOneState extends State<SplashScreenOne> {
 
   onDoneLoading() async {
     Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => main_page()));
+        MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 }
