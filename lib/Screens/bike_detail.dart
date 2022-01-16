@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:vehicle_maintainance/Screens/detail_screen.dart';
 class bike_detail extends StatefulWidget {
   const bike_detail({Key? key}) : super(key: key);
 
@@ -11,14 +13,14 @@ class _bike_detailState extends State<bike_detail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Details"),
+        title: Text("Vehical Maintainance"),
         leading: Image.asset("images/splash.png"),
         backgroundColor: Color(0xFF37474F),
       ),
       body: ListView(
         children: [
           SizedBox(height: 15,),
-          Padding(padding: EdgeInsets.only(left: 10),child: const Text("Shops_detail",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),)),
+          Padding(padding: EdgeInsets.only(left: 10),child: Text("Shops detail",style: GoogleFonts.tajawal(fontSize: 20,fontWeight: FontWeight.bold),)),
           SizedBox(height: 15,),
           Container(
             margin: EdgeInsets.only(left: 5,right: 5),
@@ -56,7 +58,136 @@ class _bike_detailState extends State<bike_detail> {
                   icon: const Icon(Icons.remove_red_eye,size: 30,),
                   color: Colors.amber,
                   onPressed: () {
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
+                  },
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10,),
+          Container(
+            margin: EdgeInsets.only(left: 5,right: 5),
+            height: 80,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 7,
+                    blurRadius: 9,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ]
+            ),
+            child: Row(
+              children: [
+                SizedBox(width: 20,),
+                CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  radius: 30,
+                ),
+                SizedBox(width: 20,),
+                Column(
+                  children: [
+                    SizedBox(height: 20,),
+                    Text("Shope Name",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 10,),
+                    Text("10KM Away",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+                Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.remove_red_eye,size: 30,),
+                  color: Colors.amber,
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
+                  },
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10,),
+          Container(
+            margin: EdgeInsets.only(left: 5,right: 5),
+            height: 80,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 7,
+                    blurRadius: 9,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ]
+            ),
+            child: Row(
+              children: [
+                SizedBox(width: 20,),
+                CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  radius: 30,
+                ),
+                SizedBox(width: 20,),
+                Column(
+                  children: [
+                    SizedBox(height: 20,),
+                    Text("Shope Name",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 10,),
+                    Text("10KM Away",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+                Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.remove_red_eye,size: 30,),
+                  color: Colors.amber,
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
+                  },
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10,),
+          Container(
+            margin: EdgeInsets.only(left: 5,right: 5),
+            height: 80,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 7,
+                    blurRadius: 9,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ]
+            ),
+            child: Row(
+              children: [
+                SizedBox(width: 20,),
+                CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  radius: 30,
+                ),
+                SizedBox(width: 20,),
+                Column(
+                  children: [
+                    SizedBox(height: 20,),
+                    Text("Shope Name",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 10,),
+                    Text("10KM Away",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+                Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.remove_red_eye,size: 30,),
+                  color: Colors.amber,
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
                   },
                 ),
               ],
