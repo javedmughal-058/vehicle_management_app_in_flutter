@@ -85,8 +85,8 @@ class LoginScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(80.0),
                     gradient: new LinearGradient(
                       colors: [
-                        Color.fromARGB(255, 255, 136, 34),
-                        Color.fromARGB(255, 255, 177, 41)
+                        Colors.indigo,
+                        Colors.blue,
                       ]
                     )
                   ),
