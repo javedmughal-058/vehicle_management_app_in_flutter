@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vehicle_maintainance/Admin/Screens/Main/view_record.dart';
+
+import 'add_record.dart';
 class manage_record extends StatefulWidget {
   const manage_record({Key? key}) : super(key: key);
 
@@ -36,12 +39,13 @@ class _manage_recordState extends State<manage_record> {
             child: Row(
               children: [
                 TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (c)=>add_record()));
                 },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
                     height: 140,
-                    width: 108,
+                    width: 120,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
@@ -57,7 +61,7 @@ class _manage_recordState extends State<manage_record> {
                     child:  Column(
                       children: [
                         SizedBox(height: 20,),
-                        Icon(Icons.add_box_outlined,size: 45,color: Colors.indigo,),
+                        Icon(Icons.add_box_outlined,size: 50,color: Colors.indigo,),
                         SizedBox(height: 20,),
                         //Image.asset("images/wash.png",height: 80,width: 80,),
                         Text('Add Record',textAlign: TextAlign.center,
@@ -72,12 +76,13 @@ class _manage_recordState extends State<manage_record> {
                   ),),
                 Spacer(),
                 TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> view_record()));
                 },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                     // color: Colors.red,
                     height: 140,
-                    width: 108,
+                    width: 120,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
@@ -93,11 +98,10 @@ class _manage_recordState extends State<manage_record> {
                     child:  Column(
                       children: [
                         SizedBox(height: 20,),
-                        Icon(Icons.remove_red_eye,size: 45,color: Colors.indigo,),
+                        Icon(Icons.remove_red_eye,size: 50,color: Colors.indigo,),
                         SizedBox(height: 20,),
                         //Image.asset("images/wash.png",height: 80,width: 80,),
-                        Text('View Record',
-                          textAlign: TextAlign.center,
+                        Text('View Record',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
