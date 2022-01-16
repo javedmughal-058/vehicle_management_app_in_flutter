@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_maintainance/Admin/Screens/login/login.dart';
+import 'package:vehicle_maintainance/Screens/profile.dart';
+import 'package:vehicle_maintainance/Screens/register_shop.dart';
 
 import 'home.dart';
 
@@ -11,8 +14,8 @@ class _main_pageState extends State<main_page> {
   int _currentIndex=0;
   final tabs=[
     home(),
-    Center(child: Text("Search"),),
-    Center(child: Text("Profile"),)
+    register_shop(),
+    profile(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,12 +40,12 @@ class _main_pageState extends State<main_page> {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Search',
+                icon: Icon(Icons.how_to_reg),
+                label: 'Register Shop',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
+                icon: Icon(Icons.admin_panel_settings_outlined),
+                label: 'Admin',
               ),
             ],
             onTap: (index){
