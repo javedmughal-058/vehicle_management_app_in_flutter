@@ -13,8 +13,8 @@ class RegisterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-               alignment: Alignment.centerLeft,
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.symmetric(horizontal: 40),
               child: Text(
                 "REGISTER",
                 style: TextStyle(
@@ -25,7 +25,9 @@ class RegisterScreen extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
             ),
+
             SizedBox(height: size.height * 0.03),
+
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(horizontal: 40),
@@ -35,7 +37,9 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             SizedBox(height: size.height * 0.03),
+
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(horizontal: 40),
@@ -45,7 +49,9 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             SizedBox(height: size.height * 0.03),
+
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(horizontal: 40),
@@ -55,7 +61,9 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             SizedBox(height: size.height * 0.03),
+
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(horizontal: 40),
@@ -66,7 +74,9 @@ class RegisterScreen extends StatelessWidget {
                 obscureText: true,
               ),
             ),
+
             SizedBox(height: size.height * 0.05),
+
             Container(
               alignment: Alignment.centerRight,
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
@@ -83,8 +93,8 @@ class RegisterScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(80.0),
                     gradient: new LinearGradient(
                       colors: [
-                        Color.fromARGB(255, 255, 136, 34),
-                        Color.fromARGB(255, 255, 177, 41)
+                        Colors.indigo,
+                        Colors.blue,
                       ]
                     )
                   ),
@@ -99,6 +109,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             Container(
               alignment: Alignment.centerRight,
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
