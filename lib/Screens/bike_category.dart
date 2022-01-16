@@ -19,8 +19,8 @@ class bike_category extends StatelessWidget {
           SizedBox(height: 20,),
           Container(
            margin: EdgeInsets.only(left: 5,right: 5),
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -33,16 +33,15 @@ class bike_category extends StatelessWidget {
                   ),
                 ]
             ),
-            child: Expanded(
               child: Row(
                 children: [
                   SizedBox(width: 10,),
-                  Image.asset("images/electric.png",width: 90,),
-                  SizedBox(width: 10,),
-                  Text("Electrical",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.amber),),
+                  Image.asset("images/electric.png",width: 60,),
+                  SizedBox(width: 30,),
+                  Text("Electrical",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.amber),),
                   Spacer(),
                   IconButton(
-                    icon: const Icon(Icons.navigate_next,size: 40,),
+                    icon: const Icon(Icons.navigate_next,size: 30,),
                     color: Colors.black,
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
@@ -52,12 +51,11 @@ class bike_category extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-          SizedBox(height: 5,),
+          SizedBox(height: 15,),
           Container(
              margin: EdgeInsets.only(left: 5,right: 5),
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -72,13 +70,13 @@ class bike_category extends StatelessWidget {
             ),
             child: Row(
               children: [
-                SizedBox(width: 10,),
-                Image.asset("images/mechanical.png",height: 90,width: 90,),
-                SizedBox(width: 10,),
-                Text("Mechanical",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.amber),),
+                //SizedBox(width: 5,),
+                Image.asset("images/mechanical.png",height: 60,width: 90,),
+                SizedBox(width: 15,),
+                Text("Mechanical",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.amber),),
                 Spacer(),
                 IconButton(
-                  icon: const Icon(Icons.navigate_next,size: 40,),
+                  icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
@@ -88,11 +86,11 @@ class bike_category extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: 15,),
           Container(
              margin: EdgeInsets.only(left: 5,right: 5),
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -108,12 +106,12 @@ class bike_category extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 10,),
-                Image.asset("images/tyres.png",width: 90,),
-                SizedBox(width: 10,),
-                Text("Tyres",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.amber),),
+                Image.asset("images/tyres.png",width: 70,),
+                SizedBox(width: 25,),
+                Text("Tyres",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.amber),),
                 Spacer(),
                 IconButton(
-                  icon: const Icon(Icons.navigate_next,size: 40,),
+                  icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
@@ -123,11 +121,11 @@ class bike_category extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: 15,),
           Container(
             margin: EdgeInsets.only(left: 5,right: 5),
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -143,12 +141,12 @@ class bike_category extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 10,),
-                Image.asset("images/penting.png",width: 90,),
-                SizedBox(width: 10,),
-                Text("Denting and Painting",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.amber),),
+                Image.asset("images/painting.png",width: 70,),
+                SizedBox(width: 30,),
+                Text("Denting and Painting",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.amber),),
                 Spacer(),
                 IconButton(
-                  icon: const Icon(Icons.navigate_next,size: 40,),
+                  icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
@@ -158,11 +156,11 @@ class bike_category extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: 15,),
           Container(
             margin: EdgeInsets.only(left: 5,right: 5),
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -178,12 +176,12 @@ class bike_category extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 10,),
-                Image.asset("images/spare_parts.png",width: 90,),
-                SizedBox(width: 10,),
-                Text("Spare Parts",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.amber),),
+                Image.asset("images/spare.png",width: 70,),
+                SizedBox(width: 30,),
+                Text("Spare Parts",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.amber),),
                 Spacer(),
                 IconButton(
-                  icon: const Icon(Icons.navigate_next,size: 40,),
+                  icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
@@ -193,11 +191,11 @@ class bike_category extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: 15,),
           Container(
             margin: EdgeInsets.only(left: 5,right: 5),
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
@@ -213,12 +211,12 @@ class bike_category extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 10,),
-                Image.asset("images/oil1.png",width: 90,),
-                SizedBox(width: 10,),
-                Text("Oil Change",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.amber),),
+                Image.asset("images/b_oil.png",width: 70,),
+                SizedBox(width: 30,),
+                Text("Oil Change",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.amber),),
                 Spacer(),
                 IconButton(
-                  icon: const Icon(Icons.navigate_next,size: 40,),
+                  icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
