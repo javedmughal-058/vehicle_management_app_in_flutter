@@ -5,6 +5,7 @@ import 'package:vehicle_maintainance/Screens/bike_detail.dart';
 
 import 'bike_category.dart';
 import 'detail_screen.dart';
+import 'home.dart';
 class bike extends StatefulWidget {
   const bike({Key? key}) : super(key: key);
 
@@ -19,235 +20,248 @@ class _bikeState extends State<bike> {
       appBar: AppBar(
           title: const Text('Bikes'),
           backgroundColor: Color(0xFF37474F),
-          leading: Image.asset("images/splash.png"),
+          leading: IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (c)=>home()));
+          }, icon: Icon(Icons.arrow_back)),
       ),
       body: ListView(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(10),
         children: [
           Container(
             padding: EdgeInsets.fromLTRB(10, 10,0, 5),
             child: Text("Catagories",style: TextStyle(fontSize:25,fontWeight: FontWeight.bold),),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //SizedBox(width: 3,),
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
-              },
-                child: Container(
-                  //color: Colors.black26,
-                  padding: EdgeInsets.fromLTRB(3, 5, 2, 5),
-                  // color: Colors.red,
-                  height: 125,
-                  width: 105,
-                  decoration:  BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white
+          Container(
+            decoration:  BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
                   ),
-                  child:  Column(
-                    children: [
-                      Image.asset("images/honda_bike.png"),
-                      Text('HONDA',textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),),
-                      SizedBox(height: 7,),
-                    ],
-
-                  ),
-                ),),
-              //SizedBox(width: 3,),
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
-              },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
-                  // color: Colors.red,
-                  height: 125,
-                  width: 105,
-                  decoration:  BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white
-                  ),
-                  child:  Column(
-                    children: [
-                      Image.asset("images/yamaha.png",height: 65,width: 65,),
-                      SizedBox(height: 10,),
-                      Text('YAHAMA',textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),),
-                      SizedBox(height: 7,),
-                    ],
-
-                  ),
-                ),),
-             // SizedBox(width: 3,),
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
-              },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                  // color: Colors.red,
-                  height: 125,
-                  width: 105,
-                  decoration:  BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white
-                  ),
-                  child:  Column(
-                    children: [
-                      Image.asset("images/crown.png",height: 80,width: 80,),
-                      Text('CROWN',textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),),
-                      SizedBox(height: 7,),
-                    ],
-
-                  ),
-                ),),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-           children: [
-            // color: Colors.amber[500],
-                //SizedBox(width: 3,),
-                TextButton(onPressed: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
-                },
-                  child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                    // color: Colors.red,
-                    height: 125,
-                    width: 105,
-                    decoration:  BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                        color: Colors.white
-                    ),
-                    child:  Column(
-                      children: [
-                        SizedBox(height: 10,),
-                        Image.asset("images/superpower.png",height: 75,width: 75,),
-                       // SizedBox(height: 10,),
-                        Text('Super Power',textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                          ),),
-                        SizedBox(height: 7,),
-                      ],
-
-                    ),
-                  ),),
-               // SizedBox(width: 3,),
-                TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
-                },
-                  child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                    // color: Colors.red,
-                    height: 125,
-                    width: 105,
-                    decoration:  BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                        color: Colors.white
-                    ),
-                    child:  Column(
-                      children: [
-                        Image.asset("images/united.png",height: 80,width: 80,),
-                        Text('UNITED',textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                          ),),
-                        SizedBox(height: 7,),
-                      ],
-
-                    ),
-                  ),),
-                //SizedBox(width: 3,),
-                TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
-                },
-                  child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                    // color: Colors.red,
-                    height: 125,
-                    width: 105,
-                    decoration:  BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                        color: Colors.white
-                    ),
-                    child:  Column(
-                      children: [
-                        Image.asset("images/ravi.png",height: 80,width: 80,),
-                        //SizedBox(height: 10,),
-                        Text('RAVI',textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                          ),),
-                        SizedBox(height: 7,),
-                      ],
-
-                    ),
-                  ),),
-              ],
+                ],
+                color: Colors.white
             ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //SizedBox(width: 3,),
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                  },
+                    child: Container(
+                      //color: Colors.black26,
+                      padding: EdgeInsets.fromLTRB(3, 5, 2, 5),
+                      // color: Colors.red,
+                      height: 125,
+                      width: 105,
+                      decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          color: Colors.lime[300]
+                      ),
+                      child:  Column(
+                        children: [
+                          Image.asset("images/honda_bike.png"),
+                          Text('HONDA',textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),),
+                          SizedBox(height: 7,),
+                        ],
+
+                      ),
+                    ),),
+                  //SizedBox(width: 3,),
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                  },
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
+                      // color: Colors.red,
+                      height: 125,
+                      width: 105,
+                      decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          color: Colors.lightBlueAccent[100]
+                      ),
+                      child:  Column(
+                        children: [
+                          Image.asset("images/yamaha.png",height: 65,width: 65,),
+                          SizedBox(height: 10,),
+                          Text('YAHAMA',textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),),
+                          SizedBox(height: 7,),
+                        ],
+
+                      ),
+                    ),),
+                 // SizedBox(width: 3,),
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                  },
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      // color: Colors.red,
+                      height: 125,
+                      width: 105,
+                      decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          color: Colors.green[300]
+                      ),
+                      child:  Column(
+                        children: [
+                          Image.asset("images/crown.png",height: 80,width: 80,),
+                          Text('CROWN',textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),),
+                          SizedBox(height: 7,),
+                        ],
+
+                      ),
+                    ),),
+                  //SizedBox(width: 3,),
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                  },
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      // color: Colors.red,
+                      height: 125,
+                      width: 105,
+                      decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          color: Colors.deepOrange[300]
+                      ),
+                      child:  Column(
+                        children: [
+                          SizedBox(height: 10,),
+                          Image.asset("images/superpower.png",height: 75,width: 75,),
+                          // SizedBox(height: 10,),
+                          Text('Super Power',textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),),
+                          SizedBox(height: 7,),
+                        ],
+
+                      ),
+                    ),),
+                  // SizedBox(width: 3,),
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                  },
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      // color: Colors.red,
+                      height: 125,
+                      width: 105,
+                      decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          color: Colors.indigo[200]
+                      ),
+                      child:  Column(
+                        children: [
+                          Image.asset("images/united.png",height: 80,width: 80,),
+                          Text('UNITED',textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),),
+                          SizedBox(height: 7,),
+                        ],
+
+                      ),
+                    ),),
+                  //SizedBox(width: 3,),
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                  },
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      // color: Colors.red,
+                      height: 125,
+                      width: 105,
+                      decoration:  BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          color: Colors.lightGreen[200]
+                      ),
+                      child:  Column(
+                        children: [
+                          Image.asset("images/ravi.png",height: 80,width: 80,),
+                          //SizedBox(height: 10,),
+                          Text('RAVI',textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),),
+                          SizedBox(height: 7,),
+                        ],
+
+                      ),
+                    ),),
+                ],
+              ),
+            ),
+          ),
           SizedBox(height: 10,),
           Container(
             padding: EdgeInsets.symmetric(vertical: 5),

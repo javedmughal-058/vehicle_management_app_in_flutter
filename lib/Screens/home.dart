@@ -117,7 +117,6 @@ class _homeState extends State<home> {
                   ),
                 ),),
               )
-
             ],
           ),
         ),
@@ -133,8 +132,8 @@ class _homeState extends State<home> {
           ),
         ),
         SizedBox(height: 10,),
-        Container(
-          padding: EdgeInsets.all(5),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

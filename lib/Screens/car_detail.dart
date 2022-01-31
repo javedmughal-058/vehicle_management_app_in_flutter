@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vehicle_maintainance/Screens/car_category.dart';
 
 import 'detail_screen.dart';
 class car_detail extends StatefulWidget {
@@ -15,7 +16,9 @@ class _car_detailState extends State<car_detail> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Vehical Maintainance"),
-        leading: Image.asset("images/splash.png"),
+        leading: IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (c)=>car_category()));
+        }, icon: Icon(Icons.arrow_back)),
         backgroundColor: Color(0xFF37474F),
       ),
       body: ListView(

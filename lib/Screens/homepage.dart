@@ -6,16 +6,18 @@ import 'package:vehicle_maintainance/Screens/register_shop.dart';
 import 'home.dart';
 
 class main_page extends StatefulWidget {
+  const main_page({Key? key}) : super(key: key);
+
   @override
-  State<main_page> createState() => _main_pageState();
+  State<main_page> createState() => main_pageState();
 }
 
-class _main_pageState extends State<main_page> {
+class main_pageState extends State<main_page> {
   int _currentIndex=0;
   final tabs=[
-    home(),
-    register_shop(),
-    profile(),
+    const home(),
+    const register_shop(),
+    const profile(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class _main_pageState extends State<main_page> {
             iconSize: 22,
             selectedFontSize: 17,
             currentIndex: _currentIndex,
-            items:[
+            items:const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: 'Home',

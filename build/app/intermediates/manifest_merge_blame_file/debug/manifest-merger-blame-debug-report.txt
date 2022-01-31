@@ -1,176 +1,178 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.vehicle_maintainance" >
-4
-5    <uses-sdk
-6        android:minSdkVersion="20"
-7        android:targetSdkVersion="27" />
-8    <!--
-9         Flutter needs it to communicate with the running application
-10         to allow setting breakpoints, to provide hot reload, etc.
-11    -->
-12    <uses-permission android:name="android.permission.INTERNET" />
-12-->E:\University\Github\FYP\vehicle_management_app\android\app\src\debug\AndroidManifest.xml:6:5-66
-12-->E:\University\Github\FYP\vehicle_management_app\android\app\src\debug\AndroidManifest.xml:6:22-64
-13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-13-->E:\University\Github\FYP\vehicle_management_app\android\app\src\main\AndroidManifest.xml:37:5-77
-13-->E:\University\Github\FYP\vehicle_management_app\android\app\src\main\AndroidManifest.xml:37:22-74
-14    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-14-->E:\University\Github\FYP\vehicle_management_app\android\app\src\main\AndroidManifest.xml:38:5-84
-14-->E:\University\Github\FYP\vehicle_management_app\android\app\src\main\AndroidManifest.xml:38:22-82
-15    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-15-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
-15-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-78
-16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-16-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-79
-16-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-76
-17    <uses-permission android:name="android.permission.CALL_PHONE" />
-17-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-69
-17-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-66
-18
-19    <uses-feature
-19-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
-20        android:name="android.hardware.telephony"
-20-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-50
-21        android:required="false" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
-21-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-33
-22    <!-- <uses-sdk android:minSdkVersion="14"/> -->
-23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-23-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\7695eee1b7ab5995810a3a35b887de13\jetified-firebase-database-20.0.3\AndroidManifest.xml:25:5-79
-23-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\7695eee1b7ab5995810a3a35b887de13\jetified-firebase-database-20.0.3\AndroidManifest.xml:25:22-76
-24
-25    <uses-feature
-25-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\34c0482775b9ae13eedea9d2a34ae420\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
-26        android:glEsVersion="0x00020000"
-26-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\34c0482775b9ae13eedea9d2a34ae420\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
-27        android:required="true" />
-27-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\34c0482775b9ae13eedea9d2a34ae420\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
-28
-29    <application
-30        android:name="android.app.Application"
-31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-31-->[androidx.core:core:1.6.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\bb39746388aad4a36519efcb4eca818c\core-1.6.0\AndroidManifest.xml:24:18-86
-32        android:debuggable="true"
-33        android:icon="@mipmap/ic_launcher"
-34        android:label="vehicle_maintainance" >
-35        <activity
-36            android:name="com.example.vehicle_maintainance.MainActivity"
-37            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-38            android:exported="true"
-39            android:hardwareAccelerated="true"
-40            android:launchMode="singleTop"
-41            android:theme="@style/LaunchTheme"
-42            android:windowSoftInputMode="adjustResize" >
-43
-44            <!--
-45                 Specifies an Android theme to apply to this Activity as soon as
-46                 the Android process has started. This theme is visible to the user
-47                 while the Flutter UI initializes. After that, this theme continues
-48                 to determine the Window background behind the Flutter UI.
-49            -->
-50            <meta-data
-51                android:name="io.flutter.embedding.android.NormalTheme"
-52                android:resource="@style/NormalTheme" />
-53
-54            <intent-filter>
-55                <action android:name="android.intent.action.MAIN" />
-56
-57                <category android:name="android.intent.category.LAUNCHER" />
-58            </intent-filter>
-59        </activity>
-60        <!--
-61             Don't delete the meta-data below.
-62             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-63        -->
-64        <meta-data
-65            android:name="flutterEmbedding"
-66            android:value="2" />
-67        <meta-data
-68            android:name="com.google.android.geo.API_KEY"
-69            android:value="AIzaSyDnyU_XK2bDsVJ_12nTSQ0cq78jiuNEr7c" />
-70
-71        <service
-71-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-72            android:name="com.google.firebase.components.ComponentDiscoveryService"
-72-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-89
-73            android:directBootAware="true"
-73-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\5c6c5017105135f4dae0653327c0aa83\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
-74            android:exported="false" >
-74-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\7695eee1b7ab5995810a3a35b887de13\jetified-firebase-database-20.0.3\AndroidManifest.xml:31:13-37
-75            <meta-data
-75-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
-76                android:name="com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar"
-76-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-127
-77                android:value="com.google.firebase.components.ComponentRegistrar" />
-77-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
-78            <meta-data
-78-->[:firebase_core] E:\University\Github\FYP\vehicle_management_app\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
-79                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-79-->[:firebase_core] E:\University\Github\FYP\vehicle_management_app\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
-80                android:value="com.google.firebase.components.ComponentRegistrar" />
-80-->[:firebase_core] E:\University\Github\FYP\vehicle_management_app\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
-81            <meta-data
-81-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\7695eee1b7ab5995810a3a35b887de13\jetified-firebase-database-20.0.3\AndroidManifest.xml:32:13-34:85
-82                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-82-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\7695eee1b7ab5995810a3a35b887de13\jetified-firebase-database-20.0.3\AndroidManifest.xml:33:17-109
-83                android:value="com.google.firebase.components.ComponentRegistrar" />
-83-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\7695eee1b7ab5995810a3a35b887de13\jetified-firebase-database-20.0.3\AndroidManifest.xml:34:17-82
-84        </service>
-85
-86        <activity
-86-->[:url_launcher_android] E:\University\Github\FYP\vehicle_management_app\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
-87            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-87-->[:url_launcher_android] E:\University\Github\FYP\vehicle_management_app\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
-88            android:exported="false"
-88-->[:url_launcher_android] E:\University\Github\FYP\vehicle_management_app\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
-89            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-89-->[:url_launcher_android] E:\University\Github\FYP\vehicle_management_app\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
-90
-91        <service
-91-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
-92            android:name="com.lyokone.location.FlutterLocationService"
-92-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
-93            android:enabled="true"
-93-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
-94            android:exported="false"
-94-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
-95            android:foregroundServiceType="location" />
-95-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
-96
-97        <provider
-97-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\5c6c5017105135f4dae0653327c0aa83\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
-98            android:name="com.google.firebase.provider.FirebaseInitProvider"
-98-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\5c6c5017105135f4dae0653327c0aa83\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
-99            android:authorities="com.example.vehicle_maintainance.firebaseinitprovider"
-99-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\5c6c5017105135f4dae0653327c0aa83\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
-100            android:directBootAware="true"
-100-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\5c6c5017105135f4dae0653327c0aa83\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
-101            android:exported="false"
-101-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\5c6c5017105135f4dae0653327c0aa83\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
-102            android:initOrder="100" /> <!-- Needs to be explicitly declared on P+ -->
-102-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\5c6c5017105135f4dae0653327c0aa83\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
-103        <uses-library
-103-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\34c0482775b9ae13eedea9d2a34ae420\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-104            android:name="org.apache.http.legacy"
-104-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\34c0482775b9ae13eedea9d2a34ae420\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-105            android:required="false" />
-105-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\34c0482775b9ae13eedea9d2a34ae420\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-106
-107        <activity
-107-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\9fd209b1180b1c54a3dbd03a19e81d75\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
-108            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-108-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\9fd209b1180b1c54a3dbd03a19e81d75\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
-109            android:exported="false"
-109-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\9fd209b1180b1c54a3dbd03a19e81d75\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
-110            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-110-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\9fd209b1180b1c54a3dbd03a19e81d75\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
-111
-112        <meta-data
-112-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\f35301ab0783a4f271721c39bae6f1c9\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-113            android:name="com.google.android.gms.version"
-113-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\f35301ab0783a4f271721c39bae6f1c9\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-114            android:value="@integer/google_play_services_version" />
-114-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\f35301ab0783a4f271721c39bae6f1c9\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-115    </application>
-116
-117</manifest>
+3    package="com.example.vehicle_maintainance"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="20"
+9        android:targetSdkVersion="30" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->E:\University\Github\FYP\vehicle_management_app\android\app\src\debug\AndroidManifest.xml:6:5-66
+14-->E:\University\Github\FYP\vehicle_management_app\android\app\src\debug\AndroidManifest.xml:6:22-64
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->E:\University\Github\FYP\vehicle_management_app\android\app\src\main\AndroidManifest.xml:37:5-77
+15-->E:\University\Github\FYP\vehicle_management_app\android\app\src\main\AndroidManifest.xml:37:22-74
+16    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+16-->E:\University\Github\FYP\vehicle_management_app\android\app\src\main\AndroidManifest.xml:38:5-84
+16-->E:\University\Github\FYP\vehicle_management_app\android\app\src\main\AndroidManifest.xml:38:22-82
+17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+17-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
+17-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-78
+18    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+18-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-79
+18-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-76
+19    <uses-permission android:name="android.permission.CALL_PHONE" />
+19-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-69
+19-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-66
+20
+21    <uses-feature
+21-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
+22        android:name="android.hardware.telephony"
+22-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-50
+23        android:required="false" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+23-->[:flutter_phone_direct_caller] E:\University\Github\FYP\vehicle_management_app\build\flutter_phone_direct_caller\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-33
+24    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+25    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+25-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\ead29432b2d88cd4cf4f5b220d4f0c26\jetified-firebase-database-20.0.3\AndroidManifest.xml:25:5-79
+25-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\ead29432b2d88cd4cf4f5b220d4f0c26\jetified-firebase-database-20.0.3\AndroidManifest.xml:25:22-76
+26
+27    <uses-feature
+27-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\c5de8972dacd649c27c247c9e16de3ac\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+28        android:glEsVersion="0x00020000"
+28-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\c5de8972dacd649c27c247c9e16de3ac\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+29        android:required="true" />
+29-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\c5de8972dacd649c27c247c9e16de3ac\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+30
+31    <application
+32        android:name="android.app.Application"
+33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+33-->[androidx.core:core:1.6.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\5f663b08eec19eef9a9d1af662d9025e\core-1.6.0\AndroidManifest.xml:24:18-86
+34        android:debuggable="true"
+35        android:icon="@mipmap/ic_launcher"
+36        android:label="vehicle_maintainance" >
+37        <activity
+38            android:name="com.example.vehicle_maintainance.MainActivity"
+39            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+40            android:exported="true"
+41            android:hardwareAccelerated="true"
+42            android:launchMode="singleTop"
+43            android:theme="@style/LaunchTheme"
+44            android:windowSoftInputMode="adjustResize" >
+45
+46            <!--
+47                 Specifies an Android theme to apply to this Activity as soon as
+48                 the Android process has started. This theme is visible to the user
+49                 while the Flutter UI initializes. After that, this theme continues
+50                 to determine the Window background behind the Flutter UI.
+51            -->
+52            <meta-data
+53                android:name="io.flutter.embedding.android.NormalTheme"
+54                android:resource="@style/NormalTheme" />
+55
+56            <intent-filter>
+57                <action android:name="android.intent.action.MAIN" />
+58
+59                <category android:name="android.intent.category.LAUNCHER" />
+60            </intent-filter>
+61        </activity>
+62        <!--
+63             Don't delete the meta-data below.
+64             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+65        -->
+66        <meta-data
+67            android:name="flutterEmbedding"
+68            android:value="2" />
+69        <meta-data
+70            android:name="com.google.android.geo.API_KEY"
+71            android:value="AIzaSyDnyU_XK2bDsVJ_12nTSQ0cq78jiuNEr7c" />
+72
+73        <service
+73-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+74            android:name="com.google.firebase.components.ComponentDiscoveryService"
+74-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-89
+75            android:directBootAware="true"
+75-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\63bd66ee5f778cdf068b521e311bfeab\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
+76            android:exported="false" >
+76-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\ead29432b2d88cd4cf4f5b220d4f0c26\jetified-firebase-database-20.0.3\AndroidManifest.xml:31:13-37
+77            <meta-data
+77-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+78                android:name="com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar"
+78-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-127
+79                android:value="com.google.firebase.components.ComponentRegistrar" />
+79-->[:firebase_database] E:\University\Github\FYP\vehicle_management_app\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+80            <meta-data
+80-->[:firebase_core] E:\University\Github\FYP\vehicle_management_app\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+81                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+81-->[:firebase_core] E:\University\Github\FYP\vehicle_management_app\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+82                android:value="com.google.firebase.components.ComponentRegistrar" />
+82-->[:firebase_core] E:\University\Github\FYP\vehicle_management_app\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+83            <meta-data
+83-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\ead29432b2d88cd4cf4f5b220d4f0c26\jetified-firebase-database-20.0.3\AndroidManifest.xml:32:13-34:85
+84                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+84-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\ead29432b2d88cd4cf4f5b220d4f0c26\jetified-firebase-database-20.0.3\AndroidManifest.xml:33:17-109
+85                android:value="com.google.firebase.components.ComponentRegistrar" />
+85-->[com.google.firebase:firebase-database:20.0.3] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\ead29432b2d88cd4cf4f5b220d4f0c26\jetified-firebase-database-20.0.3\AndroidManifest.xml:34:17-82
+86        </service>
+87
+88        <activity
+88-->[:url_launcher_android] E:\University\Github\FYP\vehicle_management_app\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+89            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+89-->[:url_launcher_android] E:\University\Github\FYP\vehicle_management_app\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
+90            android:exported="false"
+90-->[:url_launcher_android] E:\University\Github\FYP\vehicle_management_app\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+91            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+91-->[:url_launcher_android] E:\University\Github\FYP\vehicle_management_app\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
+92
+93        <service
+93-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
+94            android:name="com.lyokone.location.FlutterLocationService"
+94-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
+95            android:enabled="true"
+95-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
+96            android:exported="false"
+96-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+97            android:foregroundServiceType="location" />
+97-->[:location] E:\University\Github\FYP\vehicle_management_app\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
+98
+99        <provider
+99-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\63bd66ee5f778cdf068b521e311bfeab\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
+100            android:name="com.google.firebase.provider.FirebaseInitProvider"
+100-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\63bd66ee5f778cdf068b521e311bfeab\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
+101            android:authorities="com.example.vehicle_maintainance.firebaseinitprovider"
+101-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\63bd66ee5f778cdf068b521e311bfeab\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
+102            android:directBootAware="true"
+102-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\63bd66ee5f778cdf068b521e311bfeab\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
+103            android:exported="false"
+103-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\63bd66ee5f778cdf068b521e311bfeab\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
+104            android:initOrder="100" /> <!-- Needs to be explicitly declared on P+ -->
+104-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\63bd66ee5f778cdf068b521e311bfeab\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
+105        <uses-library
+105-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\c5de8972dacd649c27c247c9e16de3ac\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+106            android:name="org.apache.http.legacy"
+106-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\c5de8972dacd649c27c247c9e16de3ac\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+107            android:required="false" />
+107-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\c5de8972dacd649c27c247c9e16de3ac\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+108
+109        <activity
+109-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\3379954b54da4c690bd742f1e4b2cf6f\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+110            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+110-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\3379954b54da4c690bd742f1e4b2cf6f\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+111            android:exported="false"
+111-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\3379954b54da4c690bd742f1e4b2cf6f\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+112            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+112-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\3379954b54da4c690bd742f1e4b2cf6f\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+113
+114        <meta-data
+114-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\3c8e7eb3d21ac94d08f658f6d8a1c9f3\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+115            android:name="com.google.android.gms.version"
+115-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\3c8e7eb3d21ac94d08f658f6d8a1c9f3\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+116            android:value="@integer/google_play_services_version" />
+116-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Muhammad Javed\.gradle\caches\transforms-2\files-2.1\3c8e7eb3d21ac94d08f658f6d8a1c9f3\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+117    </application>
+118
+119</manifest>

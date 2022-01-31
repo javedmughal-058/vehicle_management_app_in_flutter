@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vehicle_maintainance/Screens/bike_category.dart';
 import 'package:vehicle_maintainance/Screens/detail_screen.dart';
 class bike_detail extends StatefulWidget {
   const bike_detail({Key? key}) : super(key: key);
@@ -13,8 +14,10 @@ class _bike_detailState extends State<bike_detail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Vehical Maintainance"),
-        leading: Image.asset("images/splash.png"),
+        title: Text("Vehicle Maintainance"),
+        leading: IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (c)=>bike_category()));
+        }, icon: Icon(Icons.arrow_back)),
         backgroundColor: Color(0xFF37474F),
       ),
       body: ListView(
