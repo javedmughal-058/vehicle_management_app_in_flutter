@@ -14,6 +14,10 @@ class car_category extends StatelessWidget {
         leading: IconButton(onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (c)=>car()));
         }, icon: Icon(Icons.arrow_back)),
+        actions: [
+          IconButton(onPressed: (){
+          }, icon: Icon(Icons.search_outlined)),
+        ],
       ),
       body: ListView(
         children: [

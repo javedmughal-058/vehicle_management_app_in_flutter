@@ -3,19 +3,29 @@ import 'package:flutter/material.dart';
 
 import 'bike.dart';
 import 'bike_detail.dart';
-import 'car_detail.dart';
-class bike_category extends StatelessWidget {
+class bike_category extends StatefulWidget {
   const bike_category({Key? key}) : super(key: key);
+
+  @override
+  State<bike_category> createState() => _bike_categoryState();
+}
+
+class _bike_categoryState extends State<bike_category> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: const Text('Select_Category'),
         backgroundColor: Color(0xFF37474F),
         leading: IconButton(onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (c)=>bike()));
         }, icon: Icon(Icons.arrow_back)),
+        actions: [
+          IconButton(onPressed: (){
+          }, icon: Icon(Icons.search_outlined)),
+        ],
       ),
       body: ListView(
         children: [

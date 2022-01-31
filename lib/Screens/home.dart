@@ -67,12 +67,11 @@ class _homeState extends State<home> {
                 },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                    // color: Colors.red,
                     height: 170,
                     width: 150,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Colors.black12
+                        color: Colors.white,
                     ),
                     child:  Column(
                       children: [
@@ -86,7 +85,9 @@ class _homeState extends State<home> {
                       ],
 
                     ),
-                  ),),
+                  ),
+
+                ),
               ),
               SizedBox(width: 10,),
               Expanded(
@@ -100,7 +101,7 @@ class _homeState extends State<home> {
                   width: 150,
                   decoration:  BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.black12
+                      color: Colors.white
                   ),
                   child:  Column(
                     children: [
