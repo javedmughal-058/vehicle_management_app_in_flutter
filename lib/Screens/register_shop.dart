@@ -10,7 +10,7 @@ class register_shop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: EdgeInsets.all(30),
+      padding: EdgeInsets.all(15),
       //mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(height: 30,),
@@ -24,7 +24,7 @@ class register_shop extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.all(20),
           color: Colors.black12,
           child: Column(
             children: [

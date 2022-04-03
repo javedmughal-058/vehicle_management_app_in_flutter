@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'car_category.dart';
-import 'home.dart';
+import 'homepage.dart';
 class car extends StatefulWidget {
   const car({Key? key}) : super(key: key);
 
@@ -19,7 +19,7 @@ class _carState extends State<car> {
         title: const Text('Cars'),
         backgroundColor: Color(0xFF37474F),
         leading: IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (c)=>home()));
+          Navigator.push(context, MaterialPageRoute(builder: (c)=>main_page()));
         }, icon: Icon(Icons.arrow_back)),
       ),
       body: ListView(

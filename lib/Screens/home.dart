@@ -71,14 +71,14 @@ class _homeState extends State<home> {
                     width: 150,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Colors.white,
+                        color: Color(0xFF37474F),
                     ),
                     child:  Column(
                       children: [
                         Image.asset("images/bike.png"),
                         Text('Bike',textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 20,
                           ),),
                         //SizedBox(height: 7,),
@@ -101,7 +101,7 @@ class _homeState extends State<home> {
                   width: 150,
                   decoration:  BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.white
+                      color: Color(0xFF37474F),
                   ),
                   child:  Column(
                     children: [
@@ -109,7 +109,7 @@ class _homeState extends State<home> {
                       SizedBox(height: 10,),
                       Text('Car',textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 22,
                         ),),
 
@@ -124,11 +124,11 @@ class _homeState extends State<home> {
         SizedBox(height: 10,),
         Container(
           padding: EdgeInsets.symmetric(vertical: 5),
-          color:Colors.black12,
+          color:Color(0xFF37474F),
           height: 40,
           //color: Colors.amber[100],
           child: Text("Recommended",textAlign: TextAlign.center,style:
-          GoogleFonts.merriweather(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold),
+          GoogleFonts.merriweather(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
 
           ),
         ),

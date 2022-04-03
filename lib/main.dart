@@ -3,9 +3,13 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'Admin/Screens/login/login.dart';
 import 'Screens/homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   return runApp(
     const MaterialApp(
       title: ' SplashScreen ',

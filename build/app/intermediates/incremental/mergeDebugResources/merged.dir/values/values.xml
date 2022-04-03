@@ -108,6 +108,13 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="default_web_client_id" translatable="false">462272780956-2d52loqt9lghkpm6mnk8doubp8c9d4ud.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">462272780956</string>
+    <string name="google_api_key" translatable="false">AIzaSyB6nFL-3Py1cEA9GtiYuc3Qpha2CQ9mCHQ</string>
+    <string name="google_app_id" translatable="false">1:462272780956:android:ecdcaa4a570871af242b59</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB6nFL-3Py1cEA9GtiYuc3Qpha2CQ9mCHQ</string>
+    <string name="google_storage_bucket" translatable="false">vehicle-maintenance-app-1d1ac.appspot.com</string>
+    <string name="project_id" translatable="false">vehicle-maintenance-app-1d1ac</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <!-- Show a splash screen on the activity. Automatically removed when
@@ -280,65 +287,6 @@
 <attr format="float" name="imageAspectRatio"/>
 
 <attr format="boolean" name="circleCrop"/>
-</declare-styleable>
-    <declare-styleable name="MapAttrs"><attr name="mapType">
-<enum name="none" value="0"/>
-
-<enum name="normal" value="1"/>
-
-<enum name="satellite" value="2"/>
-
-<enum name="terrain" value="3"/>
-
-<enum name="hybrid" value="4"/>
-
-</attr>
-
-<attr format="float" name="cameraBearing"/>
-
-<attr format="float" name="cameraTargetLat"/>
-
-<attr format="float" name="cameraTargetLng"/>
-
-<attr format="float" name="cameraTilt"/>
-
-<attr format="float" name="cameraZoom"/>
-
-<attr format="boolean" name="liteMode"/>
-
-<attr format="boolean" name="uiCompass"/>
-
-<attr format="boolean" name="uiRotateGestures"/>
-
-<attr format="boolean" name="uiScrollGestures"/>
-
-<attr format="boolean" name="uiScrollGesturesDuringRotateOrZoom"/>
-
-<attr format="boolean" name="uiTiltGestures"/>
-
-<attr format="boolean" name="uiZoomControls"/>
-
-<attr format="boolean" name="uiZoomGestures"/>
-
-<attr format="boolean" name="useViewLifecycle"/>
-
-<attr format="boolean" name="zOrderOnTop"/>
-
-<attr format="boolean" name="uiMapToolbar"/>
-
-<attr format="boolean" name="ambientEnabled"/>
-
-<attr format="float" name="cameraMinZoomPreference"/>
-
-<attr format="float" name="cameraMaxZoomPreference"/>
-
-<attr format="float" name="latLngBoundsSouthWestLatitude"/>
-
-<attr format="float" name="latLngBoundsSouthWestLongitude"/>
-
-<attr format="float" name="latLngBoundsNorthEastLatitude"/>
-
-<attr format="float" name="latLngBoundsNorthEastLongitude"/>
 </declare-styleable>
     <declare-styleable name="SignInButton"><attr format="reference" name="buttonSize">
 <enum name="standard" value="0"/>

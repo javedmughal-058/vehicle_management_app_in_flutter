@@ -21,7 +21,8 @@ class _manage_recordState extends State<manage_record> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(90.0),
-                  bottomLeft: Radius.circular(90.0)),
+                  bottomLeft: Radius.circular(90.0)
+                ),
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -35,7 +36,7 @@ class _manage_recordState extends State<manage_record> {
           ),
           SizedBox(height: 20,),
           Container(
-            padding: EdgeInsets.only(left: 50,right: 50),
+            padding: EdgeInsets.only(left: 5,right: 5),
             child: Row(
               children: [
                 TextButton(onPressed: (){
@@ -63,13 +64,11 @@ class _manage_recordState extends State<manage_record> {
                         SizedBox(height: 20,),
                         Icon(Icons.add_box_outlined,size: 50,color: Colors.indigo,),
                         SizedBox(height: 20,),
-                        //Image.asset("images/wash.png",height: 80,width: 80,),
                         Text('Add Record',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
+                            fontSize: 14,
                           ),),
-                        SizedBox(height: 7,),
                       ],
 
                     ),
@@ -100,13 +99,11 @@ class _manage_recordState extends State<manage_record> {
                         SizedBox(height: 20,),
                         Icon(Icons.remove_red_eye,size: 50,color: Colors.indigo,),
                         SizedBox(height: 20,),
-                        //Image.asset("images/wash.png",height: 80,width: 80,),
                         Text('View Record',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
+                            fontSize: 14,
                           ),),
-                        SizedBox(height: 7,),
                       ],
 
                     ),

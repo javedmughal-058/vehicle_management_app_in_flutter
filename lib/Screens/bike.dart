@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vehicle_maintainance/Screens/bike_detail.dart';
-
 import 'bike_category.dart';
 import 'detail_screen.dart';
-import 'home.dart';
+import 'homepage.dart';
+
 class bike extends StatefulWidget {
   const bike({Key? key}) : super(key: key);
 
@@ -21,7 +20,7 @@ class _bikeState extends State<bike> {
           title: const Text('Bikes'),
           backgroundColor: Color(0xFF37474F),
           leading: IconButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (c)=>home()));
+            Navigator.push(context, MaterialPageRoute(builder: (c)=>main_page()));
           }, icon: Icon(Icons.arrow_back)),
       ),
       body: ListView(

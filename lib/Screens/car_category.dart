@@ -38,8 +38,7 @@ class car_category extends StatelessWidget {
                   ),
                 ]
             ),
-            child: Expanded(
-              child: Row(
+            child: Row(
                 children: [
                   SizedBox(width: 10,),
                   Image.asset("images/electric.png",width: 60,),
@@ -55,7 +54,7 @@ class car_category extends StatelessWidget {
                     },
                   ),
                 ],
-              ),
+
             ),
           ),
           SizedBox(height: 15,),

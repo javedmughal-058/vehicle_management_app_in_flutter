@@ -35,9 +35,8 @@ dependencies:
   flutter_phone_direct_caller: ^2.1.0
   cool_alert: ^1.1.0
   url_launcher: ^6.0.18
-  firebase_core: ^1.10.6
-  firebase_database:
-
+  firebase_core:
+  cloud_firestore:
 
 
 
