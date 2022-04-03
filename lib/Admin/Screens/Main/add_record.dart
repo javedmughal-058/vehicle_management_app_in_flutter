@@ -1,9 +1,8 @@
-
-
-
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class add_record extends StatefulWidget {
   add_record({Key? key}) : super(key: key);
@@ -27,14 +26,13 @@ class _add_recordPageState extends State<add_record> {
             );
           },
         ),
-        title: Text("Donor"),
+        title: Text("Add Record"),
       ),
       body: Center(
           child: SingleChildScrollView(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-
                   Text("Bike Record",
                     style: GoogleFonts.abrilFatface(
                         fontSize: 20,
@@ -58,14 +56,22 @@ class BikeRecord extends StatefulWidget {
 class _BikeRecordState extends State<BikeRecord> {
   final _formKey = GlobalKey<FormState>();
   final listOfServices = ["Mechanical", "Oil Change", "Electrical","Denting and Painting","Tire Shop","Spare Parts"];
-  String dropdownValue = 'Mechanical';
-  final nameController = TextEditingController();
-  final ageController = TextEditingController();
-  final contactController=TextEditingController();
-  final addressController=TextEditingController();
-  final dropdown= TextEditingController();
+  final OutdoorServices = ["Yes", "No"];
+  final Affordability = ["1", "2","3","4","5","6","7","8","9","10"];
 
-  //final dbRef = FirebaseDatabase.instance.reference().child("User");
+  String dropdownValue = 'Mechanical';
+  String dropdownValue2 = 'Yes';
+  String dropdownValue3 = '1';
+
+  final ON_Controller = TextEditingController();
+  final SN_Controller = TextEditingController();
+  final contact_Controller=TextEditingController();
+  final location_Controller=TextEditingController();
+
+  final service= TextEditingController();
+  final outdoor= TextEditingController();
+  final affordability= TextEditingController();
+  final dbRef = FirebaseDatabase.instance.reference().child("Bike Record");
 
   @override
   Widget build(BuildContext context) {
@@ -73,90 +79,112 @@ class _BikeRecordState extends State<BikeRecord> {
         key: _formKey,
         child: SingleChildScrollView(
             child: Column(children: <Widget>[
+
               Padding(
-                padding: EdgeInsets.all(10.0),
-                child: TextFormField(
-                  controller: nameController,
-                  decoration: InputDecoration(
-                    labelText: "Owner Name",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
+                padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: TextFormField(
+                    controller: ON_Controller,
+                   decoration: InputDecoration(
+                       icon: Icon(Icons.person),
+                       labelText: 'Owner Name',
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.black),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 1, color: Colors.blue),
+                  borderRadius: BorderRadius.circular(15),
+                )),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Enter Owner Name';
+                      }
+                      return null;
+                    },
+          ),
+        ),
+      ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: TextFormField(
+                    controller: SN_Controller,
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.account_balance),
+                        labelText: 'Shop Name',
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.black),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.blue),
+                          borderRadius: BorderRadius.circular(15),
+                        )),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Shop Name';
+                      }
+                      return null;
+                    },
                   ),
-                  // The validator receives the text that the user has entered.
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Enter Owner Name';
-                    }
-                    return null;
-                  },
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(10.0),
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  controller: ageController,
-                  decoration: InputDecoration(
-                    labelText: "Shop Name",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
+                padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: TextFormField(
+                    controller: contact_Controller,
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.call),
+                        labelText: 'Contact',
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.black),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.blue),
+                          borderRadius: BorderRadius.circular(15),
+                        )),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Contact';
+                      }
+                      return null;
+                    },
                   ),
-                  // The validator receives the text that the user has entered.
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Enter Shop Name';
-                    }
-                    return null;
-                  },
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(10.0),
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  controller: contactController,
-                  decoration: InputDecoration(
-                    labelText: "Contact",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
+                padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: TextFormField(
+                    controller: location_Controller,
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.location_on_outlined),
+                        labelText: 'Location',
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.black),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.blue),
+                          borderRadius: BorderRadius.circular(15),
+                        )),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Location';
+                      }
+                      return null;
+                    },
                   ),
-                  // The validator receives the text that the user has entered.
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Enter Contact';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: TextFormField(
-                  keyboardType: TextInputType.text,
-                  controller: addressController,
-                  decoration: InputDecoration(
-                    labelText: "Location",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                  // The validator receives the text that the user has entered.
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Enter Location';
-                    }
-                    return null;
-                  },
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: DropdownButtonFormField(
                   value: dropdownValue,
-                  icon: Icon(Icons.arrow_downward_outlined),
+                  icon: Icon(Icons.keyboard_arrow_down_sharp),
                   decoration: InputDecoration(
                     labelText: "Select Service Once at a time",
                     enabledBorder: OutlineInputBorder(
@@ -172,12 +200,89 @@ class _BikeRecordState extends State<BikeRecord> {
                   onChanged: ( String? newValue) {
                     dropdownValue = newValue!;
                     setState(() {
-                      //dropdownValue = newValue;
+                      dropdownValue = newValue;
                     });
                   },
 
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: DropdownButtonFormField(
+                  value: dropdownValue2,
+                  icon: Icon(Icons.keyboard_arrow_down_sharp),
+                  decoration: InputDecoration(
+                    labelText: "Outdoor Service",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  items: OutdoorServices.map((String value) {
+                    return new DropdownMenuItem<String>(
+                      value: value,
+                      child: new Text(value),
+                    );
+                  }).toList(),
+                  onChanged: ( String? newValue) {
+                    dropdownValue2 = newValue!;
+                    setState(() {
+                      dropdownValue2 = newValue;
+                    });
+                  },
+
+                ),
+              ),
+              Padding(padding: EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    Text("Rating of Shop"),
+                    RatingBar.builder(
+                      initialRating: 3,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: false,
+                      itemCount: 5,
+                      itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                      itemBuilder: (context, _) => Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      onRatingUpdate: (rating) {
+                        // print(rating);
+                      },
+                    ),
+
+                  ],
+                )
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: DropdownButtonFormField(
+                  value: dropdownValue3,
+                  icon: Icon(Icons.keyboard_arrow_down_sharp),
+                  decoration: InputDecoration(
+                    hintText: 'Max. value means Max. afforable',
+                    labelText: "Affordability",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  items: Affordability.map((String value) {
+                    return new DropdownMenuItem<String>(
+                      value: value,
+                      child: new Text(value),
+                    );
+                  }).toList(),
+                  onChanged: ( String? newValue) {
+                    dropdownValue3 = newValue!;
+                    setState(() {
+                      dropdownValue3 = newValue;
+                    });
+                  },
+
+                ),
+              ),
+
               Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Row(
@@ -185,6 +290,32 @@ class _BikeRecordState extends State<BikeRecord> {
                     children: <Widget>[
                       ElevatedButton(
                         onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+
+                            Map map={
+                              "Shop Owner Name": ON_Controller.text,
+                              "Shop Name": SN_Controller.text,
+                              "Contact": contact_Controller.text,
+                              "Location": location_Controller.text,
+                              "Service": dropdownValue,
+                              "Outdoor Service": dropdownValue2,
+                              "Affordability": dropdownValue3,
+                            };
+                            dbRef.push().set(map).then((_) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Successfully Added')));
+                              ON_Controller.clear();
+                              SN_Controller.clear();
+                              contact_Controller.clear();
+                              location_Controller.clear();
+                              service.clear();
+                              outdoor.clear();
+                              affordability.clear();
+                            }).catchError((onError) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(content: Text(onError)));
+                            });
+                          }
                         },
                         child: Text('Save Record'),
                         style: ButtonStyle(
@@ -201,7 +332,10 @@ class _BikeRecordState extends State<BikeRecord> {
   @override
   void dispose() {
     super.dispose();
-    ageController.dispose();
-    nameController.dispose();
+    ON_Controller.dispose();
+    SN_Controller.dispose();
+    contact_Controller.dispose();
+    location_Controller.dispose();
+
   }
 }
