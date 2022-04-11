@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vehicle_maintainance/Admin/Screens/Main/add_car_record.dart';
 import 'package:vehicle_maintainance/Admin/Screens/Main/view_record.dart';
 
 import 'add_record.dart';
@@ -40,7 +41,7 @@ class _manage_recordState extends State<manage_record> {
             child: Row(
               children: [
                 TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (c)=>add_record()));
+                  Navigator.push(context, MaterialPageRoute(builder: (c)=>add_car_record()));
                 },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(5, 5, 5, 5),

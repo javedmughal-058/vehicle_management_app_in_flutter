@@ -38,6 +38,10 @@ dependencies:
   firebase_core:
   cloud_firestore:
   firebase_database:
+  google_maps_place_picker:
+
+
+
 
 
   flutter:

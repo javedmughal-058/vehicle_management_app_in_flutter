@@ -24,13 +24,13 @@ class _view_recordState extends State<view_record> {
             color: Colors.black12,
             child: Row(
               children: [
-                Image.asset("images/main.png",height: 100,),
+                Image.asset("images/main.png",height: 50,),
                 Spacer(),
                 Column(
                   children: [
-                    Text("Total Car Shops",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
+                    Text("Total Car Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
                     SizedBox(height: 20,),
-                    Text("230",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.green),)
+                    Text("230",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
                   ],
                 )
               ],
@@ -42,13 +42,13 @@ class _view_recordState extends State<view_record> {
             color: Colors.black12,
             child: Row(
               children: [
-                Image.asset("images/main1.png",height: 100,),
+                Image.asset("images/main1.png",height: 50,),
                 Spacer(),
                 Column(
                   children: [
-                    Text("Total Bike Shops",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
+                    Text("Total Bike Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
                     SizedBox(height: 20,),
-                    Text("157",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.green),)
+                    Text("157",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
                   ],
                 )
               ],
@@ -61,13 +61,13 @@ class _view_recordState extends State<view_record> {
             child: Row(
               children: [
                 SizedBox(width: 18,),
-                Image.asset("images/batry.png",height: 100,),
+                Image.asset("images/batry.png",height: 50,),
                 Spacer(),
                 Column(
                   children: [
-                    Text("Total Battery Shops",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
+                    Text("Total Battery Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
                     SizedBox(height: 20,),
-                    Text("97",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.green),)
+                    Text("97",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
                   ],
                 )
               ],
@@ -80,13 +80,13 @@ class _view_recordState extends State<view_record> {
             child: Row(
               children: [
                 SizedBox(width: 20,),
-                Image.asset("images/wash.png",height: 100,),
+                Image.asset("images/wash.png",height: 50,),
                 Spacer(),
                 Column(
                   children: [
-                    Text("Total Wash Shops",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
+                    Text("Total Wash Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
                     SizedBox(height: 20,),
-                    Text("20",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.green),)
+                    Text("20",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
                   ],
                 )
               ],
@@ -99,13 +99,13 @@ class _view_recordState extends State<view_record> {
             child: Row(
               children: [
                 SizedBox(width: 20,),
-                Image.asset("images/tyre.png",height: 100,),
+                Image.asset("images/tyre.png",height: 50,),
                 Spacer(),
                 Column(
                   children: [
-                    Text("Total Tyre Shops",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
+                    Text("Total Tyre Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
                     SizedBox(height: 20,),
-                    Text("58",style: GoogleFonts.b612(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.green),)
+                    Text("58",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
                   ],
                 )
               ],
