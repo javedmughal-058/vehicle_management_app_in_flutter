@@ -61,8 +61,7 @@ class _add_car_recordPageState extends State<add_car_record> {
 }
 
 class BikeRecord extends StatefulWidget {
-  //RegisterPet({Key key}) : super(key: key);
-  @override
+ @override
   _BikeRecordState createState() => _BikeRecordState();
 }
 
@@ -73,7 +72,7 @@ class _BikeRecordState extends State<BikeRecord> {
   String shopservice="Mechanical", OServices="Yes";
   int shoprating=1,shopafffordability=1;
   late double ocontact;
-
+  final bool status=true;
 
   getOwnerName(name){
     this.Ownername=name;
@@ -112,11 +111,13 @@ class _BikeRecordState extends State<BikeRecord> {
       "Outdoor Services": OServices,
       "Shop Rating":shoprating,
       "Shop Affordability": shopafffordability,
+      "Shop status":status,
     };
     dc.set(customers).whenComplete((){
       print("$Ownername Created");
     });
   }
+
 
 
   //late PickResult selectedPlace;
