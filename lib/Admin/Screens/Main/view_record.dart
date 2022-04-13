@@ -20,19 +20,18 @@ class _view_recordState extends State<view_record> {
   int battery_shops=0;
   void counter()async{
     carshops=0;
-    battery_shops=0;
+    bikeshops=0;
     var car_result = await FirebaseFirestore.instance
-        .collection("car_record")
+        .collection("car")
         .get();
     car_result.docs.forEach((res) {
       carshops++;
     });
-    var battery_result = await FirebaseFirestore.instance
-        .collection("car_record")
-        .where("Service", isEqualTo: [""])
+    var wash_result = await FirebaseFirestore.instance
+        .collection("bike")
         .get();
-    battery_result.docs.forEach((res) {
-      battery_shops++;
+    wash_result.docs.forEach((res) {
+      bikeshops++;
     });
     if(first){
       first=false;
@@ -96,7 +95,7 @@ bool first=true;
                   children: [
                     Text("Total Bike Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
                     SizedBox(height: 20,),
-                    Text("157",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
+                    Text("$bikeshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
                   ],
                 )
               ],
@@ -153,7 +152,7 @@ bool first=true;
                   children: [
                     Text("Total Tyre Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blueAccent),),
                     SizedBox(height: 20,),
-                    Text("58",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
+                    Text("$wash_tyre_shops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),)
                   ],
                 )
               ],
