@@ -69,10 +69,11 @@ class _BikeRecordState extends State<BikeRecord> {
   late PickResult selectedPlace;
 
   late String Ownername, shopname, shoplocation;
-  String shopservice="Mechanical", OServices="Yes";
+  String shopservice="Mechanical", OServices="Yes",record_name="bike";
   int shoprating=1,shopafffordability=1;
   late double ocontact;
   final bool status=true;
+
 
   getOwnerName(name){
     this.Ownername=name;
@@ -98,24 +99,29 @@ class _BikeRecordState extends State<BikeRecord> {
   getdropdownValue4(affordability) {
     this.shopafffordability=int.parse(affordability);
   }
+  getdropdownValue5(newValueSelected) {
+    this.record_name=newValueSelected;
+  }
   saveCarData() {
     //print("saved");
-    DocumentReference dc =FirebaseFirestore.instance.
-    collection("car_record").doc(Ownername);
-    Map<String, dynamic> customers={
-      "Owner Name": Ownername,
-      "Shop Name": shopname,
-      "Contact": ocontact,
-      "Location": shoplocation,
-      "Service": shopservice,
-      "Outdoor Services": OServices,
-      "Shop Rating":shoprating,
-      "Shop Affordability": shopafffordability,
-      "Shop status":status,
-    };
-    dc.set(customers).whenComplete((){
-      print("$Ownername Created");
-    });
+
+      DocumentReference dc =FirebaseFirestore.instance.
+      collection(record_name).doc(Ownername);
+      Map<String, dynamic> customers={
+        "Owner Name": Ownername,
+        "Shop Name": shopname,
+        "Contact": ocontact,
+        "Location": shoplocation,
+        "Service": shopservice,
+        "Outdoor Services": OServices,
+        "Shop Rating":shoprating,
+        "Shop Affordability": shopafffordability,
+        "Shop status":status,
+      };
+      dc.set(customers).whenComplete((){
+        print("$Ownername Created");
+      });
+
   }
 
 
@@ -126,11 +132,12 @@ class _BikeRecordState extends State<BikeRecord> {
   final OutdoorServices = ["Yes", "No"];
   final Rating=["1","2","3","4","5"];
   final Affordability = ["1", "2","3","4","5","6","7","8","9","10"];
-
+  final categorylist= ["bike", "car","battery","wash"];
   String dropdownValue = 'Mechanical';
   String dropdownValue2 = 'Yes';
   String dropdownValue3 = '1';
   String dropdownValue4 = '1';
+  String dropdownValue5='bike';
 
   final ON_Controller = TextEditingController();
   final SN_Controller = TextEditingController();
@@ -145,7 +152,33 @@ class _BikeRecordState extends State<BikeRecord> {
         key: _formKey,
         child: SingleChildScrollView(
             child: Column(children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: DropdownButtonFormField(
+                  value: dropdownValue5,
+                  icon: Icon(Icons.keyboard_arrow_down_sharp),
+                  decoration: InputDecoration(
+                    labelText: "Category",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  items: categorylist.map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValueSelected) {
+                    getdropdownValue5(newValueSelected);
+                    // getService=(service);
+                    setState(() {
+                      dropdownValue5 = newValueSelected!;
+                    });
+                  },
 
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Center(
