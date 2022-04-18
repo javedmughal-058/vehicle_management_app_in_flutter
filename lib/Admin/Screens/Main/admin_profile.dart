@@ -56,9 +56,9 @@ class _admin_profileState extends State<admin_profile> {
                 onPressed: () => {},
                 child:Row(
                   children: [
-                    Icon(Icons.receipt_outlined),
+                    Icon(Icons.block_rounded),
                     SizedBox(width: 20,),
-                    Text("Records"),
+                    Text("Blocked"),
                     Spacer(),
                     Icon(Icons.navigate_next)
                   ],
@@ -85,44 +85,6 @@ class _admin_profileState extends State<admin_profile> {
                       Icon(Icons.settings),
                       SizedBox(width: 20,),
                       Text("Setting"),
-                      Spacer(),
-                      Icon(Icons.navigate_next)
-                    ],
-                  )
-              ),
-              Divider(thickness: 1,),
-              FlatButton(
-                  onPressed: () => {
-                  CoolAlert.show(
-                  context: context,
-                  type: CoolAlertType.info,
-                  text: 'Alpha Developers \n V 0.1.1 \nCopyRight \'MultiLearner\'',
-                  )
-                  },
-                  child:Row(
-                    children: [
-                      Icon(Icons.account_box_outlined),
-                      SizedBox(width: 20,),
-                      Text("About us"),
-                      Spacer(),
-                      Icon(Icons.navigate_next)
-                    ],
-                  )
-              ),
-              Divider(thickness: 1,),
-              FlatButton(
-                  onPressed: () => {
-                  CoolAlert.show(
-                  context: context,
-                  type: CoolAlertType.info,
-                  text: 'Contact us at \n +92-3062834710 \n \'chabdullah7650@gmail.com\'',
-                  )
-                  },
-                  child:Row(
-                    children: [
-                      Icon(Icons.call),
-                      SizedBox(width: 20,),
-                      Text("Contact Us"),
                       Spacer(),
                       Icon(Icons.navigate_next)
                     ],

@@ -21,7 +21,7 @@ class _main_pageState extends State<main_page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Vehical Maintainance'),
+            title: const Text('Vehicle Maintenance'),
             backgroundColor: Colors.indigo,
             leading: Image.asset("images/main.png")
         ),
@@ -40,7 +40,7 @@ class _main_pageState extends State<main_page> {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.add_box_outlined),
+                icon: Icon(Icons.dashboard),
                 label: 'Record',
               ),
               BottomNavigationBarItem(

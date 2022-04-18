@@ -34,11 +34,17 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   flutter_phone_direct_caller: ^2.1.0
   cool_alert: ^1.1.0
+  advance_notification: ^1.0.6
+  flutter_dropdown_alert:
   url_launcher: ^6.0.18
+  file_picker:
+  open_file: ^3.2.1
+  excel:
   firebase_core:
   cloud_firestore:
   firebase_database:
   google_maps_place_picker:
+  firebase_auth: ^3.3.4
 
 
 

@@ -94,6 +94,6 @@ class SplashScreenOneState extends State<SplashScreenOne> {
 
   onDoneLoading() async {
     Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => manage_record()));
+        MaterialPageRoute(builder: (context) => main_page()));
   }
 }

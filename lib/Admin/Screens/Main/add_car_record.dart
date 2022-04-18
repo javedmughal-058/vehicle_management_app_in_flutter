@@ -1,15 +1,11 @@
-import 'dart:ffi';
-
+import 'package:advance_notification/advance_notification.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'keys.dart';
-import 'manage_records.dart';
+import 'package:vehicle_maintainance/Admin/Screens/Main/excel_file.dart';
+import 'admin_home.dart';
 
 
 class add_car_record extends StatefulWidget {
@@ -29,17 +25,23 @@ class _add_car_recordPageState extends State<add_car_record> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>manage_record()));
-              },
-              // tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
+          leading: Image.asset("images/main.png"),
+
+        actions: [
+          PopupMenuButton(
+            icon: Icon(Icons.menu),  //don't specify icon if you want 3 dot menu
+            color: Colors.white,
+            itemBuilder: (context) => [
+              PopupMenuItem<int>(
+                value: 0,
+                child: Text("import excel file",style: TextStyle(color: Colors.indigo),),
+              ),
+            ],
+            onSelected: (item)  {
+              Navigator.push(context,MaterialPageRoute(builder: (context)=> AddRecord()));
+            },
+          ),
+        ],
         title: Text("Add Record"),
       ),
       body: Center(
@@ -47,12 +49,6 @@ class _add_car_recordPageState extends State<add_car_record> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Car Record",
-                    style: GoogleFonts.abrilFatface(
-                        fontSize: 20,
-                        color: Colors.black),
-                    textAlign:TextAlign.center,
-                  ),
                   BikeRecord(),
                 ]),
           )),
@@ -72,8 +68,9 @@ class _BikeRecordState extends State<BikeRecord> {
   String shopservice="Mechanical", OServices="Yes",record_name="bike";
   int shoprating=1,shopafffordability=1;
   late double ocontact;
+  late double price_km;
   final bool status=true;
-
+  bool drop=true;
 
   getOwnerName(name){
     this.Ownername=name;
@@ -86,6 +83,9 @@ class _BikeRecordState extends State<BikeRecord> {
   }
   getLocation(location){
     this.shoplocation=location;
+  }
+  getPrice(rate){
+    this.price_km=double.parse(rate);
   }
   getdropdownValue(service) {
     this.shopservice=service;
@@ -105,21 +105,28 @@ class _BikeRecordState extends State<BikeRecord> {
   saveCarData() {
     //print("saved");
 
+      String? uid;
       DocumentReference dc =FirebaseFirestore.instance.
-      collection(record_name).doc(Ownername);
-      Map<String, dynamic> customers={
+      collection(record_name).doc(uid);
+      Map<String, dynamic> shops={
         "Owner Name": Ownername,
         "Shop Name": shopname,
         "Contact": ocontact,
         "Location": shoplocation,
         "Service": shopservice,
         "Outdoor Services": OServices,
+        "Rs/km": price_km,
         "Shop Rating":shoprating,
         "Shop Affordability": shopafffordability,
         "Shop status":status,
+        "type": record_name,
       };
-      dc.set(customers).whenComplete((){
-        print("$Ownername Created");
+      dc.set(shops).whenComplete((){
+        //print("$Ownername Created");
+
+        const AdvanceSnackBar(
+          message: "Successfully added record",
+          duration: Duration(seconds: 5),).show(context);
       });
 
   }
@@ -143,6 +150,7 @@ class _BikeRecordState extends State<BikeRecord> {
   final SN_Controller = TextEditingController();
   final contact_Controller=TextEditingController();
   final location_Controller=TextEditingController();
+  final price_controller=TextEditingController();
 
  // final dbRef = FirebaseDatabase.instance.reference().child("Bike Record");
 
@@ -347,7 +355,36 @@ class _BikeRecordState extends State<BikeRecord> {
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: TextFormField(
+                    controller: price_controller,
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.currency_rupee_rounded),
+                        labelText: 'Rs/km',
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.black),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1, color: Colors.blue),
+                          borderRadius: BorderRadius.circular(15),
+                        )),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Contact';
+                      }
+                      return null;
+                    },
+                    onChanged: (String rate){
+                      getPrice(rate);
+                    },
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
                 child: DropdownButtonFormField(
+
                   value: dropdownValue3,
                   icon: const Icon(Icons.keyboard_arrow_down_sharp),
                   decoration: InputDecoration(
@@ -359,7 +396,8 @@ class _BikeRecordState extends State<BikeRecord> {
                   ),
                   items: Rating.map((String value) {
                     return  DropdownMenuItem<String>(
-                      value: value,
+                      value:value,
+
                       child:  Text(value),
                     );
                   }).toList(),
@@ -412,6 +450,7 @@ class _BikeRecordState extends State<BikeRecord> {
                          SN_Controller.clear();
                          contact_Controller.clear();
                          location_Controller.clear();
+                         price_controller.clear();
 
                         },
                         child: const Text('Save Record'),
@@ -433,6 +472,7 @@ class _BikeRecordState extends State<BikeRecord> {
     SN_Controller.dispose();
     contact_Controller.dispose();
     location_Controller.dispose();
+    price_controller.dispose();
   }
   }
 
