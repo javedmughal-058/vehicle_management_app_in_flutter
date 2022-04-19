@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     ),
                     padding: const EdgeInsets.all(0),
-                    child: Text(
+                    child: const Text(
                       "LOGIN",
                       textAlign: TextAlign.center,
                       style: TextStyle(
