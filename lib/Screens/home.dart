@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -16,13 +18,48 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+
+  late String record_name;
+  List shopslist=[];
+  @override
+  void initState() {
+    super.initState();
+    fetchdatalist();
+  }
+  fetchdatalist() async{
+    List lisofitem=[];
+    dynamic newresult= await FirebaseFirestore.instance
+        .collection("shops")
+        .orderBy("Shop Rating",descending: true)
+        .where("Shop Rating", isGreaterThanOrEqualTo: 4)
+        .limit(1000)
+        .get().then((querySnapshot) {
+      querySnapshot.docs.forEach((result) {
+       // print(result.data());
+        lisofitem.add(result.data());
+      });
+    });
+    if(lisofitem.isEmpty){
+      print("Unable to retrieve");
+    }
+    else{
+      setState(() {
+        shopslist=lisofitem;
+      });
+    }
+  }
+
   final List _imagesource=[
     'images/a.png',
     'images/b.png',
     'images/c.png'
   ];
+  bool first=true;
   @override
   Widget build(BuildContext context) {
+    if(first){
+      fetchdatalist();
+    }
     return ListView(
       physics: ClampingScrollPhysics(),
       shrinkWrap: true,
@@ -258,231 +295,91 @@ class _homeState extends State<home> {
           ),
         ),
         SizedBox(height: 10,),
-        SingleChildScrollView(
+        ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
+          return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(
-                children: [
-                  TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
-                  },
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                      // color: Colors.red,
-                      height: 250,
-                      width: 220,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.white,
-                            Colors.grey,
-                          ],
-                        ),
-                      ),
-                      child:  Column(
-                        children: [
-
-                          Container(
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
-                                child: Image.asset("images/cs1.jpg",), )),
-                          //Divider(height: 10,color: Colors.black,),
-                          Container(
-                            padding: EdgeInsets.only(top: 20),
-                            child:Column(
-
-                              children: [
-                                Text('Ali Auto Service',
-                                  textAlign: TextAlign.start,
-                                  style: GoogleFonts.merriweather(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold
-                                  )
-                                ),
-                                SizedBox(height: 4,),
-                                Text('15Km Away',
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                    color: Colors.green,
-                                    fontSize: 16,
-                                  ),),
-                                SizedBox(height: 4,),
-                                RatingBar.builder(
-                                  initialRating: 5,
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemSize: 20.0,
-
-                                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  onRatingUpdate: (rating) {
-                                    print(rating);
-                                  },
-                                ),
-
+            child: TextButton(onPressed: (){
+                        // Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
+                      },
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                          // color: Colors.red,
+                          height: 250,
+                          width: 220,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Colors.white,
+                                Colors.grey,
                               ],
                             ),
                           ),
-                        ],
-
-                      ),
-                    ),),
-                  SizedBox(width: 5,),
-                  TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
-                  },
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                      // color: Colors.red,
-                      height: 250,
-                      width: 220,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.white,
-                            Colors.grey,
-                          ],
-                        ),
-                      ),
-                      child:  Column(
-                        children: [
-
-                          Container(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
-                                child: Image.asset("images/cs2.jpg",), )),
-                          //Divider(height: 10,color: Colors.black,),
-                          Container(
-                            padding: EdgeInsets.only(top: 10),
-                            child:Column(
-
-                              children: [
-                                Text('Sharjeel Auto Repair and Spare Parts',
-                                    textAlign: TextAlign.start,
-                                    style: GoogleFonts.merriweather(
-                                        fontSize: 18,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold
+                          child:  Column(
+                            children: [
+                              Container(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
+                                    child: Image.asset("images/cs1.jpg",), )),
+                              //Divider(height: 10,color: Colors.black,),
+                              Container(
+                                padding: EdgeInsets.only(top: 20),
+                                child:Column(
+                                  children: [
+                                    Text('${shopslist[index]['Shop Name']}',
+                                        textAlign: TextAlign.start,
+                                        style: GoogleFonts.merriweather(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold
+                                        )
                                     ),
+                                    SizedBox(height: 4,),
+                                    Text('${shopslist[index]['type']}',
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        color: Colors.green,
+                                        fontSize: 16,
+                                      ),),
+                                    SizedBox(height: 4,),
+                                    Text('${shopslist[index]['Shop Rating']}',
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        color: Colors.yellow,
+                                        fontSize: 16,
+                                      ),),
+                                    SizedBox(height: 4,),
+                                   // RatingBar.builder(
+                                     // initialRating: 5,
+                                     // minRating: 1,
+                                      //direction: Axis.horizontal,
+                                     // allowHalfRating: true,
+                                      //itemCount: 5,
+                                      //itemSize: 20.0,
+
+                                      //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                      //itemBuilder: (context, _) => Icon(
+                                       // Icons.star,
+                                        //color: Colors.amber,
+                                      //),
+                                      //onRatingUpdate: (rating) {
+                                        //print(rating);
+                                      //},
+                                   // ),
+
+                                  ],
                                 ),
+                              ),
+                            ],
 
-                                Text('15Km Away',
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                    color: Colors.green,
-                                    fontSize: 16,
-                                  ),),
-                                SizedBox(height: 2,),
-                                RatingBar.builder(
-                                  initialRating: 5,
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemSize: 20.0,
-
-                                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  onRatingUpdate: (rating) {
-                                    print(rating);
-                                  },
-                                ),
-
-                              ],
-                            ),
                           ),
-                        ],
+                        ),),
+          );
+        },
+        ),
 
-                      ),
-                    ),),
-                  SizedBox(width: 5,),
-                  TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
-                  },
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                      // color: Colors.red,
-                      height: 250,
-                      width: 220,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.white,
-                            Colors.grey,
-                          ],
-                        ),
-                      ),
-                      child:  Column(
-                        children: [
-                          Container(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
-                                child: Image.asset("images/cs1.jpg"), )),
-                          //Divider(height: 10,color: Colors.black,),
-                          Container(
-                            padding: EdgeInsets.only(top: 20),
-                            child:Column(
-
-                              children: [
-                                Text('Razaq Honda Service',
-                                    textAlign: TextAlign.start,
-                                    style: GoogleFonts.merriweather(
-                                        fontSize: 18,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold
-                                    )
-                                ),
-                                SizedBox(height: 4,),
-                                Text('10km Away',
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                    color: Colors.green,
-                                    fontSize: 16,
-                                  ),),
-                                SizedBox(height: 4,),
-                                RatingBar.builder(
-                                  initialRating: 4.5,
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemSize: 20.0,
-
-                                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  onRatingUpdate: (rating) {
-                                    print(rating);
-                                  },
-                                ),
-
-                              ],
-                            ),
-                          ),
-                        ],
-
-                      ),
-                    ),),
-                ])),
 
 
 

@@ -22,26 +22,30 @@ class _view_recordState extends State<view_record> {
     washshops=0;
     batteryshops=0;
     var car_result = await FirebaseFirestore.instance
-        .collection("car")
+        .collection("shops")
+        .where("type", isEqualTo: "car")
         .get();
     car_result.docs.forEach((res) {
       //print(res.data());
       carshops++;
     });
     var bike_result = await FirebaseFirestore.instance
-        .collection("bike")
+        .collection("shops")
+        .where("type", isEqualTo: "bike")
         .get();
     bike_result.docs.forEach((res) {
       bikeshops++;
     });
     var wash_result = await FirebaseFirestore.instance
-        .collection("wash")
+        .collection("shops")
+        .where("type", isEqualTo: "wash")
         .get();
     wash_result.docs.forEach((res) {
       washshops++;
     });
     var battery_result = await FirebaseFirestore.instance
-        .collection("battery")
+        .collection("shops")
+        .where("type", isEqualTo: "battery")
         .get();
     battery_result.docs.forEach((res) {
       batteryshops++;
