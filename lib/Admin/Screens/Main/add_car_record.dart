@@ -71,6 +71,7 @@ class _BikeRecordState extends State<BikeRecord> {
   late double price_km;
   final bool status=true;
   bool drop=true;
+  bool enable=false;
 
   getOwnerName(name){
     this.Ownername=name;
@@ -92,6 +93,10 @@ class _BikeRecordState extends State<BikeRecord> {
   }
   getdropdownValue2(Outservice) {
     this.OServices=Outservice;
+    if(Outservice=="No"){
+      enable=true;
+    }
+
   }
   getdropdownValue3(rating) {
     this.shoprating=int.parse(rating);
@@ -107,7 +112,7 @@ class _BikeRecordState extends State<BikeRecord> {
 
       String? uid;
       DocumentReference dc =FirebaseFirestore.instance.
-      collection(record_name).doc(uid);
+      collection("shops").doc(uid);
       Map<String, dynamic> shops={
         "Owner Name": Ownername,
         "Shop Name": shopname,
@@ -348,36 +353,40 @@ class _BikeRecordState extends State<BikeRecord> {
                     // getService=(service);
                     setState(() {
                       dropdownValue2 = Outservice!;
+
                     });
                   },
 
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Center(
-                  child: TextFormField(
-                    controller: price_controller,
-                    decoration: InputDecoration(
-                        icon: Icon(Icons.currency_rupee_rounded),
-                        labelText: 'Rs/km',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(width: 1, color: Colors.black),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(width: 1, color: Colors.blue),
-                          borderRadius: BorderRadius.circular(15),
-                        )),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Contact';
-                      }
-                      return null;
-                    },
-                    onChanged: (String rate){
-                      getPrice(rate);
-                    },
+              IgnorePointer(
+                ignoring: enable,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Center(
+                    child: TextFormField(
+                      controller: price_controller,
+                      decoration: InputDecoration(
+                          icon: Icon(Icons.currency_rupee),
+                          labelText: 'Rs/km',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(width: 1, color: Colors.black),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(width: 1, color: Colors.blue),
+                            borderRadius: BorderRadius.circular(15),
+                          )),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Contact';
+                        }
+                        return null;
+                      },
+                      onChanged: (String rate){
+                        getPrice(rate);
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -445,13 +454,14 @@ class _BikeRecordState extends State<BikeRecord> {
                     children: <Widget>[
                       ElevatedButton(
                         onPressed: () {
-                         saveCarData();
-                         ON_Controller.clear();
-                         SN_Controller.clear();
-                         contact_Controller.clear();
-                         location_Controller.clear();
-                         price_controller.clear();
-
+                         if(_formKey.currentState!.validate()) {
+                           saveCarData();
+                           ON_Controller.clear();
+                           SN_Controller.clear();
+                           contact_Controller.clear();
+                           location_Controller.clear();
+                           price_controller.clear();
+                         }
                         },
                         child: const Text('Save Record'),
                         style: ButtonStyle(
