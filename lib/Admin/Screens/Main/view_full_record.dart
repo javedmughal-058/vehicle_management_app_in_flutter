@@ -26,9 +26,10 @@ class _view_full_recordState extends State<view_full_record> {
   fetchdatalist() async{
     List lisofitem=[];
     dynamic newresult= await FirebaseFirestore.instance
-       .collection(record_name)
-
-       .orderBy("Shop Rating",descending: true)
+       .collection("shops")
+        //.orderBy("Shop Rating",descending: true)
+        .where("type", isEqualTo: record_name)
+        .limit(1000)
        .get().then((querySnapshot) {
      querySnapshot.docs.forEach((result) {
       
@@ -38,7 +39,7 @@ class _view_full_recordState extends State<view_full_record> {
    if(lisofitem.isEmpty){
      CoolAlert.show(
        context: context,
-       type: CoolAlertType.error,
+       type: CoolAlertType.info,
        text: "No record found",
      );
      print("Unable to retrieve");
@@ -85,7 +86,6 @@ class _view_full_recordState extends State<view_full_record> {
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20),),
                   ),
                   child: ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
-
                     return  Container(
                       margin: EdgeInsets.only(top: 10),
                       height: 70,
@@ -131,12 +131,6 @@ class _view_full_recordState extends State<view_full_record> {
                                 ),),
                               ],
                             ),
-                            const SizedBox(width: 10,),
-                            Text("Affordability: ${shopslist[index]['Shop Affordability']}",style: const TextStyle(
-                              color: Colors.indigo,
-                              fontSize: 14,
-                              fontFamily: 'Shrikhand',
-                            ),),
                             const Spacer(),
                             MaterialButton(onPressed: (){},
                               child: Row(
@@ -150,9 +144,9 @@ class _view_full_recordState extends State<view_full_record> {
                             ),
                           ]
                       ),
-                    )
-                    ;
-                  },),
+                    );
+                  },
+                  ),
 
                 ),
               ),
