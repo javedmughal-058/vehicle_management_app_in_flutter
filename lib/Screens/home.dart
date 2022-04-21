@@ -3,6 +3,7 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/rendering.dart';
 import 'bike.dart';
 import 'car.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -100,7 +101,7 @@ class _homeState extends State<home> {
              // SizedBox(width: 10,),
               Expanded(
                 child: TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> bike("bike"),));
                 },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
@@ -176,7 +177,7 @@ class _homeState extends State<home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> bike("bike"),));
               },
                 child: Container(
                   padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -296,87 +297,84 @@ class _homeState extends State<home> {
         ),
         SizedBox(height: 10,),
         ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
-          return SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: TextButton(onPressed: (){
-                        // Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
-                      },
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                          // color: Colors.red,
-                          height: 250,
-                          width: 220,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.white,
-                                Colors.grey,
-                              ],
-                            ),
-                          ),
-                          child:  Column(
-                            children: [
-                              Container(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
-                                    child: Image.asset("images/cs1.jpg",), )),
-                              //Divider(height: 10,color: Colors.black,),
-                              Container(
-                                padding: EdgeInsets.only(top: 20),
-                                child:Column(
-                                  children: [
-                                    Text('${shopslist[index]['Shop Name']}',
-                                        textAlign: TextAlign.start,
-                                        style: GoogleFonts.merriweather(
-                                            fontSize: 18,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold
-                                        )
-                                    ),
-                                    SizedBox(height: 4,),
-                                    Text('${shopslist[index]['type']}',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        color: Colors.green,
-                                        fontSize: 16,
-                                      ),),
-                                    SizedBox(height: 4,),
-                                    Text('${shopslist[index]['Shop Rating']}',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        color: Colors.yellow,
-                                        fontSize: 16,
-                                      ),),
-                                    SizedBox(height: 4,),
-                                   // RatingBar.builder(
-                                     // initialRating: 5,
-                                     // minRating: 1,
-                                      //direction: Axis.horizontal,
-                                     // allowHalfRating: true,
-                                      //itemCount: 5,
-                                      //itemSize: 20.0,
-
-                                      //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                      //itemBuilder: (context, _) => Icon(
-                                       // Icons.star,
-                                        //color: Colors.amber,
-                                      //),
-                                      //onRatingUpdate: (rating) {
-                                        //print(rating);
-                                      //},
-                                   // ),
-
-                                  ],
-                                ),
-                              ),
+          return TextButton(onPressed: (){
+                      // Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
+                    },
+                      child: Container(
+                        padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                        // color: Colors.red,
+                        height: 250,
+                        width: 220,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.white,
+                              Colors.grey,
                             ],
-
                           ),
-                        ),),
-          );
+                        ),
+                        child:  Column(
+                          children: [
+                            Container(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
+                                  child: Image.asset("images/cs1.jpg",), )),
+                            //Divider(height: 10,color: Colors.black,),
+                            Container(
+                              padding: EdgeInsets.only(top: 20),
+                              child:Column(
+                                children: [
+                                  Text('${shopslist[index]['Shop Name']}',
+                                      textAlign: TextAlign.start,
+                                      style: GoogleFonts.merriweather(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold
+                                      )
+                                  ),
+                                  SizedBox(height: 4,),
+                                  Text('${shopslist[index]['type']}',
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      color: Colors.green,
+                                      fontSize: 16,
+                                    ),),
+                                  SizedBox(height: 4,),
+                                  Text('${shopslist[index]['Shop Rating']}',
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      color: Colors.yellow,
+                                      fontSize: 16,
+                                    ),),
+                                  SizedBox(height: 4,),
+                                 // RatingBar.builder(
+                                   // initialRating: 5,
+                                   // minRating: 1,
+                                    //direction: Axis.horizontal,
+                                   // allowHalfRating: true,
+                                    //itemCount: 5,
+                                    //itemSize: 20.0,
+
+                                    //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                    //itemBuilder: (context, _) => Icon(
+                                     // Icons.star,
+                                      //color: Colors.amber,
+                                    //),
+                                    //onRatingUpdate: (rating) {
+                                      //print(rating);
+                                    //},
+                                 // ),
+
+                                ],
+                              ),
+                            ),
+                          ],
+
+                        ),
+                      ),);
         },
         ),
 
