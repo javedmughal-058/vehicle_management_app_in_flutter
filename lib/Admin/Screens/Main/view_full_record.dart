@@ -101,7 +101,6 @@ class _view_full_recordState extends State<view_full_record> {
                           ),
                         ],
                       ),
-
                       child: Row(
                           children: [
                             const SizedBox(width: 20,),
