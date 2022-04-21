@@ -41,6 +41,7 @@ class _manage_recordState extends State<manage_record> {
           Container(
             padding: EdgeInsets.only(left: 5,right: 5),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 TextButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (c)=>add_car_record()));
@@ -76,7 +77,7 @@ class _manage_recordState extends State<manage_record> {
 
                     ),
                   ),),
-                Spacer(),
+
                 TextButton(onPressed: (){
 
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> const view_record()));

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,13 +8,36 @@ import 'detail_screen.dart';
 import 'homepage.dart';
 
 class bike extends StatefulWidget {
-  const bike({Key? key}) : super(key: key);
-
+  String str;
+  bike(this.str, {Key? key}) : super(key: key);
   @override
-  _bikeState createState() => _bikeState();
+  _bikeState createState() => _bikeState(this.str);
 }
 
 class _bikeState extends State<bike> {
+  _bikeState(this.type){}
+  late String type;
+  List shopslist=[];
+  @override
+  void initState() {
+    super.initState();
+    fetchdatalist();
+  }
+  fetchdatalist() async{
+    List lisofitem=[];
+    dynamic newresult= await FirebaseFirestore.instance
+        .collection("shops")
+    //.orderBy("Shop Rating",descending: true)
+        .where("type", isEqualTo: type)
+        .limit(1000)
+        .get().then((querySnapshot) {
+      querySnapshot.docs.forEach((result) {
+        print(result.data());
+        lisofitem.add(result.data());
+      });
+    });
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +75,7 @@ class _bikeState extends State<bike> {
                 children: [
                   //SizedBox(width: 3,),
                   TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category("bike"),));
                   },
                     child: Container(
                       //color: Colors.black26,
@@ -58,17 +83,16 @@ class _bikeState extends State<bike> {
                       // color: Colors.red,
                       height: 125,
                       width: 105,
-                      decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
-                            ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.white,
+                            Colors.grey,
                           ],
-                          color: Colors.lime[300]
+                        ),
                       ),
                       child:  Column(
                         children: [
@@ -85,24 +109,23 @@ class _bikeState extends State<bike> {
                     ),),
                   //SizedBox(width: 3,),
                   TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category("bike"),));
                   },
                     child: Container(
                       padding: EdgeInsets.fromLTRB(5, 10, 5, 5),
                       // color: Colors.red,
                       height: 125,
                       width: 105,
-                      decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
-                            ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.grey,
+                            Colors.white,
                           ],
-                          color: Colors.lightBlueAccent[100]
+                        ),
                       ),
                       child:  Column(
                         children: [
@@ -120,24 +143,23 @@ class _bikeState extends State<bike> {
                     ),),
                  // SizedBox(width: 3,),
                   TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category("bike"),));
                   },
                     child: Container(
                       padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                       // color: Colors.red,
                       height: 125,
                       width: 105,
-                      decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
-                            ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.white,
+                            Colors.grey,
                           ],
-                          color: Colors.green[300]
+                        ),
                       ),
                       child:  Column(
                         children: [
@@ -154,24 +176,23 @@ class _bikeState extends State<bike> {
                     ),),
                   //SizedBox(width: 3,),
                   TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category("bike"),));
                   },
                     child: Container(
                       padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                       // color: Colors.red,
                       height: 125,
                       width: 105,
-                      decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
-                            ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.grey,
+                            Colors.white,
                           ],
-                          color: Colors.deepOrange[300]
+                        ),
                       ),
                       child:  Column(
                         children: [
@@ -190,24 +211,23 @@ class _bikeState extends State<bike> {
                     ),),
                   // SizedBox(width: 3,),
                   TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category("bike"),));
                   },
                     child: Container(
                       padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                       // color: Colors.red,
                       height: 125,
                       width: 105,
-                      decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
-                            ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.white,
+                            Colors.grey,
                           ],
-                          color: Colors.indigo[200]
+                        ),
                       ),
                       child:  Column(
                         children: [
@@ -224,24 +244,23 @@ class _bikeState extends State<bike> {
                     ),),
                   //SizedBox(width: 3,),
                   TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category("bike"),));
                   },
                     child: Container(
                       padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
                       // color: Colors.red,
                       height: 125,
                       width: 105,
-                      decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: Offset(0, 3), // changes position of shadow
-                            ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.grey,
+                            Colors.white,
                           ],
-                          color: Colors.lightGreen[200]
+                        ),
                       ),
                       child:  Column(
                         children: [
@@ -278,7 +297,7 @@ class _bikeState extends State<bike> {
               child: Row(
                   children: [
                     TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(type),));
                     },
                       child: Container(
                         padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -352,7 +371,7 @@ class _bikeState extends State<bike> {
                       ),),
                     SizedBox(width: 5,),
                     TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(type),));
                     },
                       child: Container(
                         padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -426,7 +445,7 @@ class _bikeState extends State<bike> {
                       ),),
                     SizedBox(width: 5,),
                     TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_category(type),));
                     },
                       child: Container(
                         padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -500,179 +519,60 @@ class _bikeState extends State<bike> {
                   ])),
           Container(
             padding: EdgeInsets.fromLTRB(10, 10,0, 5),
-            child: Text("Suggested Shops",style: TextStyle(fontSize:20),),
+            child: Text("Suggested Shops",style: TextStyle(fontSize:20,fontWeight: FontWeight.bold),),
           ),
           SizedBox(height: 15,),
-          Container(
-            margin: EdgeInsets.only(left: 5,right: 5),
-            height: 80,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 7,
-                    blurRadius: 9,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ]
-            ),
-            child: Row(
-              children: [
-                SizedBox(width: 20,),
-                CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  radius: 30,
+          ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
+            return Container(
+              padding: EdgeInsets.all(4),
+              child: Container(
+                margin: EdgeInsets.only(left: 5,right: 5),
+                height: 80,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 7,
+                        blurRadius: 9,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ]
                 ),
-                SizedBox(width: 20,),
-                Column(
+                child: Row(
+                  //mainAxisAlignment: MainAxisAlignment.,
                   children: [
-                    SizedBox(height: 20,),
-                    Text("Shope Name",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 10,),
-                    Text("10KM Away",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
+                    SizedBox(width: 20,),
+                    CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      radius: 20,
+                    ),
+                    SizedBox(width: 15,),
+                    Column(
+                      children: [
+                        SizedBox(height: 10,),
+                        Text("${shopslist[index]["Shop Name"]}",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+                        SizedBox(height: 5,),
+                        Text("Rating: ${shopslist[index]["Shop Rating"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
+                        SizedBox(height: 5,),
+                        Text("${shopslist[index]["Service"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
+
+                      ],
+                    ),
+                    Spacer(),
+                    IconButton(
+                      icon: const Icon(Icons.remove_red_eye,size: 25,),
+                      color: Colors.amber,
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
+                      },
+                    ),
                   ],
                 ),
-                Spacer(),
-                IconButton(
-                  icon: const Icon(Icons.remove_red_eye,size: 30,),
-                  color: Colors.amber,
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
-                  },
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10,),
-          Container(
-            margin: EdgeInsets.only(left: 5,right: 5),
-            height: 80,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 7,
-                    blurRadius: 9,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ]
-            ),
-            child: Row(
-              children: [
-                SizedBox(width: 20,),
-                CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  radius: 30,
-                ),
-                SizedBox(width: 20,),
-                Column(
-                  children: [
-                    SizedBox(height: 20,),
-                    Text("Shope Name",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 10,),
-                    Text("10KM Away",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
-                  ],
-                ),
-                Spacer(),
-                IconButton(
-                  icon: const Icon(Icons.remove_red_eye,size: 30,),
-                  color: Colors.amber,
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
-                  },
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10,),
-          Container(
-            margin: EdgeInsets.only(left: 5,right: 5),
-            height: 80,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 7,
-                    blurRadius: 9,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ]
-            ),
-            child: Row(
-              children: [
-                SizedBox(width: 20,),
-                CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  radius: 30,
-                ),
-                SizedBox(width: 20,),
-                Column(
-                  children: [
-                    SizedBox(height: 20,),
-                    Text("Shope Name",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 10,),
-                    Text("10KM Away",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
-                  ],
-                ),
-                Spacer(),
-                IconButton(
-                  icon: const Icon(Icons.remove_red_eye,size: 30,),
-                  color: Colors.amber,
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
-                  },
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10,),
-          Container(
-            margin: EdgeInsets.only(left: 5,right: 5),
-            height: 80,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 7,
-                    blurRadius: 9,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ]
-            ),
-            child: Row(
-              children: [
-                SizedBox(width: 20,),
-                CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  radius: 30,
-                ),
-                SizedBox(width: 20,),
-                Column(
-                  children: [
-                    SizedBox(height: 20,),
-                    Text("Shope Name",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 10,),
-                    Text("10KM Away",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
-                  ],
-                ),
-                Spacer(),
-                IconButton(
-                  icon: const Icon(Icons.remove_red_eye,size: 30,),
-                  color: Colors.amber,
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
-                  },
-                ),
-              ],
-            ),
+              ),
+            );
+          },
           ),
         ],
       ),

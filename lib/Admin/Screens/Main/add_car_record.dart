@@ -106,6 +106,7 @@ class _BikeRecordState extends State<BikeRecord> {
   }
   getdropdownValue5(newValueSelected) {
     this.record_name=newValueSelected;
+
   }
   saveCarData() {
     //print("saved");
