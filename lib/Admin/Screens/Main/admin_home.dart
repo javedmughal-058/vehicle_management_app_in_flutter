@@ -163,7 +163,7 @@ class _admin_homeState extends State<admin_home> {
                   Container(
                     // padding: EdgeInsets.all(10),
                     height: 440,
-                    width: 320,
+                    width: 340,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(40.0),
@@ -192,7 +192,7 @@ class _admin_homeState extends State<admin_home> {
                         Container(
                           padding: EdgeInsets.all(15),
                           height: 260,
-                          width: 250,
+                          width: 270,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(30.0),
@@ -321,8 +321,8 @@ class _admin_homeState extends State<admin_home> {
                   SizedBox(width: 10,),
                   Container(
                     // padding: EdgeInsets.all(10),
-                    height: 410,
-                    width: 320,
+                    height: 440,
+                    width: 340,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(40.0),
@@ -347,11 +347,11 @@ class _admin_homeState extends State<admin_home> {
                             color: Colors.white,
                             fontWeight: FontWeight.bold
                         ),),
-                        SizedBox(height: 10,),
+                        SizedBox(height: 20,),
                         Container(
                           padding: EdgeInsets.all(15),
                           height: 250,
-                          width: 250,
+                          width: 270,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(30.0),
@@ -480,8 +480,8 @@ class _admin_homeState extends State<admin_home> {
                   SizedBox(width: 10,),
                   Container(
                     // padding: EdgeInsets.all(10),
-                    height: 300,
-                    width: 320,
+                    height: 440,
+                    width: 340,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(40.0),
@@ -509,8 +509,8 @@ class _admin_homeState extends State<admin_home> {
                         SizedBox(height: 20,),
                         Container(
                           padding: EdgeInsets.all(15),
-                          height: 120,
-                          width: 250,
+                          height: 250,
+                          width: 270,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(30.0),
@@ -521,6 +521,7 @@ class _admin_homeState extends State<admin_home> {
                             color: Colors.white,
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(height: 10,),
                               Row(
