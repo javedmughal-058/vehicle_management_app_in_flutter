@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'bike.dart';
 import 'bike_detail.dart';
 class bike_category extends StatefulWidget {
-  const bike_category({Key? key}) : super(key: key);
+  String s;
+   bike_category(this.s, {Key? key}) : super(key: key);
 
   @override
-  State<bike_category> createState() => _bike_categoryState();
+  State<bike_category> createState() => _bike_categoryState(this.s);
 }
 
 class _bike_categoryState extends State<bike_category> {
-
+  _bike_categoryState(this.type){}
+  late String type;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +22,7 @@ class _bike_categoryState extends State<bike_category> {
         title: const Text('Select_Category'),
         backgroundColor: Color(0xFF37474F),
         leading: IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (c)=>bike()));
+          Navigator.push(context, MaterialPageRoute(builder: (c)=>bike("bike")));
         }, icon: Icon(Icons.arrow_back)),
         actions: [
           IconButton(onPressed: (){
@@ -57,7 +59,7 @@ class _bike_categoryState extends State<bike_category> {
                     icon: const Icon(Icons.navigate_next,size: 30,),
                     color: Colors.black,
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(type,"Electrical"),));
 
                     },
                   ),
@@ -92,7 +94,7 @@ class _bike_categoryState extends State<bike_category> {
                   icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(type,"Mechanical"),));
 
                   },
                 ),
@@ -127,7 +129,7 @@ class _bike_categoryState extends State<bike_category> {
                   icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(type,"Tire Shop"),));
 
                   },
                 ),
@@ -162,7 +164,7 @@ class _bike_categoryState extends State<bike_category> {
                   icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(type,"Denting and Painting"),));
 
                   },
                 ),
@@ -197,7 +199,7 @@ class _bike_categoryState extends State<bike_category> {
                   icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(type,"Spare Parts"),));
 
                   },
                 ),
@@ -232,7 +234,7 @@ class _bike_categoryState extends State<bike_category> {
                   icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(type,"Oil Change"),));
 
                   },
                 ),
@@ -267,7 +269,7 @@ class _bike_categoryState extends State<bike_category> {
                   icon: const Icon(Icons.navigate_next,size: 30,),
                   color: Colors.black,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> bike_detail(type,"Tire Shop"),));
 
                   },
                 ),

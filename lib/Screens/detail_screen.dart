@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +12,18 @@ class detail_screen extends StatefulWidget {
 }
 
 class _detail_screenState extends State<detail_screen> {
+  void initState() {
+    super.initState();
+    fetchdatalist();
+  }
+  fetchdatalist() async{
+    List lisofitem=[];
+    var firebaseUser =  FirebaseAuth.instance.currentUser;
+    FirebaseFirestore.instance.collection("shops").doc(firebaseUser?.uid).get().then((value){
+      print(value.data()!["Shop Name"]);
+      lisofitem.add(value);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
