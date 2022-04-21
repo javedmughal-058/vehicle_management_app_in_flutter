@@ -27,13 +27,15 @@ class _bikeState extends State<bike> {
     List lisofitem=[];
     dynamic newresult= await FirebaseFirestore.instance
         .collection("shops")
-    //.orderBy("Shop Rating",descending: true)
+        //.orderBy("Shop Rating",descending: true)
         .where("type", isEqualTo: type)
-        .limit(1000)
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
         print(result.data());
         lisofitem.add(result.data());
+        setState(() {
+          shopslist=lisofitem;
+        });
       });
     });
 
@@ -544,10 +546,7 @@ class _bikeState extends State<bike> {
                   //mainAxisAlignment: MainAxisAlignment.,
                   children: [
                     SizedBox(width: 20,),
-                    CircleAvatar(
-                      backgroundColor: Colors.grey,
-                      radius: 20,
-                    ),
+                   Icon(Icons.home_work_sharp),
                     SizedBox(width: 15,),
                     Column(
                       children: [
