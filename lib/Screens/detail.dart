@@ -3,18 +3,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vehicle_maintainance/Screens/bike_category.dart';
+import 'package:vehicle_maintainance/Screens/category.dart';
 import 'package:vehicle_maintainance/Screens/detail_screen.dart';
-class bike_detail extends StatefulWidget {
+class detail extends StatefulWidget {
   String s,str;
-  bike_detail(this.s, this.str, {Key? key}) : super(key: key);
+  detail(this.s, this.str, {Key? key}) : super(key: key);
 
   @override
-  _bike_detailState createState() => _bike_detailState(this.s,this.str);
+  detailState createState() => detailState(this.s,this.str);
 }
 
-class _bike_detailState extends State<bike_detail> {
-  _bike_detailState(this.shoptype,this.service){}
+class detailState extends State<detail> {
+  detailState(this.shoptype,this.service){}
   late String shoptype;
   late String service;
   List shopslist=[];
@@ -28,11 +28,11 @@ class _bike_detailState extends State<bike_detail> {
     dynamic newresult= await FirebaseFirestore.instance
         .collection("shops")
         //.orderBy("Shop Rating",descending: true)
-        .where("type", isEqualTo: shoptype)
-        .where("Service", isEqualTo: service)
+          .where("type", isEqualTo: shoptype)
+          .where("Service", isEqualTo: service)
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
-        print(result.data());
+        //print(result.data());
         lisofitem.add(result.data());
       });
     });
@@ -57,16 +57,16 @@ class _bike_detailState extends State<bike_detail> {
       appBar: AppBar(
         title: Text("$shoptype"),
         leading: IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (c)=>bike_category(shoptype)));
+          Navigator.push(context, MaterialPageRoute(builder: (c)=>category(shoptype)));
         }, icon: Icon(Icons.arrow_back)),
         backgroundColor: Color(0xFF37474F),
       ),
-      body: Column(
+      body: ListView(
         children: [
           SizedBox(height: 15,),
           Padding(padding: EdgeInsets.only(left: 10),child: Text("Shops detail",style: GoogleFonts.tajawal(fontSize: 20,fontWeight: FontWeight.bold),)),
           SizedBox(height: 15,),
-          ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
+          ListView.builder(physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
             return Container(
               padding: EdgeInsets.all(4),
               child: Container(
@@ -109,7 +109,7 @@ class _bike_detailState extends State<bike_detail> {
                       icon: const Icon(Icons.remove_red_eye,size: 25,),
                       color: Colors.amber,
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(shopslist),));
                       },
                     ),
                   ],
@@ -118,7 +118,7 @@ class _bike_detailState extends State<bike_detail> {
             );
           },
           ),
-          
+
         ],
       ),
     );
