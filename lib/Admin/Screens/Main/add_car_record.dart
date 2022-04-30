@@ -68,7 +68,7 @@ class _BikeRecordState extends State<BikeRecord> {
   String shopservice="Mechanical", OServices="Yes",record_name="bike";
   int shoprating=1,shopafffordability=1;
   late double ocontact;
-  late double price_km;
+  late double price_km=0;
   final bool status=true;
   bool drop=true;
   bool enable=false;
@@ -93,8 +93,11 @@ class _BikeRecordState extends State<BikeRecord> {
   }
   getdropdownValue2(Outservice) {
     this.OServices=Outservice;
-    if(Outservice=="No"){
+    if(OServices=="No"){
       enable=true;
+    }
+    else{
+      enable=false;
     }
 
   }
@@ -106,7 +109,11 @@ class _BikeRecordState extends State<BikeRecord> {
   }
   getdropdownValue5(newValueSelected) {
     this.record_name=newValueSelected;
-
+    if(record_name=="wash" || record_name=="battery"){
+      enable=true;
+    }else{
+      enable=false;
+    }
   }
   saveCarData() {
     //print("saved");
@@ -129,10 +136,20 @@ class _BikeRecordState extends State<BikeRecord> {
       };
       dc.set(shops).whenComplete((){
         //print("$Ownername Created");
-
-        const AdvanceSnackBar(
+        AdvanceSnackBar(
           message: "Successfully added record",
-          duration: Duration(seconds: 5),).show(context);
+          duration: Duration(seconds: 5),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 2),
+              child: Icon(
+                Icons.all_inbox,
+                color: Colors.red,
+                size: 25,
+              ),
+            ),
+            isIcon: true)
+            .show(context);
+
       });
 
   }
@@ -239,7 +256,7 @@ class _BikeRecordState extends State<BikeRecord> {
                         )),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Shop Name';
+                        return 'Enter Shop Name';
                       }
                       return null;
                     },
@@ -267,7 +284,7 @@ class _BikeRecordState extends State<BikeRecord> {
                         )),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Contact';
+                        return 'Enter Contact';
                       }
                       return null;
                     },
@@ -295,7 +312,7 @@ class _BikeRecordState extends State<BikeRecord> {
                         )),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Location';
+                        return 'Enter Location';
                       }
                       return null;
                     },
@@ -305,31 +322,34 @@ class _BikeRecordState extends State<BikeRecord> {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: DropdownButtonFormField(
-                  value: dropdownValue,
-                  icon: Icon(Icons.keyboard_arrow_down_sharp),
-                  decoration: InputDecoration(
-                    labelText: "Select Service Once at a time",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+              IgnorePointer(
+                ignoring: enable,
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: DropdownButtonFormField(
+                    value: dropdownValue,
+                    icon: Icon(Icons.keyboard_arrow_down_sharp),
+                    decoration: InputDecoration(
+                      labelText: "Select Service Once at a time",
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
                     ),
-                  ),
-                  items: listOfServices.map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String? service) {
-                   getdropdownValue(service);
-                   // getService=(service);
-                    setState(() {
-                      dropdownValue = service!;
-                    });
-                  },
+                    items: listOfServices.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (String? service) {
+                     getdropdownValue(service);
+                     // getService=(service);
+                      setState(() {
+                        dropdownValue = service!;
+                      });
+                    },
 
+                  ),
                 ),
               ),
               Padding(
@@ -379,8 +399,8 @@ class _BikeRecordState extends State<BikeRecord> {
                             borderRadius: BorderRadius.circular(15),
                           )),
                       validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Contact';
+                        if (enable==false && value!.isEmpty) {
+                          return 'Enter Rs/km';
                         }
                         return null;
                       },
