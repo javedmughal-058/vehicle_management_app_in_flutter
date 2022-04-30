@@ -4,10 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/rendering.dart';
+import 'package:vehicle_maintainance/Screens/view_screen.dart';
 import 'bike.dart';
 import 'car.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import 'detail_screen.dart';
 
 
 class home extends StatefulWidget {
@@ -31,23 +34,19 @@ class _homeState extends State<home> {
     List lisofitem=[];
     dynamic newresult= await FirebaseFirestore.instance
         .collection("shops")
-        .orderBy("Shop Rating",descending: true)
+        //.where("Shop status", isEqualTo: "true")
         .where("Shop Rating", isGreaterThanOrEqualTo: 4)
-        .limit(1000)
+        .orderBy("Shop Rating", descending: true)
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
        // print(result.data());
         lisofitem.add(result.data());
+        setState(() {
+          shopslist=lisofitem;
+
+        });
       });
     });
-    if(lisofitem.isEmpty){
-      print("Unable to retrieve");
-    }
-    else{
-      setState(() {
-        shopslist=lisofitem;
-      });
-    }
   }
 
   final List _imagesource=[
@@ -62,11 +61,9 @@ class _homeState extends State<home> {
       fetchdatalist();
     }
     return ListView(
-      physics: ClampingScrollPhysics(),
-      shrinkWrap: true,
-      //scrollDirection: Axis.vertical,
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(10),
       children: [
+
         Container(
           height: 200,
           decoration: BoxDecoration(
@@ -130,7 +127,7 @@ class _homeState extends State<home> {
               SizedBox(width: 10,),
               Expanded(
                 child:  TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> car(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> car("car"),));
               },
                 child: Container(
                   padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
@@ -162,146 +159,150 @@ class _homeState extends State<home> {
         SizedBox(height: 10,),
         Container(
           padding: EdgeInsets.symmetric(vertical: 5),
-          color:Color(0xFF37474F),
+          //color:Color(0xFF37474F),
           height: 40,
           //color: Colors.amber[100],
           child: Text("Recommended",textAlign: TextAlign.center,style:
-          GoogleFonts.merriweather(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          GoogleFonts.merriweather(color: Color(0xFF37474F), fontSize: 20, fontWeight: FontWeight.bold),
 
           ),
         ),
         SizedBox(height: 10,),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> bike("bike"),));
-              },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                  // color: Colors.red,
-                  height: 120,
-                  width: 100,
-                  decoration:  BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white
-                  ),
-                  child:  Column(
-                    children: [
-                      Image.asset("images/wash.png",height: 80,width: 80,),
-                      Text('Wash',textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),),
-                      SizedBox(height: 7,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> view("wash")));
+            },
+              child: Container(
+                padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                // color: Colors.red,
+                height: 100,
+                width: 80,
+                decoration:  BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
                     ],
+                    color: Colors.white
+                ),
+                child:  Column(
+                  children: [
+                    Image.asset("images/wash.png",height: 60,width: 60,),
+                    Text('Wash',textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),),
+                    SizedBox(height: 7,),
+                  ],
 
-                  ),
-                ),),
-              SizedBox(width: 3,),
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> car(),));
-              },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                  // color: Colors.red,
-                  height: 120,
-                  width: 100,
-                  decoration:  BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white
-                  ),
-                  child:  Column(
-                    children: [
-                      SizedBox(height: 15,),
-                      Image.asset("images/battery.png",height: 60,width: 80),
-                      SizedBox(height: 5,),
-                      Text('Battery',textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),),
-                      SizedBox(height: 7,),
+                ),
+              ),),
+            SizedBox(width: 3,),
+            TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> view("battery")));
+            },
+              child: Container(
+                padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                // color: Colors.red,
+                height: 100,
+                width: 80,
+                decoration:  BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
                     ],
+                    color: Colors.white
+                ),
+                child:  Column(
+                  children: [
+                    SizedBox(height: 15,),
+                    Image.asset("images/battery.png",height: 45,width: 60),
+                    SizedBox(height: 5,),
+                    Text('Battery',textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),),
+                    SizedBox(height: 7,),
+                  ],
 
-                  ),
-                ),),
-              SizedBox(width: 3,),
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> car(),));
-              },
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                  // color: Colors.red,
-                  height: 120,
-                  width: 100,
-                  decoration:  BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white
-                  ),
-                  child:  Column(
-                    children: [
-                      SizedBox(height: 10,),
-                      Image.asset("images/tyres.png",height: 70,width: 80),
-                      //SizedBox(height: 5,),
-                      Text('Tyre',textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),),
-                      SizedBox(height: 7,),
+                ),
+              ),),
+            SizedBox(width: 3,),
+            TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> view("tyre")));
+            },
+              child: Container(
+                padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                // color: Colors.red,
+                height: 100,
+                width: 80,
+                decoration:  BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
                     ],
+                    color: Colors.white
+                ),
+                child:  Column(
+                  children: [
+                    SizedBox(height: 10,),
+                    Image.asset("images/tyres.png",height: 55,width: 60),
+                    //SizedBox(height: 5,),
+                    Text('Tyre',textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),),
+                    SizedBox(height: 7,),
+                  ],
 
-                  ),
-                ),),
-            ],
-          ),
+                ),
+              ),),
+          ],
         ),
         SizedBox(height: 10,),
         Container(
           padding: EdgeInsets.symmetric(vertical: 5),
-          color:Color(0xFF37474F),
+          //color:Color(0xFF37474F),
           height: 40,
           //color: Colors.amber[100],
           child: Text("Top Rated Shops",textAlign: TextAlign.center,style:
-          GoogleFonts.merriweather(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          GoogleFonts.merriweather(color: Color(0xFF37474F), fontSize: 20, fontWeight: FontWeight.bold),
 
           ),
         ),
         SizedBox(height: 10,),
-        ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
-          return TextButton(onPressed: (){
-                      // Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
-                    },
+
+        SizedBox(
+          height: 280,
+          child: ListView.builder(scrollDirection: Axis.horizontal,physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index)=>
+
+              Card(
+                child: Center(
+                  child:
+                    TextButton(onPressed: (){
+                  // Navigator.push(context, MaterialPageRoute(builder: (context)=> bike(),));
+                },
                       child: Container(
-                        padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                        padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
                         // color: Colors.red,
                         height: 250,
                         width: 220,
@@ -316,66 +317,69 @@ class _homeState extends State<home> {
                             ],
                           ),
                         ),
-                        child:  Column(
-                          children: [
-                            Container(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
-                                  child: Image.asset("images/cs1.jpg",), )),
-                            //Divider(height: 10,color: Colors.black,),
-                            Container(
-                              padding: EdgeInsets.only(top: 20),
-                              child:Column(
-                                children: [
-                                  Text('${shopslist[index]['Shop Name']}',
-                                      textAlign: TextAlign.start,
-                                      style: GoogleFonts.merriweather(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold
-                                      )
-                                  ),
-                                  SizedBox(height: 4,),
-                                  Text('${shopslist[index]['type']}',
+                         child:  Column(
+                      children: [
+                          Container(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
+                                child: Image.asset("images/cs1.jpg",), )),
+                          //Divider(height: 10,color: Colors.black,),
+                          Container(
+                            padding: EdgeInsets.only(top: 20),
+                            child:Column(
+                              children: [
+                                Text('${shopslist[index]['Shop Name']}',
                                     textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.green,
-                                      fontSize: 16,
-                                    ),),
-                                  SizedBox(height: 4,),
-                                  Text('${shopslist[index]['Shop Rating']}',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.yellow,
-                                      fontSize: 16,
-                                    ),),
-                                  SizedBox(height: 4,),
-                                 // RatingBar.builder(
-                                   // initialRating: 5,
-                                   // minRating: 1,
-                                    //direction: Axis.horizontal,
-                                   // allowHalfRating: true,
-                                    //itemCount: 5,
-                                    //itemSize: 20.0,
+                                    style: GoogleFonts.merriweather(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold
+                                    )
+                                ),
+                                SizedBox(height: 4,),
+                                Text('Shop Type: ${shopslist[index]['type']}',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                  ),),
+                                SizedBox(height: 4,),
+                                Text('Rating: ${shopslist[index]['Shop Rating']}',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    color: Colors.yellow,
+                                    fontSize: 14,
+                                  ),),
+                                SizedBox(height: 4,),
+                                // RatingBar.builder(
+                                // initialRating: 5,
+                                // minRating: 1,
+                                //direction: Axis.horizontal,
+                                // allowHalfRating: true,
+                                //itemCount: 5,
+                                //itemSize: 20.0,
 
-                                    //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                    //itemBuilder: (context, _) => Icon(
-                                     // Icons.star,
-                                      //color: Colors.amber,
-                                    //),
-                                    //onRatingUpdate: (rating) {
-                                      //print(rating);
-                                    //},
-                                 // ),
+                                //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                //itemBuilder: (context, _) => Icon(
+                                // Icons.star,
+                                //color: Colors.amber,
+                                //),
+                                //onRatingUpdate: (rating) {
+                                //print(rating);
+                                //},
+                                // ),
 
-                                ],
-                              ),
+                              ],
                             ),
-                          ],
+                          ),
+                      ],
 
-                        ),
-                      ),);
-        },
+                    ),
+                  ),),
+            ),
+          ),
+
+          ),
         ),
 
 

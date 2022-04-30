@@ -5,27 +5,31 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 class detail_screen extends StatefulWidget {
-  const detail_screen({Key? key}) : super(key: key);
+  List shop;
+   detail_screen(this.shop, {Key? key}) : super(key: key);
 
   @override
-  _detail_screenState createState() => _detail_screenState();
+  _detail_screenState createState() => _detail_screenState(this.shop);
 }
 
 class _detail_screenState extends State<detail_screen> {
+  _detail_screenState(this.singlerecord){}
+  List singlerecord;
+
   void initState() {
     super.initState();
-    fetchdatalist();
+    getData();
   }
-  fetchdatalist() async{
-    List lisofitem=[];
-    var firebaseUser =  FirebaseAuth.instance.currentUser;
-    FirebaseFirestore.instance.collection("shops").doc(firebaseUser?.uid).get().then((value){
-      print(value.data()!["Shop Name"]);
-      lisofitem.add(value);
-    });
+  getData() async{
+    print(singlerecord);
+
   }
+  bool first=true;
   @override
   Widget build(BuildContext context) {
+    if(first){
+      getData();
+    }
     return Scaffold(
         appBar: AppBar(
           title: const Text('Shop Detail'),
@@ -59,10 +63,10 @@ class _detail_screenState extends State<detail_screen> {
                       child: Image.asset("images/admin.png",height: 70,),
                     ),
                     SizedBox(width: 20,),
-                    Text("Ali Auto services",style: GoogleFonts.merriweather(fontSize: 20),),
+                    Text('${singlerecord[0]['Owner Name']}',style: GoogleFonts.merriweather(fontSize: 20),),
                     Spacer(),
                     IconButton(onPressed: (){
-                      FlutterPhoneDirectCaller.callNumber("03024716341");},
+                      FlutterPhoneDirectCaller.callNumber('${singlerecord[0]['Contact']}');},
                       icon: Icon(Icons.call_rounded),color: Colors.green,iconSize: 35, ),
                   ],
                 ),
@@ -76,9 +80,9 @@ class _detail_screenState extends State<detail_screen> {
               children: [
                 Row(
                   children: [
-                    Text("Name",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
+                    Text("Shop Name",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
                     Spacer(),
-                    Text("Ali Ahmad")
+                    Text('${singlerecord[0]['Shop Name']}')
                   ],
                 ),
                 SizedBox(height: 10,),
@@ -88,27 +92,18 @@ class _detail_screenState extends State<detail_screen> {
                   children: [
                     Text("Contact",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
                     Spacer(),
-                    Text("+92-3024716341")
+                    Text('${singlerecord[0]['Contact']}')
                   ],
                 ),
                 SizedBox(height: 10,),
                 Divider(thickness: 1,),
                 SizedBox(height: 10,),
-                Row(
-                  children: [
-                    Text("City",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
-                    Spacer(),
-                    Text("Vehari")
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Divider(thickness: 1,),
-                SizedBox(height: 10,),
+
                 Row(
                   children: [
                     Text("Shop Type",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
                     Spacer(),
-                    Text("Electrical")
+                    Text('${singlerecord[0]['type']}')
                   ],
                 ),
                 SizedBox(height: 10,),
@@ -116,13 +111,85 @@ class _detail_screenState extends State<detail_screen> {
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    Text("Vehical",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
+                    Text("Service",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
                     Spacer(),
-                    Text("Car/Bike")
+                    Text('${singlerecord[0]['Service']}')
                   ],
                 ),
                 SizedBox(height: 10,),
                 Divider(thickness: 1,),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    Text("Outdoor Service",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
+                    Spacer(),
+                    Text('${singlerecord[0]['Outdoor Services']}')
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Divider(thickness: 1,),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    Text("Rs/km",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
+                    Spacer(),
+                    Text('${singlerecord[0]['Rs/km']}')
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Divider(thickness: 1,),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    Text("Rating",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
+                    Spacer(),
+                    Text('${singlerecord[0]['Shop Rating']}')
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Divider(thickness: 1,),
+                Row(
+                  children: [
+                    Text("Affordability",style:GoogleFonts.abel(fontWeight: FontWeight.bold,fontSize: 16),),
+                    Spacer(),
+                    Text('${singlerecord[0]['Shop Affordability']}')
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Divider(thickness: 1,),
+                TextButton(onPressed: (){
+                  //Navigator.push(context, MaterialPageRoute(builder: (context)=> view("wash")));
+                },
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                    // color: Colors.red,
+                    height: 100,
+                    width: 80,
+                    decoration:  BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                        color: Colors.white
+                    ),
+                    child:  Column(
+                      children: [
+                        Image.asset("images/wash.png",height: 60,width: 60,),
+                        Text('Report',textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                          ),),
+                        SizedBox(height: 7,),
+                      ],
+
+                    ),
+                  ),),
               ],
             ),
           )
