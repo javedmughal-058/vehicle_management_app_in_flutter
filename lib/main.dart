@@ -89,7 +89,7 @@ class SplashScreenOneState extends State<SplashScreenOne> {
     );
   }
   Future<Timer> loadData() async {
-    return Timer(const Duration(seconds: 2), onDoneLoading);
+    return Timer(const Duration(seconds: 1), onDoneLoading);
   }
 
   onDoneLoading() async {
