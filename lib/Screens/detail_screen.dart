@@ -21,7 +21,7 @@ class _detail_screenState extends State<detail_screen> {
     getData();
   }
   getData() async{
-    print(singlerecord);
+    //print(singlerecord);
 
   }
   bool first=true;
@@ -157,39 +157,43 @@ class _detail_screenState extends State<detail_screen> {
                 ),
                 SizedBox(height: 10,),
                 Divider(thickness: 1,),
-                TextButton(onPressed: (){
-                  //Navigator.push(context, MaterialPageRoute(builder: (context)=> view("wash")));
-                },
-                  child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                    // color: Colors.red,
-                    height: 100,
-                    width: 80,
-                    decoration:  BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                        color: Colors.white
-                    ),
-                    child:  Column(
-                      children: [
-                        Image.asset("images/wash.png",height: 60,width: 60,),
-                        Text('Report',textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                          ),),
-                        SizedBox(height: 7,),
-                      ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(onPressed: (){
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=> view("wash")));
+                    },
+                      child: Container(
+                        padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                        height: 100,
+                        width: 80,
+                        decoration:  BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                            color: Colors.white30
+                        ),
+                        child:  Column(
+                          children: [
+                            Image.asset("images/feedback.png",height: 60,width: 60,),
+                            SizedBox(height: 10,),
+                            Text('Report',textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                              ),),
+                          ],
 
-                    ),
-                  ),),
+                        ),
+                      ),),
+                  ],
+                ),
               ],
             ),
           )

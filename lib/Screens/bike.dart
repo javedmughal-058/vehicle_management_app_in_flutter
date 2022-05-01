@@ -16,6 +16,7 @@ class bike extends StatefulWidget {
 
 class _bikeState extends State<bike> {
   _bikeState(this.type){}
+  bool loading=true;
   late String type;
   List topshopslist=[];
   List affordableshopslist=[];
@@ -36,6 +37,7 @@ class _bikeState extends State<bike> {
         lisoftopitem.add(result.data());
         setState(() {
           topshopslist=lisoftopitem;
+          loading=false;
         });
       });
     });
@@ -52,6 +54,7 @@ class _bikeState extends State<bike> {
         lisofaffordableitem.add(result.data());
         setState(() {
           affordableshopslist=lisofaffordableitem;
+          loading=false;
         });
       });
     });
@@ -313,7 +316,15 @@ class _bikeState extends State<bike> {
           SizedBox(height: 10,),
           SizedBox(
             height: 270,
-            child: ListView.builder(scrollDirection: Axis.horizontal,physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: topshopslist.length,itemBuilder: (context,index)=>
+            child: loading==true? Center(
+              child: Container(
+                //width: 120,height: 120,
+                child: CircularProgressIndicator(
+                  // backgroundColor: Colors.grey,
+                  strokeWidth: 7,
+                  valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+                ),),)
+                :ListView.builder(scrollDirection: Axis.horizontal,physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: topshopslist.length,itemBuilder: (context,index)=>
                 Card(
                   child: Center(
                     child:
@@ -404,7 +415,15 @@ class _bikeState extends State<bike> {
             child: Text("Suggested Shops",style: TextStyle(fontSize:20,fontWeight: FontWeight.bold),),
           ),
           SizedBox(height: 15,),
-          ListView.builder(physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: affordableshopslist.length,itemBuilder: (context,index){
+          loading==true? Center(
+            child: Container(
+              //width: 120,height: 120,
+              child: CircularProgressIndicator(
+                // backgroundColor: Colors.grey,
+                strokeWidth: 7,
+                valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+              ),),)
+              :ListView.builder(physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: affordableshopslist.length,itemBuilder: (context,index){
             return Container(
               padding: EdgeInsets.all(4),
               child: Container(

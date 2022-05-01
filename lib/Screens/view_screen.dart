@@ -45,9 +45,12 @@ class viewState extends State<view> {
       setState(() {
 
         shopslist=lisofitem;
+        loading=false;
       });
     }
   }
+  bool loading=true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +61,15 @@ class viewState extends State<view> {
         }, icon: Icon(Icons.arrow_back)),
         backgroundColor: Color(0xFF37474F),
       ),
-      body: ListView(
+      body: loading==true? Center(
+        child: Container(
+          //width: 120,height: 120,
+          child: CircularProgressIndicator(
+            // backgroundColor: Colors.grey,
+            strokeWidth: 7,
+            valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+          ),),)
+          :ListView(
         children: [
           SizedBox(height: 15,),
           Padding(padding: EdgeInsets.only(left: 10),child: Text("Shops detail",style: GoogleFonts.tajawal(fontSize: 20,fontWeight: FontWeight.bold),)),

@@ -42,17 +42,20 @@ class detailState extends State<detail> {
         type: CoolAlertType.info,
         text: "No record found",
       );
+      //Navigator.push(context, MaterialPageRoute(builder: (c)=> category(shoptype)));
       print("Unable to retrieve");
     }
     else{
       setState(() {
-
         shopslist=lisofitem;
+        loading=false;
       });
     }
   }
+  bool loading=true;
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("$shoptype"),
@@ -61,13 +64,21 @@ class detailState extends State<detail> {
         }, icon: Icon(Icons.arrow_back)),
         backgroundColor: Color(0xFF37474F),
       ),
-      body: ListView(
+      body: loading==true? Center(
+        child: Container(
+          //width: 120,height: 120,
+          child: CircularProgressIndicator(
+           // backgroundColor: Colors.grey,
+            strokeWidth: 7,
+            valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+          ),),)
+          :ListView(
         children: [
           SizedBox(height: 15,),
           Padding(padding: EdgeInsets.only(left: 10),child: Text("Shops detail",style: GoogleFonts.tajawal(fontSize: 20,fontWeight: FontWeight.bold),)),
           SizedBox(height: 15,),
           ListView.builder(physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
-            return Container(
+                return Container(
               padding: EdgeInsets.all(4),
               child: Container(
                 margin: EdgeInsets.only(left: 5,right: 5),

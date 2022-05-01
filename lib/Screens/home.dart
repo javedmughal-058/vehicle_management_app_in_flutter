@@ -43,7 +43,7 @@ class _homeState extends State<home> {
         lisofitem.add(result.data());
         setState(() {
           shopslist=lisofitem;
-
+          loading=false;
         });
       });
     });
@@ -55,6 +55,8 @@ class _homeState extends State<home> {
     'images/c.png'
   ];
   bool first=true;
+  bool loading=true;
+
   @override
   Widget build(BuildContext context) {
     if(first){
@@ -293,7 +295,15 @@ class _homeState extends State<home> {
 
         SizedBox(
           height: 280,
-          child: ListView.builder(scrollDirection: Axis.horizontal,physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index)=>
+          child: loading==true? Center(
+            child: Container(
+              //width: 120,height: 120,
+              child: CircularProgressIndicator(
+                // backgroundColor: Colors.grey,
+                strokeWidth: 7,
+                valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+              ),),)
+              :ListView.builder(scrollDirection: Axis.horizontal,physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index)=>
 
               Card(
                 child: Center(
