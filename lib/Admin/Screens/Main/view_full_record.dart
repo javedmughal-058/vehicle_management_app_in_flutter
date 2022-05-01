@@ -16,6 +16,7 @@ class view_full_record extends StatefulWidget {
 
 class _view_full_recordState extends State<view_full_record> {
   _view_full_recordState(this.record_name){}
+  bool loading=true;
   late String record_name;
   List shopslist=[];
  @override
@@ -34,6 +35,7 @@ class _view_full_recordState extends State<view_full_record> {
      querySnapshot.docs.forEach((result) {
       
          lisofitem.add(result.data());
+         loading=false;
      });
    });
    if(lisofitem.isEmpty){
@@ -46,7 +48,6 @@ class _view_full_recordState extends State<view_full_record> {
    }
    else{
      setState(() {
-       
        shopslist=lisofitem;
      });
    }
@@ -85,7 +86,15 @@ class _view_full_recordState extends State<view_full_record> {
                   decoration: BoxDecoration(color: Colors.white,
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20),),
                   ),
-                  child: ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
+                  child: loading==true? Center(
+                    child: Container(
+                      //width: 120,height: 120,
+                      child: CircularProgressIndicator(
+                        // backgroundColor: Colors.grey,
+                        strokeWidth: 7,
+                        valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+                      ),),)
+                      :ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
                     return  Container(
                       margin: EdgeInsets.only(top: 10),
                       height: 70,

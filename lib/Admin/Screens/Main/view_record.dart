@@ -16,6 +16,8 @@ class _view_recordState extends State<view_record> {
   int bikeshops=0;
   int washshops=0;
   int batteryshops=0;
+  bool first=true;
+  bool loading=true;
   void counter()async{
     carshops=0;
     bikeshops=0;
@@ -28,6 +30,7 @@ class _view_recordState extends State<view_record> {
     car_result.docs.forEach((res) {
       //print(res.data());
       carshops++;
+      loading=false;
     });
     var bike_result = await FirebaseFirestore.instance
         .collection("shops")
@@ -58,12 +61,22 @@ class _view_recordState extends State<view_record> {
     }}
 
 
-bool first=true;
+
   @override
   Widget build(BuildContext context) {
     if(first){
     counter();}
-
+    Widget tempWidget = new CircularProgressIndicator( strokeWidth: 7,
+      valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),);
+    if(loading) {
+      tempWidget = Center(
+        child: new CircularProgressIndicator( strokeWidth: 7,
+          valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),),
+      );
+    }
+    else {
+      tempWidget = new Center();//EmptyWidget
+    }
     return Scaffold(
       appBar: AppBar(
           title: const Text('Records'),
@@ -106,7 +119,7 @@ bool first=true;
                   children: [
                     Text("Total Car Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),
                     SizedBox(height: 20,),
-                    Text("$carshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),),
+                    loading==true? tempWidget: Text("$carshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),),
                     TextButton(onPressed: (){
                      Navigator.push(context, MaterialPageRoute(builder: (context)=> view_full_record("car")));
                       }, child: Text("View Full Details >",
@@ -140,7 +153,7 @@ bool first=true;
                   children: [
                     Text("Total Bike Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),
                     SizedBox(height: 20,),
-                    Text("$bikeshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),),
+                    loading==true? tempWidget:Text("$bikeshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),),
                     TextButton(onPressed: (){
                        Navigator.push(context, MaterialPageRoute(builder: (context)=> view_full_record("bike")));
 
@@ -177,7 +190,7 @@ bool first=true;
                   children: [
                     Text("Total Battery Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),
                     SizedBox(height: 20,),
-                    Text("$batteryshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),),
+                    loading==true? tempWidget: Text("$batteryshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),),
                     TextButton(onPressed: (){
                        Navigator.push(context, MaterialPageRoute(builder: (context)=> view_full_record("battery")));
 
@@ -214,7 +227,7 @@ bool first=true;
                   children: [
                     Text("Total Wash Shops",style: GoogleFonts.b612(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),
                     SizedBox(height: 20,),
-                    Text("$washshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),),
+                    loading==true? tempWidget:Text("$washshops",style: GoogleFonts.b612(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.green),),
                     TextButton(onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> view_full_record("wash")));
 

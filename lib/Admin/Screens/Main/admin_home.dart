@@ -11,6 +11,8 @@ class admin_home extends StatefulWidget {
 }
 
 class _admin_homeState extends State<admin_home> {
+  bool loading=true;
+
   int car_m=0,car_e=0, car_O=0,car_dp=0,car_t=0,car_s=0;
   int bike_m=0,bike_e=0, bike_O=0, bike_dp=0,bike_t=0,bike_s=0;
   int battery=0, wash=0;
@@ -25,6 +27,7 @@ class _admin_homeState extends State<admin_home> {
     car_1.docs.forEach((res) {
       //print(res.data());
       car_m++;
+      loading=false;
     });
     var car_2 = await FirebaseFirestore.instance
         .collection("shops")
@@ -160,6 +163,17 @@ class _admin_homeState extends State<admin_home> {
     if(first){
       counter();
     }
+    Widget tempWidget = new CircularProgressIndicator( strokeWidth: 7,
+      valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),);
+    if(loading) {
+      tempWidget = Center(
+        child: new CircularProgressIndicator( strokeWidth: 7,
+          valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),),
+      );
+    }
+    else {
+      tempWidget = new Center();//EmptyWidget
+    }
     return ListView(
       physics: ClampingScrollPhysics(),
       shrinkWrap: true,
@@ -211,7 +225,7 @@ class _admin_homeState extends State<admin_home> {
                             ),
                             color: Colors.white,
                           ),
-                          child: SingleChildScrollView(
+                          child: loading==true? tempWidget:SingleChildScrollView(
                             scrollDirection: Axis.vertical,
                             child: Column(
                               children: [
@@ -370,7 +384,7 @@ class _admin_homeState extends State<admin_home> {
                             ),
                             color: Colors.white,
                           ),
-                          child: SingleChildScrollView(
+                          child: loading==true? tempWidget: SingleChildScrollView(
                             scrollDirection: Axis.vertical,
                             child: Column(
                               children: [
@@ -529,7 +543,7 @@ class _admin_homeState extends State<admin_home> {
                             ),
                             color: Colors.white,
                           ),
-                          child: Column(
+                          child: loading==true? tempWidget:Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(height: 10,),
