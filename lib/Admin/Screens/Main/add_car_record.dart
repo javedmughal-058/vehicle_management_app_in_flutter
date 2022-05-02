@@ -111,6 +111,7 @@ class _BikeRecordState extends State<BikeRecord> {
     this.record_name=newValueSelected;
     if(record_name=="wash" || record_name=="battery"){
       enable=true;
+      shopservice=record_name;
     }else{
       enable=false;
     }
@@ -153,8 +154,6 @@ class _BikeRecordState extends State<BikeRecord> {
       });
 
   }
-
-
 
   //late PickResult selectedPlace;
   final _formKey = GlobalKey<FormState>();
@@ -352,32 +351,35 @@ class _BikeRecordState extends State<BikeRecord> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: DropdownButtonFormField(
-                  value: dropdownValue2,
-                  icon: const Icon(Icons.keyboard_arrow_down_sharp),
-                  decoration: InputDecoration(
-                    labelText: "Outdoor Service",
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+              IgnorePointer(
+                ignoring: enable,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: DropdownButtonFormField(
+                    value: dropdownValue2,
+                    icon: const Icon(Icons.keyboard_arrow_down_sharp),
+                    decoration: InputDecoration(
+                      labelText: "Outdoor Service",
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
                     ),
+                    items: OutdoorServices.map((String value) {
+                      return  DropdownMenuItem<String>(
+                        value: value,
+                        child:  Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (String? Outservice) {
+                      getdropdownValue2(Outservice);
+                      // getService=(service);
+                      setState(() {
+                        dropdownValue2 = Outservice!;
+
+                      });
+                    },
+
                   ),
-                  items: OutdoorServices.map((String value) {
-                    return  DropdownMenuItem<String>(
-                      value: value,
-                      child:  Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String? Outservice) {
-                    getdropdownValue2(Outservice);
-                    // getService=(service);
-                    setState(() {
-                      dropdownValue2 = Outservice!;
-
-                    });
-                  },
-
                 ),
               ),
               IgnorePointer(

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_alert/cool_alert.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
@@ -51,6 +52,13 @@ class _view_full_recordState extends State<view_full_record> {
        shopslist=lisofitem;
      });
    }
+  }
+  void _delete() {
+    var firebaseUser =  FirebaseAuth.instance.currentUser;
+    FirebaseFirestore.instance.collection("shops").doc(firebaseUser?.uid).delete().then((_) {
+      print("success!");
+
+    }) .catchError((error) => print('Delete failed: $error'));
   }
 
   @override
@@ -140,15 +148,31 @@ class _view_full_recordState extends State<view_full_record> {
                               ],
                             ),
                             const Spacer(),
-                            MaterialButton(onPressed: (){},
-                              child: Row(
-                                children: [
-                                  IconButton(onPressed: () async {
-                                    FlutterPhoneDirectCaller.callNumber("0${shopslist[index]['Contact']}");
+                            IconButton(
+                              icon: const Icon(Icons.edit,size: 20,),
+                              color: Colors.blue,
+                              onPressed: () {
+                                // Navigator.push(context, MaterialPageRoute(builder: (context)=> detail(type,"Electrical"),));
 
-                                  }, icon:const Icon(Icons.phone),color: Colors.green, hoverColor: Colors.indigo, ),
-                                ],
-                              ),
+                              },
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.delete,size: 20,),
+                              color: Colors.red,
+                              onPressed: () {
+                                _delete();
+                                loading==true? Center(
+                                  child: Container(
+                                    //width: 120,height: 120,
+                                    child: CircularProgressIndicator(
+                                      // backgroundColor: Colors.grey,
+                                      strokeWidth: 7,
+                                      valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+                                    ),),)
+                                    :fetchdatalist();
+                               // Navigator.push(context, MaterialPageRoute(builder: (context)=> detail(type,"Electrical"),));
+
+                              },
                             ),
                           ]
                       ),
