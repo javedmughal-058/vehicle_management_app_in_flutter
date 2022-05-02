@@ -343,7 +343,7 @@ class _homeState extends State<home> {
                                     style: GoogleFonts.merriweather(
                                         fontSize: 14,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.bold
+                                        fontWeight: FontWeight.bold,
                                     )
                                 ),
                                 SizedBox(height: 4,),

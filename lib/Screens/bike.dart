@@ -31,6 +31,7 @@ class _bikeState extends State<bike> {
     dynamic newresult= await FirebaseFirestore.instance
         .collection("shops")
         .where("type", isEqualTo: type)
+        .where("Shop status", isEqualTo: true)
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
         //print(result.data());
@@ -48,6 +49,8 @@ class _bikeState extends State<bike> {
     dynamic newresult= await FirebaseFirestore.instance
         .collection("shops")
         .where("type", isEqualTo: type)
+        .where("Shop status", isEqualTo: true)
+
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
         //print(result.data());
@@ -356,50 +359,56 @@ class _bikeState extends State<bike> {
                             //Divider(height: 10,color: Colors.black,),
                             Container(
                               padding: EdgeInsets.only(top: 20),
-                              child:Column(
-                                children: [
-                                  Text('${topshopslist[index]['Shop Name']}',
+                              child:SizedBox(
+                                width: 200.0,
+                                child: Column(
+                                  children: [
+                                    Text('${topshopslist[index]['Shop Name']}',
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        softWrap: false,
+                                        textAlign: TextAlign.start,
+                                        style: GoogleFonts.merriweather(
+                                            fontSize: 14,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold
+                                        )
+                                    ),
+                                    SizedBox(height: 4,),
+                                    Text('Shop Type: ${topshopslist[index]['type']}',
                                       textAlign: TextAlign.start,
-                                      style: GoogleFonts.merriweather(
-                                          fontSize: 14,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold
-                                      )
-                                  ),
-                                  SizedBox(height: 4,),
-                                  Text('Shop Type: ${topshopslist[index]['type']}',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 12,
-                                    ),),
-                                  SizedBox(height: 4,),
-                                  Text('Rating: ${topshopslist[index]['Shop Rating']}',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      color: Colors.yellow,
-                                      fontSize: 14,
-                                    ),),
-                                  SizedBox(height: 4,),
-                                  // RatingBar.builder(
-                                  // initialRating: 5,
-                                  // minRating: 1,
-                                  //direction: Axis.horizontal,
-                                  // allowHalfRating: true,
-                                  //itemCount: 5,
-                                  //itemSize: 20.0,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                      ),),
+                                    SizedBox(height: 4,),
+                                    Text('Rating: ${topshopslist[index]['Shop Rating']}',
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        color: Colors.yellow,
+                                        fontSize: 14,
+                                      ),),
+                                    SizedBox(height: 4,),
+                                    // RatingBar.builder(
+                                    // initialRating: 5,
+                                    // minRating: 1,
+                                    //direction: Axis.horizontal,
+                                    // allowHalfRating: true,
+                                    //itemCount: 5,
+                                    //itemSize: 20.0,
 
-                                  //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                  //itemBuilder: (context, _) => Icon(
-                                  // Icons.star,
-                                  //color: Colors.amber,
-                                  //),
-                                  //onRatingUpdate: (rating) {
-                                  //print(rating);
-                                  //},
-                                  // ),
+                                    //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                    //itemBuilder: (context, _) => Icon(
+                                    // Icons.star,
+                                    //color: Colors.amber,
+                                    //),
+                                    //onRatingUpdate: (rating) {
+                                    //print(rating);
+                                    //},
+                                    // ),
 
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -447,16 +456,23 @@ class _bikeState extends State<bike> {
                     SizedBox(width: 20,),
                    Icon(Icons.home_work_sharp),
                     SizedBox(width: 15,),
-                    Column(
-                      children: [
-                        SizedBox(height: 10,),
-                        Text("${affordableshopslist[index]["Shop Name"]}",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
-                        SizedBox(height: 5,),
-                        Text("Affordability: ${affordableshopslist[index]["Shop Affordability"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
-                        SizedBox(height: 5,),
-                        Text("${affordableshopslist[index]["Service"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
+                    SizedBox(
+                      width: 200.0,
+                      child: Column(
+                        children: [
+                          SizedBox(height: 10,),
+                          Text("${affordableshopslist[index]["Shop Name"]}",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            softWrap: false,
+                            style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+                          SizedBox(height: 5,),
+                          Text("Service: ${affordableshopslist[index]["Service"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
+                          SizedBox(height: 5,),
+                          Text("Affordability: ${affordableshopslist[index]["Shop Affordability"]}",style: TextStyle(fontSize: 12,color: Colors.blueGrey,fontWeight: FontWeight.bold),),
 
-                      ],
+                        ],
+                      ),
                     ),
                     Spacer(),
                     IconButton(

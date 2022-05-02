@@ -27,6 +27,7 @@ class viewState extends State<view> {
         .collection("shops")
         //.orderBy("Shop Rating",descending: true)
         .where("type", isEqualTo: shoptype)
+        .where("Shop status", isEqualTo: true)
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
         //print(result.data());
@@ -101,16 +102,23 @@ class viewState extends State<view> {
                       radius: 20,
                     ),
                     SizedBox(width: 15,),
-                    Column(
-                      children: [
-                        SizedBox(height: 10,),
-                        Text("${shopslist[index]["Shop Name"]}",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
-                        SizedBox(height: 5,),
-                        Text("Rating: ${shopslist[index]["Shop Rating"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
-                        SizedBox(height: 5,),
-                        Text("Affordability: ${shopslist[index]["Shop Affordability"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
+                    SizedBox(
+                      width: 200.0,
+                      child: Column(
+                        children: [
+                          SizedBox(height: 10,),
+                          Text("${shopslist[index]["Shop Name"]}",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            softWrap: false,
+                            style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+                          SizedBox(height: 5,),
+                          Text("Rating: ${shopslist[index]["Shop Rating"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
+                          SizedBox(height: 5,),
+                          Text("Affordability: ${shopslist[index]["Shop Affordability"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
 
-                      ],
+                        ],
+                      ),
                     ),
                     Spacer(),
                     IconButton(
