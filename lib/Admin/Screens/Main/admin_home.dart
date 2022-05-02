@@ -174,72 +174,387 @@ class _admin_homeState extends State<admin_home> {
     else {
       tempWidget = new Center();//EmptyWidget
     }
-    return ListView(
-      physics: ClampingScrollPhysics(),
-      shrinkWrap: true,
-      padding: const EdgeInsets.all(30),
-      children: [
-        SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-                children: [
-                  Container(
-                    // padding: EdgeInsets.all(10),
-                    height: 440,
-                    width: 340,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(40.0),
-                          topLeft: Radius.circular(40.0),
-                          bottomLeft: Radius.circular(40.0),
-                          bottomRight: Radius.circular(40.0)
+    return
+        Center(
+          child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                  //mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      // padding: EdgeInsets.all(10),
+                      height: 440,
+                      width: 340,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(40.0),
+                            topLeft: Radius.circular(40.0),
+                            bottomLeft: Radius.circular(40.0),
+                            bottomRight: Radius.circular(40.0)
+                        ),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.blue,
+                            Colors.indigo,
+                          ],
+                        ),
                       ),
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.blue,
-                          Colors.indigo,
-                        ],
-                      ),
-                    ),
-                    child:Column(
-                      children: [
-                        Image.asset("images/main.png",height: 100,),
-                        Text("Car Shops Details",style: GoogleFonts.merriweather(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold
-                        ),),
-                        SizedBox(height: 20,),
-                        Container(
-                          padding: EdgeInsets.all(15),
-                          height: 260,
-                          width: 270,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(30.0),
-                                topLeft: Radius.circular(30.0),
-                                bottomLeft: Radius.circular(30.0),
-                                bottomRight: Radius.circular(30.0)
+                      child:Column(
+                        children: [
+                          Image.asset("images/main.png",height: 100,),
+                          Text("Car Shops Details",style: GoogleFonts.merriweather(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold
+                          ),),
+                          SizedBox(height: 20,),
+                          Container(
+                            padding: EdgeInsets.all(15),
+                            height: 260,
+                            width: 270,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(30.0),
+                                  topLeft: Radius.circular(30.0),
+                                  bottomLeft: Radius.circular(30.0),
+                                  bottomRight: Radius.circular(30.0)
+                              ),
+                              color: Colors.white,
                             ),
-                            color: Colors.white,
+                            child: loading==true? tempWidget:SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 10,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Mechanical Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$car_m",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Electrical Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$car_e",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Oil Change Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$car_O",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Denting & Painting Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$car_dp",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Tyre Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$car_t",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Spare Parts Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$car_s",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+
+
+                                ],
+                              ),
+                            ),
                           ),
-                          child: loading==true? tempWidget:SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: Column(
+
+                        ],
+                      ) ,
+                    ),
+                    SizedBox(width: 10,),
+                    Container(
+                      // padding: EdgeInsets.all(10),
+                      height: 440,
+                      width: 340,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(40.0),
+                            topLeft: Radius.circular(40.0),
+                            bottomLeft: Radius.circular(40.0),
+                            bottomRight: Radius.circular(40.0)
+                        ),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.blue,
+                            Colors.indigo,
+                          ],
+                        ),
+                      ),
+                      child:Column(
+                        children: [
+                          Image.asset("images/main1.png",height: 100,),
+                          Text("Bike Shops Details",style: GoogleFonts.merriweather(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold
+                          ),),
+                          SizedBox(height: 20,),
+                          Container(
+                            padding: EdgeInsets.all(15),
+                            height: 250,
+                            width: 270,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(30.0),
+                                  topLeft: Radius.circular(30.0),
+                                  bottomLeft: Radius.circular(30.0),
+                                  bottomRight: Radius.circular(30.0)
+                              ),
+                              color: Colors.white,
+                            ),
+                            child: loading==true? tempWidget: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 10,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Mechanical Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$bike_m",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Electrical Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$bike_e",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Oil Change Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$bike_O",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Denting & Painting Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$bike_dp",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Tyre Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$bike_t",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      //SizedBox(width: 20,),
+                                      Text("Spare Parts Shops",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                      Spacer(),
+                                      Text("$bike_s",style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold
+                                      ),),
+                                    ],
+                                  ),
+
+
+                                ],
+                              ),
+                            ),
+                          ),
+
+                        ],
+                      ) ,
+                    ),
+                    SizedBox(width: 10,),
+                    Container(
+                      // padding: EdgeInsets.all(10),
+                      height: 440,
+                      width: 340,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(40.0),
+                            topLeft: Radius.circular(40.0),
+                            bottomLeft: Radius.circular(40.0),
+                            bottomRight: Radius.circular(40.0)
+                        ),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.blue,
+                            Colors.indigo,
+                          ],
+                        ),
+                      ),
+                      child:Column(
+                        children: [
+                          Image.asset("images/batry.png",height: 100,),
+                          Text("Battery/Wash",style: GoogleFonts.merriweather(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold
+                          ),),
+                          SizedBox(height: 20,),
+                          Container(
+                            padding: EdgeInsets.all(15),
+                            height: 250,
+                            width: 270,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(30.0),
+                                  topLeft: Radius.circular(30.0),
+                                  bottomLeft: Radius.circular(30.0),
+                                  bottomRight: Radius.circular(30.0)
+                              ),
+                              color: Colors.white,
+                            ),
+                            child: loading==true? tempWidget:Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SizedBox(height: 10,),
                                 Row(
                                   children: [
                                     //SizedBox(width: 20,),
-                                    Text("Mechanical Shops",style: GoogleFonts.merriweather(
+                                    Text("Battery Shops",style: GoogleFonts.merriweather(
                                         fontSize: 14,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold
                                     ),),
                                     Spacer(),
-                                    Text("$car_m",style: GoogleFonts.merriweather(
+                                    Text("$battery",style: GoogleFonts.merriweather(
                                         fontSize: 14,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold
@@ -250,81 +565,13 @@ class _admin_homeState extends State<admin_home> {
                                 Row(
                                   children: [
                                     //SizedBox(width: 20,),
-                                    Text("Electrical Shops",style: GoogleFonts.merriweather(
+                                    Text("Wash Shops",style: GoogleFonts.merriweather(
                                         fontSize: 14,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold
                                     ),),
                                     Spacer(),
-                                    Text("$car_e",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Oil Change Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$car_O",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Denting & Painting Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$car_dp",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Tyre Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$car_t",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Spare Parts Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$car_s",style: GoogleFonts.merriweather(
+                                    Text("$wash",style: GoogleFonts.merriweather(
                                         fontSize: 14,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold
@@ -336,265 +583,13 @@ class _admin_homeState extends State<admin_home> {
                               ],
                             ),
                           ),
-                        ),
 
-                      ],
-                    ) ,
-                  ),
-                  SizedBox(width: 10,),
-                  Container(
-                    // padding: EdgeInsets.all(10),
-                    height: 440,
-                    width: 340,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(40.0),
-                          topLeft: Radius.circular(40.0),
-                          bottomLeft: Radius.circular(40.0),
-                          bottomRight: Radius.circular(40.0)
-                      ),
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.blue,
-                          Colors.indigo,
                         ],
-                      ),
+                      ) ,
                     ),
-                    child:Column(
-                      children: [
-                        Image.asset("images/main1.png",height: 100,),
-                        Text("Bike Shops Details",style: GoogleFonts.merriweather(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold
-                        ),),
-                        SizedBox(height: 20,),
-                        Container(
-                          padding: EdgeInsets.all(15),
-                          height: 250,
-                          width: 270,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(30.0),
-                                topLeft: Radius.circular(30.0),
-                                bottomLeft: Radius.circular(30.0),
-                                bottomRight: Radius.circular(30.0)
-                            ),
-                            color: Colors.white,
-                          ),
-                          child: loading==true? tempWidget: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: Column(
-                              children: [
-                                SizedBox(height: 10,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Mechanical Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$bike_m",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Electrical Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$bike_e",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Oil Change Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$bike_O",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Denting & Painting Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$bike_dp",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Tyre Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$bike_t",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
-                                SizedBox(height: 20,),
-                                Row(
-                                  children: [
-                                    //SizedBox(width: 20,),
-                                    Text("Spare Parts Shops",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                    Spacer(),
-                                    Text("$bike_s",style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),),
-                                  ],
-                                ),
+                  ])),
+        );
 
 
-                              ],
-                            ),
-                          ),
-                        ),
-
-                      ],
-                    ) ,
-                  ),
-                  SizedBox(width: 10,),
-                  Container(
-                    // padding: EdgeInsets.all(10),
-                    height: 440,
-                    width: 340,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(40.0),
-                          topLeft: Radius.circular(40.0),
-                          bottomLeft: Radius.circular(40.0),
-                          bottomRight: Radius.circular(40.0)
-                      ),
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.blue,
-                          Colors.indigo,
-                        ],
-                      ),
-                    ),
-                    child:Column(
-                      children: [
-                        Image.asset("images/batry.png",height: 100,),
-                        Text("Battery/Wash",style: GoogleFonts.merriweather(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold
-                        ),),
-                        SizedBox(height: 20,),
-                        Container(
-                          padding: EdgeInsets.all(15),
-                          height: 250,
-                          width: 270,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(30.0),
-                                topLeft: Radius.circular(30.0),
-                                bottomLeft: Radius.circular(30.0),
-                                bottomRight: Radius.circular(30.0)
-                            ),
-                            color: Colors.white,
-                          ),
-                          child: loading==true? tempWidget:Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(height: 10,),
-                              Row(
-                                children: [
-                                  //SizedBox(width: 20,),
-                                  Text("Battery Shops",style: GoogleFonts.merriweather(
-                                      fontSize: 14,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold
-                                  ),),
-                                  Spacer(),
-                                  Text("$battery",style: GoogleFonts.merriweather(
-                                      fontSize: 14,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold
-                                  ),),
-                                ],
-                              ),
-                              SizedBox(height: 20,),
-                              Row(
-                                children: [
-                                  //SizedBox(width: 20,),
-                                  Text("Wash Shops",style: GoogleFonts.merriweather(
-                                      fontSize: 14,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold
-                                  ),),
-                                  Spacer(),
-                                  Text("$wash",style: GoogleFonts.merriweather(
-                                      fontSize: 14,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold
-                                  ),),
-                                ],
-                              ),
-
-
-                            ],
-                          ),
-                        ),
-
-                      ],
-                    ) ,
-                  ),
-                ])),
-        Divider(
-          thickness: 3,
-          color: Colors.indigo,
-        ),
-      ],
-    );
   }
 }
