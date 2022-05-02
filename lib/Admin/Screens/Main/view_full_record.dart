@@ -60,6 +60,18 @@ class _view_full_recordState extends State<view_full_record> {
 
     }) .catchError((error) => print('Delete failed: $error'));
   }
+  Future deleteData(String id) async{
+    try {
+      await  FirebaseFirestore.instance
+          .collection("shops")
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection("collection_name")
+          .doc(id)
+          .delete();
+    }catch (e){
+      return false;
+    }
+ }
 
   @override
   Widget build(BuildContext context) {
