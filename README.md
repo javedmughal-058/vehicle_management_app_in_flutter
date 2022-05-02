@@ -1,4 +1,4 @@
-# vehicle_maintainance
+# vehicle_maintenance
 
 A new Flutter project.
 
