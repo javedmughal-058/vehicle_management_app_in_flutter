@@ -143,8 +143,9 @@ class _view_full_recordState extends State<view_full_record> {
                               children:  [
                                 SizedBox(height: 20,),
                                 Text("${shopslist[index]['Owner Name']}",style: const TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 14,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
                                   fontFamily: 'Shrikhand',
                                 ),),
                                 Text("Service: ${shopslist[index]['Service']}",style: const TextStyle(
@@ -162,7 +163,7 @@ class _view_full_recordState extends State<view_full_record> {
                             const Spacer(),
                             IconButton(
                               icon: const Icon(Icons.edit,size: 20,),
-                              color: Colors.blue,
+                              color: Colors.indigo,
                               onPressed: () {
                                 // Navigator.push(context, MaterialPageRoute(builder: (context)=> detail(type,"Electrical"),));
 

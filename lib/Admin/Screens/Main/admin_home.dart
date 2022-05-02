@@ -163,16 +163,16 @@ class _admin_homeState extends State<admin_home> {
     if(first){
       counter();
     }
-    Widget tempWidget = new CircularProgressIndicator( strokeWidth: 7,
+    Widget tempWidget = const CircularProgressIndicator( strokeWidth: 7,
       valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),);
     if(loading) {
-      tempWidget = Center(
-        child: new CircularProgressIndicator( strokeWidth: 7,
+      tempWidget = const Center(
+        child: CircularProgressIndicator( strokeWidth: 7,
           valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),),
       );
     }
     else {
-      tempWidget = new Center();//EmptyWidget
+      tempWidget = const Center();//EmptyWidget
     }
     return
         Center(
@@ -185,7 +185,7 @@ class _admin_homeState extends State<admin_home> {
                       // padding: EdgeInsets.all(10),
                       height: 440,
                       width: 340,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(40.0),
                             topLeft: Radius.circular(40.0),
@@ -209,15 +209,15 @@ class _admin_homeState extends State<admin_home> {
                               color: Colors.white,
                               fontWeight: FontWeight.bold
                           ),),
-                          SizedBox(height: 20,),
+                          const SizedBox(height: 20,),
                           Container(
-                            padding: EdgeInsets.all(15),
+                            padding: const EdgeInsets.all(15),
                             height: 260,
                             width: 270,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               borderRadius: BorderRadius.only(
                                   topRight: Radius.circular(30.0),
-                                  topLeft: Radius.circular(30.0),
+                                  topLeft: const Radius.circular(30.0),
                                   bottomLeft: Radius.circular(30.0),
                                   bottomRight: Radius.circular(30.0)
                               ),
@@ -227,7 +227,7 @@ class _admin_homeState extends State<admin_home> {
                               scrollDirection: Axis.vertical,
                               child: Column(
                                 children: [
-                                  SizedBox(height: 10,),
+                                  const SizedBox(height: 10,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -236,7 +236,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$car_m",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -244,7 +244,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -253,7 +253,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$car_e",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -261,7 +261,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -270,7 +270,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$car_O",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -278,7 +278,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -287,7 +287,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$car_dp",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -295,7 +295,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -304,7 +304,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$car_t",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -312,7 +312,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -321,7 +321,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$car_s",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -339,19 +339,19 @@ class _admin_homeState extends State<admin_home> {
                         ],
                       ) ,
                     ),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
                     Container(
                       // padding: EdgeInsets.all(10),
                       height: 440,
                       width: 340,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(40.0),
-                            topLeft: Radius.circular(40.0),
+                            topRight:  Radius.circular(40.0),
+                            topLeft:  Radius.circular(40.0),
                             bottomLeft: Radius.circular(40.0),
                             bottomRight: Radius.circular(40.0)
                         ),
-                        gradient: LinearGradient(
+                        gradient:  LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
@@ -368,13 +368,13 @@ class _admin_homeState extends State<admin_home> {
                               color: Colors.white,
                               fontWeight: FontWeight.bold
                           ),),
-                          SizedBox(height: 20,),
+                          const SizedBox(height: 20,),
                           Container(
-                            padding: EdgeInsets.all(15),
+                            padding: const EdgeInsets.all(15),
                             height: 250,
                             width: 270,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
+                            decoration: const BoxDecoration(
+                              borderRadius:  BorderRadius.only(
                                   topRight: Radius.circular(30.0),
                                   topLeft: Radius.circular(30.0),
                                   bottomLeft: Radius.circular(30.0),
@@ -386,7 +386,7 @@ class _admin_homeState extends State<admin_home> {
                               scrollDirection: Axis.vertical,
                               child: Column(
                                 children: [
-                                  SizedBox(height: 10,),
+                                  const SizedBox(height: 10,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -395,7 +395,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$bike_m",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -403,7 +403,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -412,7 +412,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$bike_e",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -420,7 +420,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -429,7 +429,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$bike_O",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -437,7 +437,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -446,7 +446,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$bike_dp",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -454,7 +454,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -463,7 +463,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$bike_t",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -471,7 +471,7 @@ class _admin_homeState extends State<admin_home> {
                                       ),),
                                     ],
                                   ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                                   Row(
                                     children: [
                                       //SizedBox(width: 20,),
@@ -480,7 +480,7 @@ class _admin_homeState extends State<admin_home> {
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
                                       ),),
-                                      Spacer(),
+                                      const Spacer(),
                                       Text("$bike_s",style: GoogleFonts.merriweather(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -498,17 +498,17 @@ class _admin_homeState extends State<admin_home> {
                         ],
                       ) ,
                     ),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
                     Container(
                       // padding: EdgeInsets.all(10),
                       height: 440,
                       width: 340,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(40.0),
                             topLeft: Radius.circular(40.0),
                             bottomLeft: Radius.circular(40.0),
-                            bottomRight: Radius.circular(40.0)
+                            bottomRight:  Radius.circular(40.0)
                         ),
                         gradient: LinearGradient(
                           begin: Alignment.topCenter,
@@ -527,16 +527,16 @@ class _admin_homeState extends State<admin_home> {
                               color: Colors.white,
                               fontWeight: FontWeight.bold
                           ),),
-                          SizedBox(height: 20,),
+                          const SizedBox(height: 20,),
                           Container(
-                            padding: EdgeInsets.all(15),
+                            padding: const EdgeInsets.all(15),
                             height: 250,
                             width: 270,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(30.0),
-                                  topLeft: Radius.circular(30.0),
-                                  bottomLeft: Radius.circular(30.0),
+                                  topRight:  Radius.circular(30.0),
+                                  topLeft:  Radius.circular(30.0),
+                                  bottomLeft:  Radius.circular(30.0),
                                   bottomRight: Radius.circular(30.0)
                               ),
                               color: Colors.white,
@@ -544,7 +544,7 @@ class _admin_homeState extends State<admin_home> {
                             child: loading==true? tempWidget:Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SizedBox(height: 10,),
+                                const SizedBox(height: 10,),
                                 Row(
                                   children: [
                                     //SizedBox(width: 20,),
@@ -553,7 +553,7 @@ class _admin_homeState extends State<admin_home> {
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold
                                     ),),
-                                    Spacer(),
+                                    const Spacer(),
                                     Text("$battery",style: GoogleFonts.merriweather(
                                         fontSize: 14,
                                         color: Colors.black,
@@ -561,7 +561,7 @@ class _admin_homeState extends State<admin_home> {
                                     ),),
                                   ],
                                 ),
-                                SizedBox(height: 20,),
+                                const SizedBox(height: 20,),
                                 Row(
                                   children: [
                                     //SizedBox(width: 20,),
@@ -570,7 +570,7 @@ class _admin_homeState extends State<admin_home> {
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold
                                     ),),
-                                    Spacer(),
+                                    const Spacer(),
                                     Text("$wash",style: GoogleFonts.merriweather(
                                         fontSize: 14,
                                         color: Colors.black,
@@ -587,9 +587,9 @@ class _admin_homeState extends State<admin_home> {
                         ],
                       ) ,
                     ),
-                  ])),
+                            ]
+              )
+          ),
         );
-
-
   }
 }
