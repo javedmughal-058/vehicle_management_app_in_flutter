@@ -63,7 +63,7 @@ class _homeState extends State<home> {
       fetchdatalist();
     }
     return ListView(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       children: [
 
         Container(
@@ -82,7 +82,7 @@ class _homeState extends State<home> {
               return Builder(builder: (BuildContext context){
                 return Container(
                   width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 0),
+                  margin: const EdgeInsets.symmetric(horizontal: 0),
                   child: Image.asset(imagepath),
                 );
               },
@@ -92,7 +92,7 @@ class _homeState extends State<home> {
           ),
         ),
         Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           height: 200,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -103,17 +103,17 @@ class _homeState extends State<home> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> bike("bike"),));
                 },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
                     height: 170,
                     width: 150,
                     decoration:  BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Color(0xFF37474F),
+                        color: const Color(0xFF37474F),
                     ),
                     child:  Column(
                       children: [
                         Image.asset("images/bike.png"),
-                        Text('Bike',textAlign: TextAlign.center,
+                        const Text('Bike',textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -126,25 +126,25 @@ class _homeState extends State<home> {
 
                 ),
               ),
-              SizedBox(width: 10,),
+              const SizedBox(width: 10,),
               Expanded(
                 child:  TextButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> car("car"),));
               },
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                  padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
                   // color: Colors.red,
                   height: 170,
                   width: 150,
                   decoration:  BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Color(0xFF37474F),
+                      color: const Color(0xFF37474F),
                   ),
                   child:  Column(
                     children: [
                       Image.asset("images/car.png"),
-                      SizedBox(height: 10,),
-                      Text('Car',textAlign: TextAlign.center,
+                      const SizedBox(height: 10,),
+                      const Text('Car',textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
@@ -158,18 +158,18 @@ class _homeState extends State<home> {
             ],
           ),
         ),
-        SizedBox(height: 10,),
+        const SizedBox(height: 10,),
         Container(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: const EdgeInsets.symmetric(vertical: 5),
           //color:Color(0xFF37474F),
           height: 40,
           //color: Colors.amber[100],
           child: Text("Recommended",textAlign: TextAlign.center,style:
-          GoogleFonts.merriweather(color: Color(0xFF37474F), fontSize: 20, fontWeight: FontWeight.bold),
+          GoogleFonts.merriweather(color: const Color(0xFF37474F), fontSize: 20, fontWeight: FontWeight.bold),
 
           ),
         ),
-        SizedBox(height: 10,),
+        const SizedBox(height: 10,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -177,7 +177,7 @@ class _homeState extends State<home> {
               Navigator.push(context, MaterialPageRoute(builder: (context)=> view("wash")));
             },
               child: Container(
-                padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
                 // color: Colors.red,
                 height: 100,
                 width: 80,
@@ -188,7 +188,7 @@ class _homeState extends State<home> {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                     color: Colors.white
@@ -196,22 +196,22 @@ class _homeState extends State<home> {
                 child:  Column(
                   children: [
                     Image.asset("images/wash.png",height: 60,width: 60,),
-                    Text('Wash',textAlign: TextAlign.center,
+                    const Text('Wash',textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                       ),),
-                    SizedBox(height: 7,),
+                    const SizedBox(height: 7,),
                   ],
 
                 ),
               ),),
-            SizedBox(width: 3,),
+            const SizedBox(width: 3,),
             TextButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=> view("battery")));
             },
               child: Container(
-                padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
                 // color: Colors.red,
                 height: 100,
                 width: 80,
@@ -222,32 +222,32 @@ class _homeState extends State<home> {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                     color: Colors.white
                 ),
                 child:  Column(
                   children: [
-                    SizedBox(height: 15,),
+                    const SizedBox(height: 15,),
                     Image.asset("images/battery.png",height: 45,width: 60),
-                    SizedBox(height: 5,),
-                    Text('Battery',textAlign: TextAlign.center,
+                    const SizedBox(height: 5,),
+                    const Text('Battery',textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                       ),),
-                    SizedBox(height: 7,),
+                    const SizedBox(height: 7,),
                   ],
 
                 ),
               ),),
-            SizedBox(width: 3,),
+            const SizedBox(width: 3,),
             TextButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=> view("tyre")));
             },
               child: Container(
-                padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
                 // color: Colors.red,
                 height: 100,
                 width: 80,
@@ -258,52 +258,52 @@ class _homeState extends State<home> {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                     color: Colors.white
                 ),
                 child:  Column(
                   children: [
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     Image.asset("images/tyres.png",height: 55,width: 60),
                     //SizedBox(height: 5,),
-                    Text('Tyre',textAlign: TextAlign.center,
+                    const Text('Tyre',textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                       ),),
-                    SizedBox(height: 7,),
+                    const SizedBox(height: 7,),
                   ],
 
                 ),
               ),),
           ],
         ),
-        SizedBox(height: 10,),
+        const SizedBox(height: 10,),
         Container(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: const EdgeInsets.symmetric(vertical: 5),
           //color:Color(0xFF37474F),
           height: 40,
           //color: Colors.amber[100],
           child: Text("Top Rated Shops",textAlign: TextAlign.center,style:
-          GoogleFonts.merriweather(color: Color(0xFF37474F), fontSize: 20, fontWeight: FontWeight.bold),
+          GoogleFonts.merriweather(color: const Color(0xFF37474F), fontSize: 20, fontWeight: FontWeight.bold),
 
           ),
         ),
-        SizedBox(height: 10,),
+        const SizedBox(height: 10,),
 
         SizedBox(
           height: 280,
           child: loading==true? Center(
             child: Container(
               //width: 120,height: 120,
-              child: CircularProgressIndicator(
+              child: const CircularProgressIndicator(
                 // backgroundColor: Colors.grey,
                 strokeWidth: 7,
                 valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
               ),),)
-              :ListView.builder(scrollDirection: Axis.horizontal,physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index)=>
+              :ListView.builder(scrollDirection: Axis.horizontal,physics: const ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index)=>
 
               Card(
                 child: Center(
@@ -318,7 +318,7 @@ class _homeState extends State<home> {
                         width: 220,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
@@ -331,55 +331,61 @@ class _homeState extends State<home> {
                       children: [
                           Container(
                               child: ClipRRect(
-                                borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
+                                borderRadius: const BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10),),
                                 child: Image.asset("images/cs1.jpg",), )),
                           //Divider(height: 10,color: Colors.black,),
                           Container(
-                            padding: EdgeInsets.only(top: 20),
-                            child:Column(
-                              children: [
-                                Text('${shopslist[index]['Shop Name']}',
+                            padding: const EdgeInsets.only(top: 20),
+                            child:SizedBox(
+                              width: 200.0,
+                              child: Column(
+                                children: [
+                                  Text('${shopslist[index]['Shop Name']}',
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                      softWrap: false,
+                                      textAlign: TextAlign.start,
+                                      style: GoogleFonts.merriweather(
+                                          fontSize: 14,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                      )
+                                  ),
+                                  const SizedBox(height: 4,),
+                                  Text('Shop Type: ${shopslist[index]['type']}',
                                     textAlign: TextAlign.start,
-                                    style: GoogleFonts.merriweather(
-                                        fontSize: 14,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                    )
-                                ),
-                                SizedBox(height: 4,),
-                                Text('Shop Type: ${shopslist[index]['type']}',
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 12,
-                                  ),),
-                                SizedBox(height: 4,),
-                                Text('Rating: ${shopslist[index]['Shop Rating']}',
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                    color: Colors.yellow,
-                                    fontSize: 14,
-                                  ),),
-                                SizedBox(height: 4,),
-                                // RatingBar.builder(
-                                // initialRating: 5,
-                                // minRating: 1,
-                                //direction: Axis.horizontal,
-                                // allowHalfRating: true,
-                                //itemCount: 5,
-                                //itemSize: 20.0,
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12,
+                                    ),),
+                                  const SizedBox(height: 4,),
+                                  Text('Rating: ${shopslist[index]['Shop Rating']}',
+                                    textAlign: TextAlign.start,
+                                    style: const TextStyle(
+                                      color: Colors.yellow,
+                                      fontSize: 14,
+                                    ),),
+                                  const SizedBox(height: 4,),
+                                  // RatingBar.builder(
+                                  // initialRating: 5,
+                                  // minRating: 1,
+                                  //direction: Axis.horizontal,
+                                  // allowHalfRating: true,
+                                  //itemCount: 5,
+                                  //itemSize: 20.0,
 
-                                //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                //itemBuilder: (context, _) => Icon(
-                                // Icons.star,
-                                //color: Colors.amber,
-                                //),
-                                //onRatingUpdate: (rating) {
-                                //print(rating);
-                                //},
-                                // ),
+                                  //itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                  //itemBuilder: (context, _) => Icon(
+                                  // Icons.star,
+                                  //color: Colors.amber,
+                                  //),
+                                  //onRatingUpdate: (rating) {
+                                  //print(rating);
+                                  //},
+                                  // ),
 
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                       ],

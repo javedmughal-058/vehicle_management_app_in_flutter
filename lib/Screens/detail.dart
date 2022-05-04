@@ -62,27 +62,27 @@ class detailState extends State<detail> {
         title: Text("$shoptype"),
         leading: IconButton(onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (c)=>category(shoptype)));
-        }, icon: Icon(Icons.arrow_back)),
-        backgroundColor: Color(0xFF37474F),
+        }, icon: const Icon(Icons.arrow_back)),
+        backgroundColor: const Color(0xFF37474F),
       ),
       body: loading==true? Center(
         child: Container(
           //width: 120,height: 120,
-          child: CircularProgressIndicator(
+          child: const CircularProgressIndicator(
            // backgroundColor: Colors.grey,
             strokeWidth: 7,
-            valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+            valueColor: const AlwaysStoppedAnimation<Color> (Colors.blue),
           ),),)
           :ListView(
         children: [
-          SizedBox(height: 15,),
-          Padding(padding: EdgeInsets.only(left: 10),child: Text("Shops detail",style: GoogleFonts.tajawal(fontSize: 20,fontWeight: FontWeight.bold),)),
-          SizedBox(height: 15,),
-          ListView.builder(physics: ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
+          const SizedBox(height: 15,),
+          Padding(padding: const EdgeInsets.only(left: 10),child: Text("Shops detail",style: GoogleFonts.tajawal(fontSize: 20,fontWeight: FontWeight.bold),)),
+          const SizedBox(height: 15,),
+          ListView.builder(physics: const ClampingScrollPhysics(),shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
                 return Container(
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               child: Container(
-                margin: EdgeInsets.only(left: 5,right: 5),
+                margin: const EdgeInsets.only(left: 5,right: 5),
                 height: 70,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -92,38 +92,38 @@ class detailState extends State<detail> {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 7,
                         blurRadius: 9,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3), // changes position of shadow
                       ),
                     ]
                 ),
                 child: Row(
                   //mainAxisAlignment: MainAxisAlignment.,
                   children: [
-                    SizedBox(width: 20,),
-                    CircleAvatar(
+                    const SizedBox(width: 20,),
+                    const CircleAvatar(
                       backgroundColor: Colors.grey,
                       radius: 20,
                     ),
-                    SizedBox(width: 15,),
+                    const SizedBox(width: 15,),
                     SizedBox(
                       width: 200.0,
                       child: Column(
                         children: [
-                          SizedBox(height: 10,),
+                          const SizedBox(height: 10,),
                           Text("${shopslist[index]["Shop Name"]}",
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             softWrap: false,
-                            style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
-                          SizedBox(height: 5,),
-                          Text("Rating: ${shopslist[index]["Shop Rating"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
-                          SizedBox(height: 5,),
-                          Text("Affordability: ${shopslist[index]["Shop Affordability"]}",style: TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
+                            style: const TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
+                          const SizedBox(height: 5,),
+                          Text("Rating: ${shopslist[index]["Shop Rating"]}",style: const TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
+                          const SizedBox(height: 5,),
+                          Text("Affordability: ${shopslist[index]["Shop Affordability"]}",style: const TextStyle(fontSize: 12,color: Colors.green,fontWeight: FontWeight.bold),),
 
                         ],
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     IconButton(
                       icon: const Icon(Icons.remove_red_eye,size: 25,),
                       color: Colors.amber,

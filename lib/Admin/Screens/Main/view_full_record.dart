@@ -7,6 +7,8 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:vehicle_maintainance/Admin/Screens/Main/retrieveData.dart';
 import 'package:vehicle_maintainance/Admin/Screens/Main/view_record.dart';
 
+import 'add_car_record.dart';
+
 class view_full_record extends StatefulWidget {
   String str;
   view_full_record(this.str, {Key? key}) : super(key: key);
@@ -77,6 +79,7 @@ class _view_full_recordState extends State<view_full_record> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       backgroundColor: Colors.indigo,
       appBar: AppBar(
         backgroundColor: Colors.indigo,
@@ -84,7 +87,7 @@ class _view_full_recordState extends State<view_full_record> {
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(Icons.arrow_back),
-              onPressed: () { Navigator.push(context,MaterialPageRoute(builder: (context)=> view_record()));
+              onPressed: () { Navigator.push(context,MaterialPageRoute(builder: (context)=> const view_record()));
               },
               // tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
@@ -103,20 +106,20 @@ class _view_full_recordState extends State<view_full_record> {
                 ),
                 child: Container(
                   padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(color: Colors.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20),),
+                  decoration: const BoxDecoration(color: Colors.white,
+                    borderRadius: BorderRadius.only(topLeft:  Radius.circular(20),topRight: Radius.circular(20),),
                   ),
                   child: loading==true? Center(
                     child: Container(
                       //width: 120,height: 120,
-                      child: CircularProgressIndicator(
+                      child: const CircularProgressIndicator(
                         // backgroundColor: Colors.grey,
                         strokeWidth: 7,
-                        valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+                        valueColor:  AlwaysStoppedAnimation<Color> (Colors.blue),
                       ),),)
                       :ListView.builder(shrinkWrap: true,itemCount: shopslist.length,itemBuilder: (context,index){
                     return  Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: const EdgeInsets.only(top: 10),
                       height: 70,
                       decoration: BoxDecoration (
                         color: Colors.white,
@@ -126,7 +129,7 @@ class _view_full_recordState extends State<view_full_record> {
                             color: Colors.black.withOpacity(0.5),
                             spreadRadius: 2,
                             blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
+                            offset: const Offset(0, 3), // changes position of shadow
                           ),
                         ],
                       ),
@@ -141,7 +144,7 @@ class _view_full_recordState extends State<view_full_record> {
                             const SizedBox(width: 15),
                             Column(
                               children:  [
-                                SizedBox(height: 20,),
+                                const SizedBox(height: 20,),
                                 Text("${shopslist[index]['Owner Name']}",style: const TextStyle(
                                   color: Colors.black87,
                                   fontWeight: FontWeight.bold,
@@ -177,7 +180,7 @@ class _view_full_recordState extends State<view_full_record> {
                                 loading==true? Center(
                                   child: Container(
                                     //width: 120,height: 120,
-                                    child: CircularProgressIndicator(
+                                    child: const CircularProgressIndicator(
                                       // backgroundColor: Colors.grey,
                                       strokeWidth: 7,
                                       valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
@@ -195,6 +198,14 @@ class _view_full_recordState extends State<view_full_record> {
 
                 ),
               ),
+            ),
+            FloatingActionButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (c)=>add_car_record()));
+
+            },
+              tooltip: 'Add Record',
+              backgroundColor: Colors.white,
+              child: const Icon(Icons.add, size: 25,color: Colors.indigo,),
             ),
           ]
       ),
