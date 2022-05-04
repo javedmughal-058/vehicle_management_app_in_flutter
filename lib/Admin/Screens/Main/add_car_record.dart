@@ -112,6 +112,9 @@ class _BikeRecordState extends State<BikeRecord> {
     if(record_name=="wash" || record_name=="battery"){
       enable=true;
       shopservice=record_name;
+      OServices="No";
+      price_km=0;
+
     }else{
       enable=false;
     }
@@ -137,6 +140,13 @@ class _BikeRecordState extends State<BikeRecord> {
       };
       dc.set(shops).whenComplete((){
         //print("$Ownername Created");
+        setState(() {
+          dropdownValue = 'Mechanical';
+          dropdownValue2 = 'Yes';
+          dropdownValue3 = '1';
+          dropdownValue4 = '1';
+        });
+
         AdvanceSnackBar(
           message: "Successfully added record",
           duration: Duration(seconds: 5),
@@ -506,6 +516,8 @@ class _BikeRecordState extends State<BikeRecord> {
     contact_Controller.dispose();
     location_Controller.dispose();
     price_controller.dispose();
+
+
   }
   }
 
