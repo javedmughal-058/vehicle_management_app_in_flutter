@@ -32,6 +32,8 @@ class _bikeState extends State<bike> {
         .collection("shops")
         .where("type", isEqualTo: type)
         .where("Shop status", isEqualTo: true)
+        //.where("Shop Rating", isGreaterThanOrEqualTo: 4)
+        //.orderBy("Shop Rating", descending: true)
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
         //print(result.data());
@@ -50,6 +52,8 @@ class _bikeState extends State<bike> {
         .collection("shops")
         .where("type", isEqualTo: type)
         .where("Shop status", isEqualTo: true)
+        .where("Shop Affordability",isEqualTo: 8)
+        //.where("Shop Affordability",isEqualTo: 10)
 
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {

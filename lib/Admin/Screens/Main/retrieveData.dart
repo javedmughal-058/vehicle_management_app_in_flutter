@@ -2,13 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseManager{
   List lisofitem=[];
-  Future counter()async{
+  Future block()async{
     try{
-      await FirebaseFirestore.instance
-      .collection("shops")
-      .orderBy("Shop Rating",descending: true)
+      FirebaseFirestore.instance
+          .collection("shops")
+      //.orderBy("Shop Rating",descending: true)
+          .where("Shop status", isEqualTo: false)
+          .limit(1000)
           .get().then((querySnapshot) {
         querySnapshot.docs.forEach((result) {
+
           lisofitem.add(result.data());
         });
       });

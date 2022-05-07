@@ -4,6 +4,7 @@ import 'admin_home.dart';
 import 'admin_profile.dart';
 import 'manage_records.dart';
 class main_page extends StatefulWidget {
+
   const main_page({Key? key}) : super(key: key);
 
   @override
@@ -11,6 +12,7 @@ class main_page extends StatefulWidget {
 }
 
 class _main_pageState extends State<main_page> {
+
   int _currentIndex=0;
   final tabs=[
     admin_home(),
