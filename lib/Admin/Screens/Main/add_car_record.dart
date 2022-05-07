@@ -9,7 +9,7 @@ import 'admin_home.dart';
 
 
 class add_car_record extends StatefulWidget {
-  static final kInitialPosition = LatLng(-33.8567844, 151.213108);
+  static final kInitialPosition = const LatLng(-33.8567844, 151.213108);
 
   add_car_record({Key? key}) : super(key: key);
   @override
@@ -29,20 +29,20 @@ class _add_car_recordPageState extends State<add_car_record> {
 
         actions: [
           PopupMenuButton(
-            icon: Icon(Icons.menu),  //don't specify icon if you want 3 dot menu
+            icon: const Icon(Icons.more_vert),  //don't specify icon if you want 3 dot menu
             color: Colors.white,
             itemBuilder: (context) => [
-              PopupMenuItem<int>(
+              const PopupMenuItem<int>(
                 value: 0,
-                child: Text("import excel file",style: TextStyle(color: Colors.indigo),),
+                child: const Text("import excel file",style: TextStyle(color: Colors.indigo),),
               ),
             ],
             onSelected: (item)  {
-              Navigator.push(context,MaterialPageRoute(builder: (context)=> AddRecord()));
+              Navigator.push(context,MaterialPageRoute(builder: (context)=> const AddRecord()));
             },
           ),
         ],
-        title: Text("Add Record"),
+        title: const Text("Add Record"),
       ),
       body: Center(
           child: SingleChildScrollView(
@@ -63,7 +63,6 @@ class BikeRecord extends StatefulWidget {
 
 class _BikeRecordState extends State<BikeRecord> {
   late PickResult selectedPlace;
-
   late String Ownername, shopname, shoplocation;
   String shopservice="Mechanical", OServices="Yes",record_name="bike";
   int shoprating=1,shopafffordability=1;
@@ -147,11 +146,11 @@ class _BikeRecordState extends State<BikeRecord> {
           dropdownValue4 = '1';
         });
 
-        AdvanceSnackBar(
+        const AdvanceSnackBar(
           message: "Successfully added record",
           duration: Duration(seconds: 5),
             child: Padding(
-              padding: const EdgeInsets.only(left: 2),
+              padding: EdgeInsets.only(left: 2),
               child: Icon(
                 Icons.all_inbox,
                 color: Colors.red,
@@ -193,10 +192,10 @@ class _BikeRecordState extends State<BikeRecord> {
         child: SingleChildScrollView(
             child: Column(children: <Widget>[
               Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: DropdownButtonFormField(
                   value: dropdownValue5,
-                  icon: Icon(Icons.keyboard_arrow_down_sharp),
+                  icon: const Icon(Icons.keyboard_arrow_down_sharp),
                   decoration: InputDecoration(
                     labelText: "Category",
                     enabledBorder: OutlineInputBorder(
@@ -225,7 +224,7 @@ class _BikeRecordState extends State<BikeRecord> {
                   child: TextFormField(
                     controller: ON_Controller,
                     decoration: InputDecoration(
-                        icon: Icon(Icons.person),
+                        icon: const Icon(Icons.person),
                         labelText: 'Owner Name',
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(width: 1, color: Colors.black),
@@ -253,7 +252,7 @@ class _BikeRecordState extends State<BikeRecord> {
                   child: TextFormField(
                     controller: SN_Controller,
                     decoration: InputDecoration(
-                        icon: Icon(Icons.account_balance),
+                        icon: const Icon(Icons.account_balance),
                         labelText: 'Shop Name',
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(width: 1, color: Colors.black),
@@ -281,7 +280,7 @@ class _BikeRecordState extends State<BikeRecord> {
                   child: TextFormField(
                     controller: contact_Controller,
                     decoration: InputDecoration(
-                        icon: Icon(Icons.call),
+                        icon: const Icon(Icons.call),
                         labelText: 'Contact',
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(width: 1, color: Colors.black),
@@ -309,7 +308,7 @@ class _BikeRecordState extends State<BikeRecord> {
                   child: TextFormField(
                     controller: location_Controller,
                     decoration: InputDecoration(
-                        icon: Icon(Icons.location_on_outlined),
+                        icon: const Icon(Icons.location_on_outlined),
                         labelText: 'Location',
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(width: 1, color: Colors.black),
@@ -334,10 +333,10 @@ class _BikeRecordState extends State<BikeRecord> {
               IgnorePointer(
                 ignoring: enable,
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: DropdownButtonFormField(
                     value: dropdownValue,
-                    icon: Icon(Icons.keyboard_arrow_down_sharp),
+                    icon: const Icon(Icons.keyboard_arrow_down_sharp),
                     decoration: InputDecoration(
                       labelText: "Select Service Once at a time",
                       enabledBorder: OutlineInputBorder(
@@ -400,7 +399,7 @@ class _BikeRecordState extends State<BikeRecord> {
                     child: TextFormField(
                       controller: price_controller,
                       decoration: InputDecoration(
-                          icon: Icon(Icons.currency_rupee),
+                          icon: const Icon(Icons.currency_rupee),
                           labelText: 'Rs/km',
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(width: 1, color: Colors.black),
@@ -481,7 +480,7 @@ class _BikeRecordState extends State<BikeRecord> {
               ),
 
               Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
