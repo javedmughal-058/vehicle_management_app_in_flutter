@@ -3,8 +3,6 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-import 'package:vehicle_maintainance/Admin/Screens/Main/retrieveData.dart';
 import 'package:vehicle_maintainance/Admin/Screens/Main/view_record.dart';
 
 import 'add_car_record.dart';
@@ -145,7 +143,8 @@ class _view_full_recordState extends State<view_full_record> {
                             Column(
                               children:  [
                                 const SizedBox(height: 20,),
-                                Text("${shopslist[index]['Owner Name']}",style: const TextStyle(
+                                Text("${shopslist[index]['Owner Name']}",
+                                  style: const TextStyle(
                                   color: Colors.black87,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12,
