@@ -86,7 +86,10 @@ class _view_recordState extends State<view_record> {
             return IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>const manage_record()));
+                setState(() {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const manage_record()));
+
+                });
               },
               // tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
