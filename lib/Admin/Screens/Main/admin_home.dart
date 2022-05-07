@@ -183,7 +183,7 @@ class _admin_homeState extends State<admin_home> {
                   children: [
                     Container(
                       // padding: EdgeInsets.all(10),
-                      height: 440,
+                      height: 570,
                       width: 340,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -211,8 +211,8 @@ class _admin_homeState extends State<admin_home> {
                           ),),
                           const SizedBox(height: 20,),
                           Container(
-                            padding: const EdgeInsets.all(15),
-                            height: 260,
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10,10),
+                            height: 360,
                             width: 270,
                             decoration: const BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -342,7 +342,7 @@ class _admin_homeState extends State<admin_home> {
                     const SizedBox(width: 10,),
                     Container(
                       // padding: EdgeInsets.all(10),
-                      height: 440,
+                      height: 570,
                       width: 340,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -370,8 +370,8 @@ class _admin_homeState extends State<admin_home> {
                           ),),
                           const SizedBox(height: 20,),
                           Container(
-                            padding: const EdgeInsets.all(15),
-                            height: 250,
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10,10),
+                            height: 360,
                             width: 270,
                             decoration: const BoxDecoration(
                               borderRadius:  BorderRadius.only(
@@ -501,7 +501,7 @@ class _admin_homeState extends State<admin_home> {
                     const SizedBox(width: 10,),
                     Container(
                       // padding: EdgeInsets.all(10),
-                      height: 440,
+                      height: 570,
                       width: 340,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -529,8 +529,8 @@ class _admin_homeState extends State<admin_home> {
                           ),),
                           const SizedBox(height: 20,),
                           Container(
-                            padding: const EdgeInsets.all(15),
-                            height: 250,
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10,10),
+                            height: 360,
                             width: 270,
                             decoration: const BoxDecoration(
                               borderRadius: BorderRadius.only(

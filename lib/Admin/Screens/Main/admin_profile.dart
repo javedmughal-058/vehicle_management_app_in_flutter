@@ -1,25 +1,81 @@
-import 'package:cool_alert/cool_alert.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vehicle_maintainance/Admin/Screens/Main/reports.dart';
 import 'package:vehicle_maintainance/Admin/Screens/login/login.dart';
+
+import 'block_shops.dart';
 class admin_profile extends StatefulWidget {
-  const admin_profile({Key? key}) : super(key: key);
+  admin_profile({Key? key}) : super(key: key);
 
   @override
   _admin_profileState createState() => _admin_profileState();
 }
 
 class _admin_profileState extends State<admin_profile> {
+  List blockedlist=[];
+  List complaintlist=[];
+  @override
+  void initState() {
+    super.initState();
+    blockedshoplist();
+    complaintshoplist();
+  }
+  blockedshoplist() async{
+    List lisofitem=[];
+    dynamic newresult= await FirebaseFirestore.instance
+        .collection("shops")
+    //.orderBy("Shop Rating",descending: true)
+        .where("Shop status", isEqualTo: false)
+        .get().then((querySnapshot) {
+      querySnapshot.docs.forEach((result) {
+
+        lisofitem.add(result.data());
+      });
+    });
+    if(lisofitem.isNotEmpty) {
+      setState(() {
+        blockedlist = lisofitem;
+      });
+    }
+  }
+  complaintshoplist() async {
+    List lisofcomplaint=[];
+    dynamic newresult= await FirebaseFirestore.instance
+        .collection("complaints")
+        .orderBy('reporter_name', descending: false)
+        .get().then((querySnapshot) {
+      querySnapshot.docs.forEach((result) {
+        lisofcomplaint.add(result.data());
+      });
+    });
+    if(lisofcomplaint.isNotEmpty) {
+      color=true;
+      setState(() {
+        complaintlist = lisofcomplaint;
+      });
+    }
+    else{
+      color=false;
+    }
+  }
+  bool color=true;
+  bool first=true;
+
   @override
   Widget build(BuildContext context) {
+    if(first){
+      complaintshoplist();
+      blockedshoplist();
+    }
     return Column(
      // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
           children: [
            Container(
-             padding: EdgeInsets.all(20),
+             padding: const EdgeInsets.all(20),
              child:  CircleAvatar(
                  radius: 30,
                  backgroundColor: Colors.black12,
@@ -31,14 +87,14 @@ class _admin_profileState extends State<admin_profile> {
            ),
             Column(
               children: [
-                SizedBox(height: 30,),
+                const SizedBox(height: 30,),
                 Text("Admin Name",style: GoogleFonts.merriweather(fontWeight: FontWeight.bold,fontSize: 18),),
                 FlatButton(
                   onPressed: () => {},
                   child: Row(
                     children: <Widget>[
-                      Text("View Profile"),
-                      Icon(Icons.navigate_next),
+                      const Text("View Profile"),
+                      const Icon(Icons.navigate_next),
                     ],
                   ),
                 ),
@@ -46,66 +102,90 @@ class _admin_profileState extends State<admin_profile> {
             ),
           ],
         ),
-        Divider(thickness: 2,),
-        SizedBox(height: 10,),
+        const Divider(thickness: 2,),
+        const SizedBox(height: 10,),
         Container(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Column(
             children: [
               FlatButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.push(context, MaterialPageRoute(builder: (c)=> const block_shops())),
+                },
                 child:Row(
                   children: [
-                    Icon(Icons.block_rounded),
-                    SizedBox(width: 20,),
-                    Text("Blocked"),
-                    Spacer(),
-                    Icon(Icons.navigate_next)
+                   const Icon(Icons.block_rounded),
+                    const SizedBox(width: 20,),
+                    Row(
+                      children: [
+                        const Text("Blocked"),
+                        const SizedBox(width: 10,),
+                        Text("(${blockedlist.length})",
+                          style: const TextStyle(
+                              color: Colors.indigo,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    const Icon(Icons.navigate_next)
                   ],
                 )
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
+              FlatButton(
+                  onPressed: () => {
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=> const reports())),
+
+                  },
+                  child:Row(
+                    children: [
+                      color==true? const Icon(Icons.notifications_active_outlined,color: Colors.red,)
+                          : const Icon(Icons.notifications_active_outlined),
+                      const SizedBox(width: 20,),
+                      const Text("Requests"),
+                      const SizedBox(width: 10,),
+                      Text("(${(complaintlist.length)})",
+                        style: const TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.navigate_next)
+                    ],
+                  )
+              ),
+              const Divider(thickness: 1,),
               FlatButton(
                   onPressed: () => {},
                   child:Row(
                     children: [
-                      Icon(Icons.notifications_active_outlined),
-                      SizedBox(width: 20,),
-                      Text("Requests"),
-                      Spacer(),
-                      Icon(Icons.navigate_next)
+                      const Icon(Icons.settings),
+                      const SizedBox(width: 20,),
+                      const Text("Setting"),
+                      const Spacer(),
+                      const Icon(Icons.navigate_next)
                     ],
                   )
               ),
-              Divider(thickness: 1,),
-              FlatButton(
-                  onPressed: () => {},
-                  child:Row(
-                    children: [
-                      Icon(Icons.settings),
-                      SizedBox(width: 20,),
-                      Text("Setting"),
-                      Spacer(),
-                      Icon(Icons.navigate_next)
-                    ],
-                  )
-              ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
               FlatButton(
                   onPressed: () => {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen(),))
                   },
                   child:Row(
                     children: [
-                      Icon(Icons.logout),
-                      SizedBox(width: 20,),
-                      Text("Logout"),
-                      Spacer(),
-                      Icon(Icons.navigate_next)
+                      const Icon(Icons.logout),
+                      const SizedBox(width: 20,),
+                      const Text("Logout"),
+                      const Spacer(),
+                      const Icon(Icons.navigate_next)
                     ],
                   )
               ),
-              Divider(thickness: 1,),
+              const Divider(thickness: 1,),
             ],
           ),
         )
