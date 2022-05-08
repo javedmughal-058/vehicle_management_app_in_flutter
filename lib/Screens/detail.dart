@@ -128,7 +128,7 @@ class detailState extends State<detail> {
                       icon: const Icon(Icons.remove_red_eye,size: 25,),
                       color: Colors.amber,
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(shopslist),));
+                       // Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(shopslist),));
                       },
                     ),
                   ],

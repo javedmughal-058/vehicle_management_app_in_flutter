@@ -482,7 +482,7 @@ class _carState extends State<car> {
                       icon: const Icon(Icons.remove_red_eye,size: 25,),
                       color: Colors.amber,
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(affordableshopslist),));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(affordableshopslist[index]),));
                       },
                     ),
                   ],

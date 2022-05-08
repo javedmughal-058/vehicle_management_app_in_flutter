@@ -20,6 +20,7 @@ class _bikeState extends State<bike> {
   late String type;
   List topshopslist=[];
   List affordableshopslist=[];
+  // List affordableshopkeys=[];
   @override
   void initState() {
     super.initState();
@@ -58,7 +59,7 @@ class _bikeState extends State<bike> {
         .get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
         //print(result.data());
-        lisofaffordableitem.add(result.data());
+        lisofaffordableitem.add(result);
         setState(() {
           affordableshopslist=lisofaffordableitem;
           loading=false;
@@ -483,7 +484,8 @@ class _bikeState extends State<bike> {
                       icon: const Icon(Icons.remove_red_eye,size: 25,),
                       color: Colors.amber,
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(affordableshopslist),));
+                         print(affordableshopslist[index].id);
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> detail_screen(affordableshopslist[index].id,affordableshopslist[index].data()),));
                       },
                     ),
                   ],
