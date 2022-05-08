@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vehicle_maintainance/Admin/Screens/Main/view_record.dart';
+import 'package:vehicle_maintainance/Screens/detail.dart';
 
 import 'add_car_record.dart';
 
@@ -20,13 +21,14 @@ class _view_full_recordState extends State<view_full_record> {
   bool loading=true;
   late String record_name;
   List shopslist=[];
+  List<String> shopkeys=[];
  @override
   void initState() {
     super.initState();
     fetchdatalist();
   }
   fetchdatalist() async{
-    List lisofitem=[];
+    shopslist=[];
     dynamic newresult= await FirebaseFirestore.instance
        .collection("shops")
         //.orderBy("Shop Rating",descending: true)
@@ -35,11 +37,13 @@ class _view_full_recordState extends State<view_full_record> {
        .get().then((querySnapshot) {
      querySnapshot.docs.forEach((result) {
       
-         lisofitem.add(result.data());
-         loading=false;
+         shopslist.add(result.data());
+         shopkeys.add(result.id);
+
      });
    });
-   if(lisofitem.isEmpty){
+    loading=false;
+   if(shopslist.isEmpty){
      CoolAlert.show(
        context: context,
        type: CoolAlertType.info,
@@ -49,29 +53,31 @@ class _view_full_recordState extends State<view_full_record> {
    }
    else{
      setState(() {
-       shopslist=lisofitem;
+
+       //shopslist=lisofitem;
      });
    }
   }
-  void _delete() {
+  void _delete(String shopkey) {
     var firebaseUser =  FirebaseAuth.instance.currentUser;
-    FirebaseFirestore.instance.collection("shops").doc(firebaseUser?.uid).delete().then((_) {
+    FirebaseFirestore.instance.collection("shops").doc(shopkey).delete().then((_) {
       print("success!");
+
 
     }) .catchError((error) => print('Delete failed: $error'));
   }
-  Future deleteData(String id) async{
-    try {
-      await  FirebaseFirestore.instance
-          .collection("shops")
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection("collection_name")
-          .doc(id)
-          .delete();
-    }catch (e){
-      return false;
-    }
- }
+ //  Future deleteData(String id) async{
+ //    try {
+ //      await  FirebaseFirestore.instance
+ //          .collection("shops")
+ //          .doc(FirebaseAuth.instance.currentUser!.uid)
+ //          .collection("collection_name")
+ //          .doc(id)
+ //          .delete();
+ //    }catch (e){
+ //      return false;
+ //    }
+ // }
 
   @override
   Widget build(BuildContext context) {
@@ -175,17 +181,23 @@ class _view_full_recordState extends State<view_full_record> {
                               icon: const Icon(Icons.delete,size: 20,),
                               color: Colors.red,
                               onPressed: () {
-                                _delete();
-                                loading==true? Center(
-                                  child: Container(
-                                    //width: 120,height: 120,
-                                    child: const CircularProgressIndicator(
-                                      // backgroundColor: Colors.grey,
-                                      strokeWidth: 7,
-                                      valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
-                                    ),),)
-                                    :fetchdatalist();
-                               // Navigator.push(context, MaterialPageRoute(builder: (context)=> detail(type,"Electrical"),));
+                                //print(shopslist[index]);
+
+                                setState(() {
+                                  loading=true;
+                                  _delete(shopkeys[index]);
+                                  loading==false? Center(
+                                    child: Container(
+                                      //width: 120,height: 120,
+                                      child: const CircularProgressIndicator(
+                                        // backgroundColor: Colors.grey,
+                                        strokeWidth: 7,
+                                        valueColor: AlwaysStoppedAnimation<Color> (Colors.blue),
+                                      ),),)
+                                      :fetchdatalist();
+                                });
+
+                               //Navigator.push(context, MaterialPageRoute(builder: (context)=> detail(type,"Electrical"),));
 
                               },
                             ),
