@@ -1,12 +1,8 @@
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'Admin/Screens/Main/manage_records.dart';
-import 'Admin/Screens/login/login.dart';
 import 'Screens/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,15 +11,13 @@ Future<void> main() async {
     const MaterialApp(
       title: ' SplashScreen ',
       debugShowCheckedModeBanner: false,
-      home: SplashScreenOne(
-      ),
+      home: SplashScreenOne(),
     ),
   );
 }
 
 class SplashScreenOne extends StatefulWidget {
   const SplashScreenOne({Key? key}) : super(key: key);
-
 
   @override
   State<StatefulWidget> createState() {
@@ -33,14 +27,14 @@ class SplashScreenOne extends StatefulWidget {
 }
 
 class SplashScreenOneState extends State<SplashScreenOne> {
-
   @override
   void initState() {
     super.initState();
     loadData();
   }
+
   @override
-  Widget build (BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -49,7 +43,10 @@ class SplashScreenOneState extends State<SplashScreenOne> {
             decoration: const BoxDecoration(
               color: Color(0xFF37474F),
               gradient: LinearGradient(
-                colors: [Color(0xFF37474F),Color(0xFF37474F),],
+                colors: [
+                  Color(0xFF37474F),
+                  Color(0xFF37474F),
+                ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -67,7 +64,6 @@ class SplashScreenOneState extends State<SplashScreenOne> {
               const Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
               ),
-
               SizedBox(
                 width: 260.0,
                 child: DefaultTextStyle(
@@ -88,12 +84,13 @@ class SplashScreenOneState extends State<SplashScreenOne> {
       ),
     );
   }
+
   Future<Timer> loadData() async {
-    return Timer(const Duration(seconds: 1), onDoneLoading);
+    return Timer(const Duration(seconds: 2), onDoneLoading);
   }
 
   onDoneLoading() async {
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => main_page()));
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (context) => main_page()));
   }
 }
